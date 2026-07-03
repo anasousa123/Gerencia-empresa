@@ -298,3 +298,56 @@ button{
 button:hover{
     filter:brightness(1.1);
 }
+.btn-primary,
+.novo-produto{
+    background:var(--gold);
+    color:#111;
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-primary:hover,
+.novo-produto:hover{
+    background:var(--gold-dark);
+    transform:scale(1.05);
+}
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+    padding:10px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.topbar h1{
+    font-size:22px;
+    font-weight:600;
+}
+section{
+    margin-top:20px;
+}
+.tabela{
+    background:var(--panel);
+    border-radius:12px;
+    border:1px solid var(--border);
+    padding:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th, table td{
+    padding:12px;
+    border-bottom:1px solid var(--border);
+}
+
+table tr:hover{
+    background:#1b1b20;
+}

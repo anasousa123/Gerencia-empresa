@@ -222,16 +222,24 @@
     </div>
     <div class="dashboard">
 
-    <aside class="sidebar">...</aside>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <!-- menu aqui -->
+    </aside>
 
+    <!-- CONTEÚDO -->
     <main class="content">
 
-        <div class="topbar">
-            <h1>Título</h1>
-            <button class="novo-produto">Ação</button>
-        </div>
+        <!-- TOPO PADRÃO -->
+        <header class="topbar">
+            <h1>Título da Página</h1>
+            <button class="btn-primary">Ação</button>
+        </header>
 
-        <!-- conteúdo aqui -->
+        <!-- CONTEÚDO -->
+        <section>
+            <!-- cards / tabela / formulário -->
+        </section>
 
     </main>
 
