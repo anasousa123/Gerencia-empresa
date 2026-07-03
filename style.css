@@ -233,3 +233,68 @@ button:hover{
     }
 
 }
+:root{
+    --bg:#0b0b0d;
+    --panel:#151518;
+    --panel-2:#111114;
+    --gold:#d4af37;
+    --gold-dark:#b8922f;
+    --text:#ffffff;
+    --muted:#a1a1a1;
+    --border:#222;
+}
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+.sidebar{
+    width:260px;
+    background:var(--panel-2);
+    border-right:1px solid var(--border);
+    padding:20px;
+    position:fixed;
+    height:100%;
+}
+
+.sidebar ul li a{
+    transition:0.3s;
+}
+
+.sidebar ul li a:hover{
+    background:#1c1c20;
+    color:var(--gold);
+    transform:translateX(5px);
+}
+.card{
+    background:linear-gradient(145deg,#151518,#101013);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:20px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:var(--gold);
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+table{
+    border-radius:10px;
+    overflow:hidden;
+}
+
+table th{
+    background:#101013;
+    color:var(--gold);
+}
+
+table tr:hover{
+    background:#1a1a1f;
+}
+button{
+    transition:0.3s;
+}
+
+button:hover{
+    filter:brightness(1.1);
+}

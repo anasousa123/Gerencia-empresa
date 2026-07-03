@@ -220,6 +220,22 @@
         </main>
 
     </div>
+    <div class="dashboard">
+
+    <aside class="sidebar">...</aside>
+
+    <main class="content">
+
+        <div class="topbar">
+            <h1>Título</h1>
+            <button class="novo-produto">Ação</button>
+        </div>
+
+        <!-- conteúdo aqui -->
+
+    </main>
+
+</div>
 
     <script src="js/script.js"></script>
 
