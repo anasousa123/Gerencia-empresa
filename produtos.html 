@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartBiz | Produtos</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- MENU LATERAL -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-chart-line"></i>
+            <h2>SmartBiz</h2>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="produtos.html">
+                    <i class="fa-solid fa-box"></i>
+                    Produtos
+                </a>
+            </li>
+
+            <li>
+                <a href="clientes.html">
+                    <i class="fa-solid fa-users"></i>
+                    Clientes
+                </a>
+            </li>
+
+            <li>
+                <a href="estoque.html">
+                    <i class="fa-solid fa-warehouse"></i>
+                    Estoque
+                </a>
+            </li>
+
+            <li>
+                <a href="vendas.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Vendas
+                </a>
+            </li>
+
+            <li>
+                <a href="financeiro.html">
+                    <i class="fa-solid fa-wallet"></i>
+                    Financeiro
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+
+    <main class="content">
+
+        <header class="topbar">
+
+            <h1>Produtos</h1>
+
+            <button class="novo-produto">
+                <i class="fa-solid fa-plus"></i>
+                Novo Produto
+            </button>
+
+        </header>
+
+        <!-- PESQUISA -->
+
+        <section class="pesquisa">
+
+            <input
+                type="text"
+                placeholder="Pesquisar produto...">
+
+        </section>
+
+        <!-- TABELA -->
+
+        <section class="tabela">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Produto</th>
+                        <th>Categoria</th>
+                        <th>Preço</th>
+                        <th>Estoque</th>
+                        <th>Ações</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>001</td>
+
+                        <td>Notebook Dell</td>
+
+                        <td>Informática</td>
+
+                        <td>R$ 4.200,00</td>
+
+                        <td>15</td>
+
+                        <td>
+
+                            <button class="editar">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+
+                            <button class="excluir">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>002</td>
+
+                        <td>Mouse Gamer</td>
+
+                        <td>Periféricos</td>
+
+                        <td>R$ 180,00</td>
+
+                        <td>32</td>
+
+                        <td>
+
+                            <button class="editar">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+
+                            <button class="excluir">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>003</td>
+
+                        <td>Monitor LG 24"</td>
+
+                        <td>Monitores</td>
+
+                        <td>R$ 980,00</td>
+
+                        <td>10</td>
+
+                        <td>
+
+                            <button class="editar">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+
+                            <button class="excluir">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

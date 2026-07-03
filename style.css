@@ -1,0 +1,235 @@
+/* ===========================
+   GOOGLE FONTS
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#111827;
+    color:#fff;
+    min-height:100vh;
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+
+.container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+}
+
+/* ===========================
+   LADO ESQUERDO
+=========================== */
+
+.left{
+    width:55%;
+    background:linear-gradient(135deg,#111827,#1f2937);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:80px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:35px;
+}
+
+.logo i{
+    font-size:50px;
+    color:#f4c542;
+}
+
+.logo h1{
+    font-size:42px;
+    color:#f4c542;
+    font-weight:700;
+}
+
+.left h2{
+    font-size:38px;
+    line-height:55px;
+    margin-bottom:25px;
+}
+
+.left p{
+    font-size:18px;
+    color:#d1d5db;
+    line-height:32px;
+    max-width:550px;
+}
+
+/* ===========================
+   LADO DIREITO
+=========================== */
+
+.right{
+    width:45%;
+    background:#ffffff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ===========================
+   LOGIN
+=========================== */
+
+.login{
+    width:420px;
+}
+
+.login h2{
+    text-align:center;
+    margin-bottom:40px;
+    color:#111827;
+    font-size:34px;
+}
+
+/* ===========================
+   INPUTS
+=========================== */
+
+.input-box{
+    position:relative;
+    margin-bottom:25px;
+}
+
+.input-box i{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#999;
+    font-size:18px;
+}
+
+.input-box input{
+    width:100%;
+    padding:16px 16px 16px 50px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:#f3f4f6;
+    font-size:16px;
+    transition:.3s;
+}
+
+.input-box input:focus{
+    background:#fff;
+    border:2px solid #f4c542;
+}
+
+/* ===========================
+   OPÇÕES
+=========================== */
+
+.options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    font-size:14px;
+}
+
+.options label{
+    color:#444;
+}
+
+.options a{
+    text-decoration:none;
+    color:#f4c542;
+    font-weight:600;
+}
+
+.options a:hover{
+    text-decoration:underline;
+}
+
+/* ===========================
+   BOTÃO
+=========================== */
+
+button{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:#f4c542;
+    color:#111827;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#d4a514;
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+}
+
+/* ===========================
+   RODAPÉ
+=========================== */
+
+.copyright{
+    text-align:center;
+    margin-top:35px;
+    color:#777;
+    font-size:14px;
+}
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+
+@media(max-width:950px){
+
+    .container{
+        flex-direction:column;
+    }
+
+    .left{
+        width:100%;
+        padding:50px 30px;
+        text-align:center;
+        align-items:center;
+    }
+
+    .left h2{
+        font-size:30px;
+        line-height:42px;
+    }
+
+    .left p{
+        font-size:16px;
+    }
+
+    .right{
+        width:100%;
+        padding:40px 20px;
+    }
+
+    .login{
+        width:100%;
+        max-width:420px;
+    }
+
+}

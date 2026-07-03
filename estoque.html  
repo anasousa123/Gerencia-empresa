@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SmartBiz | Estoque</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<aside class="sidebar">
+
+<div class="logo">
+<i class="fa-solid fa-chart-line"></i>
+<h2>SmartBiz</h2>
+</div>
+
+<ul>
+
+<li><a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+
+<li><a href="produtos.html"><i class="fa-solid fa-box"></i> Produtos</a></li>
+
+<li><a href="clientes.html"><i class="fa-solid fa-users"></i> Clientes</a></li>
+
+<li class="active"><a href="estoque.html"><i class="fa-solid fa-warehouse"></i> Estoque</a></li>
+
+<li><a href="vendas.html"><i class="fa-solid fa-cart-shopping"></i> Vendas</a></li>
+
+<li><a href="financeiro.html"><i class="fa-solid fa-wallet"></i> Financeiro</a></li>
+
+</ul>
+
+</aside>
+
+<main class="content">
+
+<header class="topbar">
+
+<h1>Controle de Estoque</h1>
+
+<button class="novo-produto">
+<i class="fa-solid fa-plus"></i>
+Nova Entrada
+</button>
+
+</header>
+
+<section class="pesquisa">
+
+<input type="text" placeholder="Pesquisar produto...">
+
+</section>
+
+<section class="tabela">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Produto</th>
+<th>Quantidade</th>
+<th>Estoque Mínimo</th>
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Notebook Dell</td>
+<td>15</td>
+<td>5</td>
+<td><span class="status ok">Normal</span></td>
+
+</tr>
+
+<tr>
+
+<td>Mouse Gamer</td>
+<td>4</td>
+<td>10</td>
+<td><span class="status pendente">Baixo</span></td>
+
+</tr>
+
+<tr>
+
+<td>Monitor LG</td>
+<td>30</td>
+<td>10</td>
+<td><span class="status ok">Normal</span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
