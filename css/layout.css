@@ -1,12 +1,28 @@
 .container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
     padding: 20px;
 }
 
 header {
-    background: #ffb000;
+    background: var(--primary);
     color: black;
     padding: 20px;
     text-align: center;
+    font-weight: bold;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .menu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
 }

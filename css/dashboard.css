@@ -8,10 +8,17 @@
     display: flex;
     gap: 10px;
     justify-content: space-between;
+    margin: 20px 0;
 }
 
 .cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+}
+
+.filtros {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
 }

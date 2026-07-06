@@ -1,19 +1,36 @@
 input {
     width: 100%;
-    padding: 10px;
-    margin: 5px 0;
+    padding: 12px;
+    margin: 6px 0;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
+    outline: none;
 }
 
 button {
     padding: 10px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 6px;
     font-weight: bold;
+    transition: 0.3s;
 }
 
 button:hover {
-    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: black;
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: white;
+}
+
+.btn-success {
+    background: var(--success);
+    color: white;
 }
