@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Burguer | Dashboard</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- ===========================
+SIDEBAR
+=========================== -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<i class="fa-solid fa-burger"></i>
+
+<h2>Smart Burguer</h2>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li class="active">
+<a href="dashboard.html">
+<i class="fa-solid fa-house"></i>
+Dashboard
+</a>
+</li>
+
+<li>
+<a href="pedidos.html">
+<i class="fa-solid fa-cart-shopping"></i>
+Pedidos
+</a>
+</li>
+
+<li>
+<a href="cardapio.html">
+<i class="fa-solid fa-utensils"></i>
+Cardápio
+</a>
+</li>
+
+<li>
+<a href="estoque.html">
+<i class="fa-solid fa-boxes-stacked"></i>
+Estoque
+</a>
+</li>
+
+<li>
+<a href="clientes.html">
+<i class="fa-solid fa-users"></i>
+Clientes
+</a>
+</li>
+
+<li>
+<a href="financeiro.html">
+<i class="fa-solid fa-wallet"></i>
+Financeiro
+</a>
+</li>
+
+<li>
+<a href="relatorios.html">
+<i class="fa-solid fa-chart-column"></i>
+Relatórios
+</a>
+</li>
+
+<li>
+<a href="configuracoes.html">
+<i class="fa-solid fa-gear"></i>
+Configurações
+</a>
+</li>
+
+<li>
+<a href="index.html">
+<i class="fa-solid fa-right-from-bracket"></i>
+Sair
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+</aside>
+
+<!-- ===========================
+CONTEÚDO
+=========================== -->
+
+<main class="content">
+    <!-- ===========================
+TOPBAR
+=========================== -->
+
+<header class="topbar">
+
+    <div class="topbar-left">
+
+        <h1>Dashboard</h1>
+
+        <p>Bem-vinda ao Smart Burguer 🍔</p>
+
+    </div>
+
+    <div class="topbar-right">
+
+        <button class="notification-btn">
+            <i class="fa-solid fa-bell"></i>
+        </button>
+
+        <button class="theme-btn">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <div class="user-profile">
+
+            <img
+            src="https://i.pravatar.cc/50"
+            alt="Usuário">
+
+            <span>Ana</span>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ===========================
+MENSAGEM DE BOAS-VINDAS
+=========================== -->
+
+<section class="welcome-card">
+
+    <div>
+
+        <h2>Olá, Ana! 👋</h2>
+
+        <p>
+
+            Bem-vinda ao painel administrativo do Smart Burguer.
+
+            Aqui você acompanha vendas, estoque e desempenho da hamburgueria em tempo real.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+CARDS DE INDICADORES
+=========================== -->
+
+<section class="cards">
+
+    <div class="card">
+
+        <i class="fa-solid fa-sack-dollar"></i>
+
+        <h3>Faturamento Hoje</h3>
+
+        <h2>R$ 2.580,00</h2>
+
+        <span>+12% em relação a ontem</span>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <h3>Pedidos Hoje</h3>
+
+        <h2>38</h2>
+
+        <span>5 pedidos em andamento</span>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-users"></i>
+
+        <h3>Clientes</h3>
+
+        <h2>426</h2>
+
+        <span>+8 novos clientes</span>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-box"></i>
+
+        <h3>Produtos</h3>
+
+        <h2>182</h2>
+
+        <span>12 itens com estoque baixo</span>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+PAINEL INTELIGENTE
+=========================== -->
+
+<section class="smart-panel">
+
+    <h2>
+
+        <i class="fa-solid fa-brain"></i>
+
+        Painel Inteligente
+
+    </h2>
+
+    <div class="alerts">
+
+        <div class="alert danger">
+            🚨 O estoque de pão brioche está abaixo do mínimo.
+        </div>
+
+        <div class="alert warning">
+            ⚠ Cheddar possui apenas 5 unidades disponíveis.
+        </div>
+
+        <div class="alert success">
+            📈 As vendas cresceram 18% nesta semana.
+        </div>
+
+        <div class="alert info">
+            🍔 X-Bacon é o produto mais vendido do mês.
+        </div>
+
+    </div>
+
+</section>
+<!-- ===========================
+GRÁFICOS
+=========================== -->
+
+<section class="dashboard-grid">
+
+    <!-- Gráfico de vendas -->
+
+    <div class="box">
+
+        <div class="box-header">
+
+            <h2>
+                <i class="fa-solid fa-chart-line"></i>
+                Vendas dos Últimos 7 Dias
+            </h2>
+
+        </div>
+
+        <div class="box-content">
+
+            <canvas id="graficoVendas"></canvas>
+
+        </div>
+
+    </div>
+
+    <!-- Produtos mais vendidos -->
+
+    <div class="box">
+
+        <div class="box-header">
+
+            <h2>
+                <i class="fa-solid fa-burger"></i>
+                Produtos Mais Vendidos
+            </h2>
+
+        </div>
+
+        <div class="box-content">
+
+            <canvas id="graficoProdutos"></canvas>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+ESTOQUE
+=========================== -->
+
+<section class="box">
+
+    <div class="box-header">
+
+        <h2>
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            Produtos com Estoque Baixo
+
+        </h2>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Produto</th>
+
+                <th>Quantidade</th>
+
+                <th>Mínimo</th>
+
+                <th>Status</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>Pão Brioche</td>
+
+                <td>12</td>
+
+                <td>20</td>
+
+                <td>
+
+                    <span class="status warning">
+
+                        Repor
+
+                    </span>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Cheddar</td>
+
+                <td>5</td>
+
+                <td>15</td>
+
+                <td>
+
+                    <span class="status danger">
+
+                        Crítico
+
+                    </span>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Molho Especial</td>
+
+                <td>8</td>
+
+                <td>12</td>
+
+                <td>
+
+                    <span class="status warning">
+
+                        Baixo
+
+                    </span>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<!-- ===========================
+ÚLTIMOS PEDIDOS
+=========================== -->
+
+<section class="box">
+
+    <div class="box-header">
+
+        <h2>
+
+            <i class="fa-solid fa-receipt"></i>
+
+            Últimos Pedidos
+
+        </h2>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Pedido</th>
+
+                <th>Cliente</th>
+
+                <th>Total</th>
+
+                <th>Status</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>#1052</td>
+
+                <td>Maria Souza</td>
+
+                <td>R$ 89,90</td>
+
+                <td>
+
+                    <span class="status success">
+
+                        Entregue
+
+                    </span>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>#1053</td>
+
+                <td>João Pedro</td>
+
+                <td>R$ 54,00</td>
+
+                <td>
+
+                    <span class="status preparing">
+
+                        Preparando
+
+                    </span>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>#1054</td>
+
+                <td>Ana Clara</td>
+
+                <td>R$ 118,50</td>
+
+                <td>
+
+                    <span class="status delivery">
+
+                        Saiu para entrega
+
+                    </span>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>#1055</td>
+
+                <td>Carlos Henrique</td>
+
+                <td>R$ 42,00</td>
+
+                <td>
+
+                    <span class="status pending">
+
+                        Aguardando pagamento
+
+                    </span>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+<!-- ===========================
+FLUXO DE CAIXA E METAS
+=========================== -->
+
+<section class="dashboard-grid">
+
+    <div class="box">
+
+        <div class="box-header">
+            <h2>
+                <i class="fa-solid fa-wallet"></i>
+                Fluxo de Caixa
+            </h2>
+        </div>
+
+        <div class="box-content">
+
+            <div class="finance-item">
+                <span>Receitas Hoje</span>
+                <strong class="success-text">R$ 2.580,00</strong>
+            </div>
+
+            <div class="finance-item">
+                <span>Despesas Hoje</span>
+                <strong class="danger-text">R$ 640,00</strong>
+            </div>
+
+            <div class="finance-item">
+                <span>Lucro do Dia</span>
+                <strong class="gold-text">R$ 1.940,00</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="box">
+
+        <div class="box-header">
+            <h2>
+                <i class="fa-solid fa-bullseye"></i>
+                Meta do Mês
+            </h2>
+        </div>
+
+        <div class="box-content">
+
+            <h3>76%</h3>
+
+            <div class="progress">
+
+                <div class="progress-bar"></div>
+
+            </div>
+
+            <p>R$ 38.000 de R$ 50.000</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+RANKING
+=========================== -->
+
+<section class="box">
+
+    <div class="box-header">
+
+        <h2>
+
+            <i class="fa-solid fa-trophy"></i>
+
+            Ranking dos Hambúrgueres
+
+        </h2>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Posição</th>
+
+                <th>Produto</th>
+
+                <th>Vendas</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>🥇</td>
+
+                <td>X-Bacon</td>
+
+                <td>326</td>
+
+            </tr>
+
+            <tr>
+
+                <td>🥈</td>
+
+                <td>Smash Burguer</td>
+
+                <td>288</td>
+
+            </tr>
+
+            <tr>
+
+                <td>🥉</td>
+
+                <td>X-Salada</td>
+
+                <td>205</td>
+
+            </tr>
+
+            <tr>
+
+                <td>4º</td>
+
+                <td>Combo Família</td>
+
+                <td>183</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<!-- ===========================
+RODAPÉ
+=========================== -->
+
+<footer class="footer">
+
+    <p>
+
+        © 2026 Smart Burguer • Sistema Inteligente para Gestão de Hamburguerias
+
+    </p>
+
+</footer>
+
+</main>
+
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- JavaScript do Dashboard -->
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

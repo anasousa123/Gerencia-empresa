@@ -1,0 +1,566 @@
+// =========================================
+// SMART BURGUER ERP
+// MÓDULO CARDÁPIO
+// =========================================
+
+// -----------------------------
+// ELEMENTOS
+// -----------------------------
+
+const modal = document.getElementById("modalProduto");
+
+const btnNovo = document.querySelector(".btn-primary");
+
+const fecharModal = document.querySelector(".fechar-modal");
+
+const cancelar = document.querySelector(".cancelar");
+
+const form = document.getElementById("formProduto");
+
+const gridProdutos = document.querySelector(".produtos-grid");
+
+const pesquisa = document.getElementById("pesquisaProduto");
+
+const filtroCategoria = document.getElementById("categoria");
+
+// -----------------------------
+// LOCAL STORAGE
+// -----------------------------
+
+let produtos =
+JSON.parse(localStorage.getItem("produtos")) || [];
+
+// -----------------------------
+// ABRIR MODAL
+// -----------------------------
+
+btnNovo.addEventListener("click",()=>{
+
+    modal.style.display="flex";
+
+});
+
+// -----------------------------
+// FECHAR MODAL
+// -----------------------------
+
+fecharModal.addEventListener("click",fechar);
+
+cancelar.addEventListener("click",fechar);
+
+window.addEventListener("click",(e)=>{
+
+    if(e.target===modal){
+
+        fechar();
+
+    }
+
+});
+
+function fechar(){
+
+    modal.style.display="none";
+
+    form.reset();
+
+}
+// =========================================
+// CADASTRAR PRODUTO
+// =========================================
+
+form.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const produto = {
+
+        id: Date.now(),
+
+        nome: document.getElementById("nomeProduto").value,
+
+        categoria: document.getElementById("categoriaProduto").value,
+
+        descricao: document.getElementById("descricaoProduto").value,
+
+        preco: parseFloat(document.getElementById("precoProduto").value),
+
+        custo: parseFloat(document.getElementById("custoProduto").value),
+
+        estoque: parseInt(document.getElementById("estoqueProduto").value),
+
+        estoqueMinimo: parseInt(document.getElementById("estoqueMinimo").value),
+
+        status: document.getElementById("statusProduto").value,
+
+        imagem: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600"
+
+    };
+
+    produtos.push(produto);
+
+    salvarProdutos();
+
+    renderizarProdutos();
+
+    fechar();
+
+});
+
+
+// =========================================
+// SALVAR NO LOCAL STORAGE
+// =========================================
+
+function salvarProdutos(){
+
+    localStorage.setItem(
+
+        "produtos",
+
+        JSON.stringify(produtos)
+
+    );
+
+}
+// =========================================
+// RENDERIZAR PRODUTOS
+// =========================================
+
+function renderizarProdutos(){
+
+    // Limpa a tela
+    gridProdutos.innerHTML = "";
+
+    // Se não existir nenhum produto
+    if(produtos.length === 0){
+
+        gridProdutos.innerHTML = `
+        <div class="sem-produtos">
+
+            <i class="fa-solid fa-burger"></i>
+
+            <h2>Nenhum produto cadastrado</h2>
+
+            <p>Clique em "Novo Produto" para adicionar.</p>
+
+        </div>
+        `;
+
+        return;
+
+    }
+
+    // Cria os cards
+
+    produtos.forEach(produto=>{
+
+        let corStatus = "disponivel";
+
+        if(produto.status==="Indisponível"){
+
+            corStatus="indisponivel";
+
+        }
+
+        if(produto.estoque <= produto.estoqueMinimo){
+
+            corStatus="estoque-baixo";
+
+        }
+
+        const card = document.createElement("div");
+
+        card.className="produto-card";
+
+        card.innerHTML=`
+
+        <img src="${produto.imagem}" alt="${produto.nome}">
+
+        <div class="produto-info">
+
+            <span class="categoria">
+
+                ${produto.categoria}
+
+            </span>
+
+            <h3>${produto.nome}</h3>
+
+            <p>${produto.descricao}</p>
+
+            <div class="preco">
+
+                R$ ${produto.preco.toFixed(2)}
+
+            </div>
+
+            <div class="estoque">
+
+                Estoque: ${produto.estoque}
+
+            </div>
+
+            <div class="status ${corStatus}">
+
+                ${produto.status}
+
+            </div>
+
+            <div class="acoes">
+
+                <button
+                class="editar"
+                onclick="editarProduto(${produto.id})">
+
+                    <i class="fa-solid fa-pen"></i>
+
+                    Editar
+
+                </button>
+
+                <button
+                class="excluir"
+                onclick="excluirProduto(${produto.id})">
+
+                    <i class="fa-solid fa-trash"></i>
+
+                    Excluir
+
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+        gridProdutos.appendChild(card);
+
+    });
+
+}
+
+// =========================================
+// CARREGAR AO ABRIR A PÁGINA
+// =========================================
+
+renderizarProdutos();
+// =========================================
+// PESQUISAR PRODUTOS
+// =========================================
+
+pesquisa.addEventListener("keyup", () => {
+
+    const texto = pesquisa.value.toLowerCase();
+
+    const cards = document.querySelectorAll(".produto-card");
+
+    cards.forEach(card => {
+
+        const nome = card.querySelector("h3").innerText.toLowerCase();
+
+        if(nome.includes(texto)){
+
+            card.style.display = "block";
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+});
+
+
+// =========================================
+// FILTRAR CATEGORIA
+// =========================================
+
+filtroCategoria.addEventListener("change",()=>{
+
+    const categoria = filtroCategoria.value;
+
+    const cards = document.querySelectorAll(".produto-card");
+
+    cards.forEach(card=>{
+
+        const cat = card.querySelector(".categoria").innerText;
+
+        if(categoria==="Todos"){
+
+            card.style.display="block";
+
+        }
+
+        else if(cat===categoria){
+
+            card.style.display="block";
+
+        }
+
+        else{
+
+            card.style.display="none";
+
+        }
+
+    });
+
+});
+
+
+// =========================================
+// EXCLUIR PRODUTO
+// =========================================
+
+function excluirProduto(id){
+
+    if(confirm("Deseja realmente excluir este produto?")){
+
+        produtos = produtos.filter(produto=>produto.id!==id);
+
+        salvarProdutos();
+
+        renderizarProdutos();
+
+    }
+
+}
+
+
+
+// =========================================
+// EDITAR PRODUTO
+// =========================================
+
+function editarProduto(id){
+
+    const produto = produtos.find(p=>p.id===id);
+
+    if(!produto) return;
+
+    document.getElementById("nomeProduto").value = produto.nome;
+
+    document.getElementById("categoriaProduto").value = produto.categoria;
+
+    document.getElementById("descricaoProduto").value = produto.descricao;
+
+    document.getElementById("precoProduto").value = produto.preco;
+
+    document.getElementById("custoProduto").value = produto.custo;
+
+    document.getElementById("estoqueProduto").value = produto.estoque;
+
+    document.getElementById("estoqueMinimo").value = produto.estoqueMinimo;
+
+    document.getElementById("statusProduto").value = produto.status;
+
+    produtos = produtos.filter(p=>p.id!==id);
+
+    modal.style.display="flex";
+
+}
+
+
+
+// =========================================
+// FOTO DO PRODUTO
+// =========================================
+
+document.getElementById("fotoProduto").addEventListener("change",function(e){
+
+    const arquivo = e.target.files[0];
+
+    if(!arquivo) return;
+
+    const leitor = new FileReader();
+
+    leitor.onload=function(){
+
+        localStorage.setItem("imagemTemp",leitor.result);
+
+    }
+
+    leitor.readAsDataURL(arquivo);
+
+});
+// =========================================
+// IMAGEM PADRÃO
+// =========================================
+
+const IMAGEM_PADRAO =
+"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600";
+
+
+// =========================================
+// ALTERAR CADASTRO DA IMAGEM
+// =========================================
+
+let imagemProduto = IMAGEM_PADRAO;
+
+const inputImagem = document.getElementById("fotoProduto");
+
+if(inputImagem){
+
+    inputImagem.addEventListener("change",(e)=>{
+
+        const arquivo = e.target.files[0];
+
+        if(!arquivo){
+
+            imagemProduto = IMAGEM_PADRAO;
+
+            return;
+
+        }
+
+        const reader = new FileReader();
+
+        reader.onload=function(event){
+
+            imagemProduto = event.target.result;
+
+        }
+
+        reader.readAsDataURL(arquivo);
+
+    });
+
+}
+
+
+
+// =========================================
+// SUBSTITUIR A IMAGEM ANTES DE SALVAR
+// =========================================
+
+form.addEventListener("submit",()=>{
+
+    if(produtos.length){
+
+        produtos[produtos.length-1].imagem = imagemProduto;
+
+        salvarProdutos();
+
+    }
+
+});
+
+
+
+// =========================================
+// AVISO DE SUCESSO
+// =========================================
+
+function mensagem(texto){
+
+    const aviso = document.createElement("div");
+
+    aviso.className="toast";
+
+    aviso.innerHTML=`
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        ${texto}
+
+    `;
+
+    document.body.appendChild(aviso);
+
+    setTimeout(()=>{
+
+        aviso.classList.add("mostrar");
+
+    },100);
+
+    setTimeout(()=>{
+
+        aviso.classList.remove("mostrar");
+
+    },2800);
+
+    setTimeout(()=>{
+
+        aviso.remove();
+
+    },3200);
+
+}
+
+
+
+// =========================================
+// ATUALIZA DASHBOARD
+// =========================================
+
+function atualizarDashboard(){
+
+    localStorage.setItem(
+
+        "totalProdutos",
+
+        produtos.length
+
+    );
+
+    const estoqueBaixo = produtos.filter(produto=>{
+
+        return produto.estoque <= produto.estoqueMinimo;
+
+    });
+
+    localStorage.setItem(
+
+        "estoqueBaixo",
+
+        estoqueBaixo.length
+
+    );
+
+}
+
+
+
+// =========================================
+// CHAMAR AUTOMATICAMENTE
+// =========================================
+
+salvarProdutos();
+
+atualizarDashboard();
+
+renderizarProdutos();
+
+
+
+// =========================================
+// ANIMAÇÃO DOS CARDS
+// =========================================
+
+window.addEventListener("load",()=>{
+
+    const cards=document.querySelectorAll(".produto-card");
+
+    cards.forEach((card,index)=>{
+
+        card.style.opacity="0";
+
+        card.style.transform="translateY(30px)";
+
+        setTimeout(()=>{
+
+            card.style.transition=".4s";
+
+            card.style.opacity="1";
+
+            card.style.transform="translateY(0px)";
+
+        },index*120);
+
+    });
+
+});

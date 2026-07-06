@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Burguer | Cardápio</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<i class="fa-solid fa-burger"></i>
+
+<h2>Smart Burguer</h2>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li>
+<a href="dashboard.html">
+<i class="fa-solid fa-house"></i>
+Dashboard
+</a>
+</li>
+
+<li class="active">
+<a href="cardapio.html">
+<i class="fa-solid fa-utensils"></i>
+Cardápio
+</a>
+</li>
+
+<li>
+<a href="pedidos.html">
+<i class="fa-solid fa-cart-shopping"></i>
+Pedidos
+</a>
+</li>
+
+<li>
+<a href="estoque.html">
+<i class="fa-solid fa-boxes-stacked"></i>
+Estoque
+</a>
+</li>
+
+<li>
+<a href="clientes.html">
+<i class="fa-solid fa-users"></i>
+Clientes
+</a>
+</li>
+
+<li>
+<a href="financeiro.html">
+<i class="fa-solid fa-wallet"></i>
+Financeiro
+</a>
+</li>
+
+<li>
+<a href="relatorios.html">
+<i class="fa-solid fa-chart-column"></i>
+Relatórios
+</a>
+</li>
+
+<li>
+<a href="configuracoes.html">
+<i class="fa-solid fa-gear"></i>
+Configurações
+</a>
+</li>
+
+<li>
+<a href="index.html">
+<i class="fa-solid fa-right-from-bracket"></i>
+Sair
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+</aside>
+
+<!-- Conteúdo -->
+
+<main class="content">
+
+<header class="topbar">
+
+<div class="topbar-left">
+
+<h1>Cardápio</h1>
+
+<p>Gerencie todos os produtos da hamburgueria</p>
+
+</div>
+
+<div class="topbar-right">
+
+<button class="btn-primary">
+
+<i class="fa-solid fa-plus"></i>
+
+Novo Produto
+
+</button>
+
+</div>
+
+</header>
+<!-- ===================================================
+BARRA DE PESQUISA
+=================================================== -->
+
+<section class="search-area">
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+        type="text"
+        id="pesquisaProduto"
+        placeholder="Pesquisar produto...">
+
+    </div>
+
+    <div class="filter-box">
+
+        <select id="categoria">
+
+            <option>Todos</option>
+
+            <option>Hambúrgueres</option>
+
+            <option>Combos</option>
+
+            <option>Porções</option>
+
+            <option>Bebidas</option>
+
+            <option>Sobremesas</option>
+
+        </select>
+
+    </div>
+
+</section>
+
+<!-- ===================================================
+LISTA DE PRODUTOS
+=================================================== -->
+
+<section class="produtos-grid">
+
+    <!-- PRODUTO -->
+
+    <div class="produto-card">
+
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600"
+        alt="Hambúrguer">
+
+        <div class="produto-info">
+
+            <span class="categoria">
+                Hambúrguer
+            </span>
+
+            <h3>X-Bacon Premium</h3>
+
+            <p>
+
+                Pão brioche, hambúrguer artesanal,
+                cheddar, bacon crocante,
+                alface e tomate.
+
+            </p>
+
+            <div class="preco">
+
+                R$ 34,90
+
+            </div>
+
+            <div class="status disponivel">
+
+                Disponível
+
+            </div>
+
+            <div class="acoes">
+
+                <button class="editar">
+
+                    <i class="fa-solid fa-pen"></i>
+
+                    Editar
+
+                </button>
+
+                <button class="excluir">
+
+                    <i class="fa-solid fa-trash"></i>
+
+                    Excluir
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PRODUTO -->
+
+    <div class="produto-card">
+
+        <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=600"
+        alt="Smash">
+
+        <div class="produto-info">
+
+            <span class="categoria">
+
+                Hambúrguer
+
+            </span>
+
+            <h3>Smash Burguer</h3>
+
+            <p>
+
+                Smash artesanal,
+                queijo prato,
+                cebola caramelizada.
+
+            </p>
+
+            <div class="preco">
+
+                R$ 29,90
+
+            </div>
+
+            <div class="status disponivel">
+
+                Disponível
+
+            </div>
+
+            <div class="acoes">
+
+                <button class="editar">
+
+                    <i class="fa-solid fa-pen"></i>
+
+                    Editar
+
+                </button>
+
+                <button class="excluir">
+
+                    <i class="fa-solid fa-trash"></i>
+
+                    Excluir
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PRODUTO -->
+
+    <div class="produto-card">
+
+        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600"
+        alt="Batata">
+
+        <div class="produto-info">
+
+            <span class="categoria">
+
+                Porção
+
+            </span>
+
+            <h3>Batata Frita</h3>
+
+            <p>
+
+                Batata frita crocante
+                com cheddar e bacon.
+
+            </p>
+
+            <div class="preco">
+
+                R$ 21,90
+
+            </div>
+
+            <div class="status disponivel">
+
+                Disponível
+
+            </div>
+
+            <div class="acoes">
+
+                <button class="editar">
+
+                    <i class="fa-solid fa-pen"></i>
+
+                    Editar
+
+                </button>
+
+                <button class="excluir">
+
+                    <i class="fa-solid fa-trash"></i>
+
+                    Excluir
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!--====================================================
+MODAL NOVO PRODUTO
+=====================================================-->
+
+<div id="modalProduto" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>
+                <i class="fa-solid fa-burger"></i>
+                Novo Produto
+            </h2>
+
+            <span class="fechar-modal">&times;</span>
+
+        </div>
+
+        <form id="formProduto">
+
+            <div class="form-grid">
+
+                <!-- Foto -->
+
+                <div class="input-group">
+
+                    <label>Imagem do Produto</label>
+
+                    <input
+                    type="file"
+                    id="fotoProduto"
+                    accept="image/*">
+
+                </div>
+
+                <!-- Nome -->
+
+                <div class="input-group">
+
+                    <label>Nome do Produto</label>
+
+                    <input
+                    type="text"
+                    id="nomeProduto"
+                    placeholder="Ex.: X-Bacon Premium"
+                    required>
+
+                </div>
+
+                <!-- Categoria -->
+
+                <div class="input-group">
+
+                    <label>Categoria</label>
+
+                    <select id="categoriaProduto">
+
+                        <option>Hambúrguer</option>
+
+                        <option>Combo</option>
+
+                        <option>Porção</option>
+
+                        <option>Bebida</option>
+
+                        <option>Sobremesa</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Preço -->
+
+                <div class="input-group">
+
+                    <label>Preço de Venda</label>
+
+                    <input
+                    type="number"
+                    step="0.01"
+                    id="precoProduto">
+
+                </div>
+
+                <!-- Custo -->
+
+                <div class="input-group">
+
+                    <label>Custo</label>
+
+                    <input
+                    type="number"
+                    step="0.01"
+                    id="custoProduto">
+
+                </div>
+
+                <!-- Estoque -->
+
+                <div class="input-group">
+
+                    <label>Quantidade em Estoque</label>
+
+                    <input
+                    type="number"
+                    id="estoqueProduto">
+
+                </div>
+
+                <!-- Estoque mínimo -->
+
+                <div class="input-group">
+
+                    <label>Estoque Mínimo</label>
+
+                    <input
+                    type="number"
+                    id="estoqueMinimo">
+
+                </div>
+
+            </div>
+
+            <!-- Descrição -->
+
+            <div class="input-group">
+
+                <label>Descrição</label>
+
+                <textarea
+
+                id="descricaoProduto"
+
+                rows="4"
+
+                placeholder="Descrição do produto...">
+
+                </textarea>
+
+            </div>
+
+            <!-- Status -->
+
+            <div class="input-group">
+
+                <label>Status</label>
+
+                <select id="statusProduto">
+
+                    <option>Disponível</option>
+
+                    <option>Indisponível</option>
+
+                </select>
+
+            </div>
+
+            <div class="modal-buttons">
+
+                <button
+                type="button"
+                class="cancelar">
+
+                    Cancelar
+
+                </button>
+
+                <button
+                type="submit"
+                class="salvar">
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    Salvar Produto
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="js/cardapio.js"></script>
+
+</main>
+
+</div>
+
+</body>
+
+</html>
