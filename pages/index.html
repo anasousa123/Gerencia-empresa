@@ -144,15 +144,22 @@
 
 <script>
     // Mostrar usuário salvo
-    window.onload = function () {
-        const usuario = localStorage.getItem("usuario") || "Administrador";
-        document.getElementById("usuario").innerText = usuario;
-    };
+        window.onload = function () {
+    const el = document.getElementById("usuario");
+    const usuario = localStorage.getItem("usuario") || "Administrador";
+
+    if (el) el.innerText = usuario;
+};
+    
 
     // Logout
     function logout() {
         alert("Saindo do sistema...");
-        window.location.href = "index.html";
+        function logout() {
+    alert("Saindo do sistema...");
+    localStorage.removeItem("usuario");
+    window.location.href = "index.html";
+}
     }
 </script>
 
