@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Burguer | Configurações</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<i class="fa-solid fa-burger"></i>
+
+<h2>Smart Burguer</h2>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li>
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</a>
+
+</li>
+
+<li>
+
+<a href="cardapio.html">
+
+<i class="fa-solid fa-utensils"></i>
+
+Cardápio
+
+</a>
+
+</li>
+
+<li>
+
+<a href="pedidos.html">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+Pedidos
+
+</a>
+
+</li>
+
+<li>
+
+<a href="estoque.html">
+
+<i class="fa-solid fa-boxes-stacked"></i>
+
+Estoque
+
+</a>
+
+</li>
+
+<li>
+
+<a href="clientes.html">
+
+<i class="fa-solid fa-users"></i>
+
+Clientes
+
+</a>
+
+</li>
+
+<li>
+
+<a href="financeiro.html">
+
+<i class="fa-solid fa-wallet"></i>
+
+Financeiro
+
+</a>
+
+</li>
+
+<li>
+
+<a href="relatorios.html">
+
+<i class="fa-solid fa-chart-column"></i>
+
+Relatórios
+
+</a>
+
+</li>
+
+<li class="active">
+
+<a href="configuracoes.html">
+
+<i class="fa-solid fa-gear"></i>
+
+Configurações
+
+</a>
+
+</li>
+
+<li>
+
+<a href="index.html">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Sair
+
+</a>
+
+</li>
+
+</ul>
+
+</nav>
+
+</aside>
+
+<!-- CONTEÚDO -->
+
+<main class="content">
+
+<header class="topbar">
+
+<div class="topbar-left">
+
+<h1>
+
+<i class="fa-solid fa-gear"></i>
+
+Configurações
+
+</h1>
+
+<p>
+
+Gerencie as informações da empresa e do sistema.
+
+</p>
+
+</div>
+
+</header>
+<!--==================================================
+DADOS DA EMPRESA
+===================================================-->
+
+<section class="box">
+
+    <div class="box-header">
+
+        <h2>
+
+            <i class="fa-solid fa-building"></i>
+
+            Dados da Empresa
+
+        </h2>
+
+    </div>
+
+    <form id="formEmpresa">
+
+        <div class="form-grid">
+
+            <!-- Logo -->
+
+            <div class="input-group">
+
+                <label>Logo da Empresa</label>
+
+                <input
+                type="file"
+                id="logoEmpresa"
+                accept="image/*">
+
+            </div>
+
+            <!-- Nome -->
+
+            <div class="input-group">
+
+                <label>Nome da Empresa</label>
+
+                <input
+                type="text"
+                id="nomeEmpresa"
+                placeholder="Smart Burguer">
+
+            </div>
+
+            <!-- CNPJ -->
+
+            <div class="input-group">
+
+                <label>CNPJ</label>
+
+                <input
+                type="text"
+                id="cnpjEmpresa"
+                placeholder="00.000.000/0001-00">
+
+            </div>
+
+            <!-- Telefone -->
+
+            <div class="input-group">
+
+                <label>Telefone</label>
+
+                <input
+                type="tel"
+                id="telefoneEmpresa"
+                placeholder="(11) 99999-9999">
+
+            </div>
+
+            <!-- Email -->
+
+            <div class="input-group">
+
+                <label>E-mail</label>
+
+                <input
+                type="email"
+                id="emailEmpresa"
+                placeholder="contato@smartburguer.com">
+
+            </div>
+
+            <!-- Site -->
+
+            <div class="input-group">
+
+                <label>Site</label>
+
+                <input
+                type="text"
+                id="siteEmpresa"
+                placeholder="www.smartburguer.com">
+
+            </div>
+
+        </div>
+
+        <!-- Endereço -->
+
+        <div class="input-group">
+
+            <label>Endereço</label>
+
+            <input
+            type="text"
+            id="enderecoEmpresa"
+            placeholder="Rua, Número, Bairro, Cidade">
+
+        </div>
+
+        <!-- Redes sociais -->
+
+        <div class="form-grid">
+
+            <div class="input-group">
+
+                <label>Instagram</label>
+
+                <input
+                type="text"
+                id="instagramEmpresa"
+                placeholder="@smartburguer">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Facebook</label>
+
+                <input
+                type="text"
+                id="facebookEmpresa"
+                placeholder="facebook.com/smartburguer">
+
+            </div>
+
+        </div>
+
+        <div class="modal-buttons">
+
+            <button
+            type="submit"
+            class="salvar">
+
+                <i class="fa-solid fa-floppy-disk"></i>
+
+                Salvar Dados
+
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+<!--==================================================
+USUÁRIO DO SISTEMA
+===================================================-->
+
+<section class="box">
+
+    <div class="box-header">
+
+        <h2>
+
+            <i class="fa-solid fa-user-shield"></i>
+
+            Usuário do Sistema
+
+        </h2>
+
+    </div>
+
+    <form id="formUsuario">
+
+        <div class="form-grid">
+
+            <!-- Nome -->
+
+            <div class="input-group">
+
+                <label>Nome do Administrador</label>
+
+                <input
+                type="text"
+                id="nomeUsuario"
+                placeholder="Administrador">
+
+            </div>
+
+            <!-- Email -->
+
+            <div class="input-group">
+
+                <label>E-mail de Login</label>
+
+                <input
+                type="email"
+                id="emailUsuario"
+                placeholder="admin@smartburguer.com">
+
+            </div>
+
+            <!-- Usuário -->
+
+            <div class="input-group">
+
+                <label>Nome de Usuário</label>
+
+                <input
+                type="text"
+                id="usuarioSistema"
+                placeholder="admin">
+
+            </div>
+
+            <!-- Cargo -->
+
+            <div class="input-group">
+
+                <label>Cargo</label>
+
+                <select id="cargoUsuario">
+
+                    <option>Administrador</option>
+
+                    <option>Gerente</option>
+
+                    <option>Funcionário</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</section>
+
+<!--==================================================
+ALTERAR SENHA
+===================================================-->
+
+<section class="box">
+
+    <div class="box-header">
+
+        <h2>
+
+            <i class="fa-solid fa-lock"></i>
+
+            Segurança
+
+        </h2>
+
+    </div>
+
+    <form id="formSenha">
+
+        <div class="form-grid">
+
+            <div class="input-group">
+
+                <label>Senha Atual</label>
+
+                <input
+                type="password"
+                id="senhaAtual">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Nova Senha</label>
+
+                <input
+                type="password"
+                id="novaSenha">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Confirmar Nova Senha</label>
+
+                <input
+                type="password"
+                id="confirmarSenha">
+
+            </div>
+
+        </div>
+
+    </form>
+
+</section>
+
+<!--==================================================
+PREFERÊNCIAS DO SISTEMA
+===================================================-->
+
+<section class="box">
+
+    <div class="box-header">
+
+        <h2>
+
+            <i class="fa-solid fa-sliders"></i>
+
+            Preferências
+
+        </h2>
+
+    </div>
+
+    <div class="config-list">
+
+        <div class="config-item">
+
+            <div>
+
+                <h3>Modo Escuro</h3>
+
+                <p>Ativar tema escuro do sistema.</p>
+
+            </div>
+
+            <label class="switch">
+
+                <input type="checkbox" id="modoEscuro">
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+        <div class="config-item">
+
+            <div>
+
+                <h3>Notificações</h3>
+
+                <p>Receber avisos do sistema.</p>
+
+            </div>
+
+            <label class="switch">
+
+                <input type="checkbox" id="notificacoes" checked>
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+        <div class="config-item">
+
+            <div>
+
+                <h3>Som das Notificações</h3>
+
+                <p>Emitir som quando houver um novo pedido.</p>
+
+            </div>
+
+            <label class="switch">
+
+                <input type="checkbox" id="somSistema" checked>
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+        <div class="config-item">
+
+            <div>
+
+                <h3>Backup Automático</h3>
+
+                <p>Salvar automaticamente os dados do sistema.</p>
+
+            </div>
+
+            <label class="switch">
+
+                <input type="checkbox" id="backupAutomatico" checked>
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+    </div>
+
+    <div class="modal-buttons">
+
+        <button class="salvar" id="salvarConfiguracoes">
+
+            <i class="fa-solid fa-floppy-disk"></i>
+
+            Salvar Configurações
+
+        </button>
+
+    </div>
+
+</section>
+<!--==================================================
+CONFIGURAÇÕES REGIONAIS
+===================================================-->
+
+<section class="box">
+
+    <div class="box-header">
+
+        <h2>
+
+            <i class="fa-solid fa-globe"></i>
+
+            Configurações Regionais
+
+        </h2>
+
+    </div>
+
+    <div class="form-grid">
+
+        <div class="input-group">
+
+            <label>Idioma</label>
+
+            <select id="idioma">
+
+                <option>Português (Brasil)</option>
+
+                <option>English</option>
+
+                <option>Español</option>
+
+            </select>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Moeda</label>
+
+            <select id="moeda">
+
+                <option>Real (R$)</option>
+
+                <option>Dólar (US$)</option>
+
+                <option>Euro (€)</option>
+
+            </select>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Formato da Data</label>
+
+            <select id="formatoData">
+
+                <option>DD/MM/AAAA</option>
+
+                <option>MM/DD/AAAA</option>
+
+                <option>AAAA-MM-DD</option>
+
+            </select>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Fuso Horário</label>
+
+            <select id="fusoHorario">
+
+                <option>Brasília (GMT-3)</option>
+
+                <option>UTC</option>
+
+                <option>Nova York (GMT-5)</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--==================================================
+SOBRE O SISTEMA
+===================================================-->
+
+<section class="box">
+
+    <div class="box-header">
+
+        <h2>
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            Sobre o Sistema
+
+        </h2>
+
+    </div>
+
+    <div class="info-sistema">
+
+        <div class="info-item">
+
+            <strong>Sistema:</strong>
+
+            <span>Smart Burguer ERP</span>
+
+        </div>
+
+        <div class="info-item">
+
+            <strong>Versão:</strong>
+
+            <span>1.0.0</span>
+
+        </div>
+
+        <div class="info-item">
+
+            <strong>Desenvolvido por:</strong>
+
+            <span>Ana Sousa</span>
+
+        </div>
+
+        <div class="info-item">
+
+            <strong>Curso:</strong>
+
+            <span>Desenvolvimento de Sistemas</span>
+
+        </div>
+
+        <div class="info-item">
+
+            <strong>Ano:</strong>
+
+            <span>2026</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--==================================================
+RODAPÉ
+===================================================-->
+
+<footer class="footer">
+
+    <p>
+
+        © 2026 Smart Burguer ERP • Todos os direitos reservados.
+
+    </p>
+
+</footer>
+
+</main>
+
+</div>
+
+<script src="js/configuracoes.js"></script>
+
+</body>
+
+</html>
