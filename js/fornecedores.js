@@ -359,3 +359,55 @@ function atualizarCards(){
 renderizarTabela();
 
 atualizarCards();
+// Atualizar fornecedor (editar)
+function atualizarFornecedor(id) {
+    const fornecedores = JSON.parse(localStorage.getItem("fornecedores")) || [];
+
+    const index = fornecedores.findIndex(f => f.id === id);
+
+    if (index !== -1) {
+        fornecedores[index].nome = document.getElementById("editNome").value;
+        fornecedores[index].produto = document.getElementById("editProduto").value;
+        fornecedores[index].telefone = document.getElementById("editTelefone").value;
+
+        localStorage.setItem("fornecedores", JSON.stringify(fornecedores));
+
+        fecharModal(); // fecha popup de edição
+        listarFornecedores(); // recarrega lista
+    }
+}
+
+// Remover fornecedor
+function removerFornecedor(id) {
+    let fornecedores = JSON.parse(localStorage.getItem("fornecedores")) || [];
+
+    fornecedores = fornecedores.filter(f => f.id !== id);
+
+    localStorage.setItem("fornecedores", JSON.stringify(fornecedores));
+
+    listarFornecedores();
+}
+
+// Abrir modal de edição
+function abrirModalEditar(id) {
+    const fornecedores = JSON.parse(localStorage.getItem("fornecedores")) || [];
+
+    const fornecedor = fornecedores.find(f => f.id === id);
+
+    if (fornecedor) {
+        document.getElementById("editId").value = fornecedor.id;
+        document.getElementById("editNome").value = fornecedor.nome;
+        document.getElementById("editProduto").value = fornecedor.produto;
+        document.getElementById("editTelefone").value = fornecedor.telefone;
+
+        document.getElementById("modalEditar").style.display = "block";
+    }
+}
+
+// Fechar modal
+function fecharModal() {
+    document.getElementById("modalEditar").style.display = "none";
+}
+
+// Inicializar lista ao abrir página
+document.addEventListener("DOMContentLoaded", listarFornecedores);
