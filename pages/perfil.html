@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Burger - Perfil</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #ffb000;
+            color: black;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .perfil-card {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #ffb000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: black;
+            margin: auto;
+            margin-bottom: 15px;
+        }
+
+        .info {
+            margin: 10px 0;
+        }
+
+        .btn {
+            background: #ffb000;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background: #c98b00;
+        }
+
+        .logout {
+            background: red;
+            color: white;
+        }
+
+        .logout:hover {
+            background: darkred;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>👤 Meu Perfil - Smart Burger</h1>
+</header>
+
+<div class="container">
+
+    <div class="perfil-card">
+
+        <div class="avatar">🍔</div>
+
+        <h2 id="nomeUsuario">Administrador</h2>
+
+        <p class="info">Cargo: <strong>Gerente do Sistema</strong></p>
+        <p class="info">Email: <strong>admin@smartburger.com</strong></p>
+        <p class="info">Acesso: <strong>Total</strong></p>
+
+        <button class="btn" onclick="editarPerfil()">Editar Perfil</button>
+        <button class="btn logout" onclick="logout()">Sair do Sistema</button>
+
+    </div>
+
+</div>
+
+<script>
+    // Pegar nome do usuário (localStorage)
+    window.onload = function () {
+        const nome = localStorage.getItem("usuario") || "Administrador";
+        document.getElementById("nomeUsuario").innerText = nome;
+    };
+
+    // Simulação de edição de perfil
+    function editarPerfil() {
+        const novoNome = prompt("Digite o novo nome:");
+
+        if (novoNome) {
+            localStorage.setItem("usuario", novoNome);
+            document.getElementById("nomeUsuario").innerText = novoNome;
+        }
+    }
+
+    // Logout simples
+    function logout() {
+        alert("Saindo do sistema...");
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>

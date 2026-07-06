@@ -1,173 +1,155 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
+    <title>Smart Burger - Sistema</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 
-    <title>Smart Burguer | Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+        }
 
-    <link rel="stylesheet" href="css/style.css">
+        header {
+            background: #ffb000;
+            color: black;
+            padding: 20px;
+            text-align: center;
+        }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        .welcome {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        .card {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
+        .card:hover {
+            background: #ffb000;
+            color: black;
+            transform: translateY(-5px);
+        }
+
+        .card a {
+            text-decoration: none;
+            color: inherit;
+            font-weight: bold;
+        }
+
+        .user-box {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .user-box button {
+            padding: 10px;
+            border: none;
+            background: red;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
-<body class="login-page">
+<body>
 
-<div class="container-login">
+<header>
+    <h1>🍔 Smart Burger - Sistema de Gestão</h1>
+</header>
 
-    <!-- LADO ESQUERDO -->
+<div class="container">
 
-    <section class="left-login">
+    <!-- USUÁRIO -->
+    <div class="user-box">
+        <p>Bem-vindo, <strong id="usuario">Administrador</strong></p>
+        <button onclick="logout()">Sair</button>
+    </div>
 
-        <div class="overlay">
+    <!-- BOAS VINDAS -->
+    <div class="welcome">
+        <h2>Bem-vindo ao Smart Burger 🍔</h2>
+        <p>Escolha uma opção para gerenciar o sistema</p>
+    </div>
 
-            <div class="empresa">
+    <!-- MENU -->
+    <div class="menu">
 
-                <div class="logo">
-
-                    <i class="fa-solid fa-burger"></i>
-
-                    <h1>Smart Burguer</h1>
-
-                </div>
-
-                <h2>Sistema Inteligente de Gestão</h2>
-
-                <p>
-
-                    Controle pedidos, estoque, clientes,
-
-                    financeiro e relatórios em um único lugar.
-
-                </p>
-
-                <div class="info">
-
-                    <div>
-
-                        <i class="fa-solid fa-chart-line"></i>
-
-                        Dashboard Inteligente
-
-                    </div>
-
-                    <div>
-
-                        <i class="fa-solid fa-box"></i>
-
-                        Controle de Estoque
-
-                    </div>
-
-                    <div>
-
-                        <i class="fa-solid fa-cart-shopping"></i>
-
-                        Gestão de Pedidos
-
-                    </div>
-
-                </div>
-
-            </div>
-
+        <div class="card">
+            <a href="produtos.html">🍔 Produtos</a>
         </div>
 
-    </section>
+        <div class="card">
+            <a href="pedidos.html">🧾 Pedidos</a>
+        </div>
 
-    <!-- LADO DIREITO -->
+        <div class="card">
+            <a href="estoque.html">📦 Estoque</a>
+        </div>
 
-    <section class="right-login">
+        <div class="card">
+            <a href="fornecedores.html">🚚 Fornecedores</a>
+        </div>
 
-        <form id="loginForm" class="login-box">
+        <div class="card">
+            <a href="financeiro.html">💰 Financeiro</a>
+        </div>
 
-            <h2>Entrar</h2>
+        <div class="card">
+            <a href="relatorios.html">📊 Relatórios</a>
+        </div>
 
-            <span>Faça login para continuar</span>
+        <div class="card">
+            <a href="configuracoes.html">⚙️ Configurações</a>
+        </div>
 
-            <div class="input-group">
+        <div class="card">
+            <a href="perfil.html">👤 Perfil</a>
+        </div>
 
-                <label>Email</label>
-
-                <input
-                type="email"
-                id="email"
-                placeholder="Digite seu e-mail"
-                required>
-
-            </div>
-
-            <div class="input-group">
-
-                <label>Senha</label>
-
-                <div class="password-box">
-
-                    <input
-                    type="password"
-                    id="senha"
-                    placeholder="Digite sua senha"
-                    required>
-
-                    <button
-                    type="button"
-                    id="mostrarSenha">
-
-                        <i class="fa-solid fa-eye"></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="login-options">
-
-                <label>
-
-                    <input type="checkbox">
-
-                    Lembrar de mim
-
-                </label>
-
-                <a href="#">
-
-                    Esqueci minha senha
-
-                </a>
-
-            </div>
-
-            <button
-            class="btn-login"
-            type="submit">
-
-                Entrar
-
-            </button>
-
-            <p id="mensagem"></p>
-
-        </form>
-
-    </section>
+    </div>
 
 </div>
 
-<script src="js/app.js"></script>
+<script>
+    // Mostrar usuário salvo
+    window.onload = function () {
+        const usuario = localStorage.getItem("usuario") || "Administrador";
+        document.getElementById("usuario").innerText = usuario;
+    };
+
+    // Logout
+    function logout() {
+        alert("Saindo do sistema...");
+        window.location.href = "index.html";
+    }
+</script>
 
 </body>
-
 </html>

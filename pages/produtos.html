@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Burger - Produtos</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            margin: 0;
+        }
+
+        header {
+            background: #ffb000;
+            color: black;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .form-produto {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-produto input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .form-produto button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #ffb000;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .produto-card {
+            background: #1e1e1e;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .produto-card button {
+            margin-right: 5px;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .edit {
+            background: green;
+            color: white;
+        }
+
+        .delete {
+            background: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🍔 Smart Burger - Produtos</h1>
+</header>
+
+<div class="container">
+
+    <!-- FORMULÁRIO -->
+    <div class="form-produto">
+        <h2>Novo Produto</h2>
+
+        <input type="text" id="nomeProduto" placeholder="Nome do produto">
+        <input type="number" id="precoProduto" placeholder="Preço (ex: 25.90)">
+        <input type="text" id="descricaoProduto" placeholder="Descrição">
+
+        <button onclick="adicionarProduto()">Adicionar Produto</button>
+    </div>
+
+    <!-- LISTA -->
+    <div id="listaProdutos"></div>
+
+</div>
+
+<script src="produtos.js"></script>
+
+</body>
+</html>
