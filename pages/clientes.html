@@ -3,27 +3,28 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Burguer ERP | Clientes</title>
 
-<title>Smart Burguer | Clientes</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/cards.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/extras.css">
 
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/forms.css">
-<link rel="stylesheet" href="css/cards.css">
-<link rel="stylesheet" href="css/dashboard.css">
-<link rel="stylesheet" href="css/extras.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 </head>
 
@@ -31,121 +32,180 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 <div class="dashboard">
 
-<!-- Sidebar -->
+<!-- SIDEBAR -->
 
 <aside class="sidebar">
 
-<div class="logo">
+    <div class="logo">
 
-<i class="fa-solid fa-burger"></i>
+        <i class="fa-solid fa-burger"></i>
 
-<h2>Smart Burguer</h2>
+        <h2>Smart Burguer ERP</h2>
 
-</div>
+    </div>
 
-<nav>
+    <nav>
 
-<ul>
+        <ul>
 
-<li>
-<a href="dashboard.html">
-<i class="fa-solid fa-house"></i>
-Dashboard
-</a>
-</li>
+            <li>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
 
-<li>
-<a href="cardapio.html">
-<i class="fa-solid fa-utensils"></i>
-Cardápio
-</a>
-</li>
+            <li>
+                <a href="cardapio.html">
+                    <i class="fa-solid fa-utensils"></i>
+                    Cardápio
+                </a>
+            </li>
 
-<li>
-<a href="pedidos.html">
-<i class="fa-solid fa-cart-shopping"></i>
-Pedidos
-</a>
-</li>
+            <li>
+                <a href="pedidos.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Pedidos
+                </a>
+            </li>
 
-<li>
-<a href="estoque.html">
-<i class="fa-solid fa-boxes-stacked"></i>
-Estoque
-</a>
-</li>
+            <li>
+                <a href="estoque.html">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    Estoque
+                </a>
+            </li>
 
-<li class="active">
-<a href="clientes.html">
-<i class="fa-solid fa-users"></i>
-Clientes
-</a>
-</li>
+            <li class="active">
+                <a href="clientes.html">
+                    <i class="fa-solid fa-users"></i>
+                    Clientes
+                </a>
+            </li>
 
-<li>
-<a href="financeiro.html">
-<i class="fa-solid fa-wallet"></i>
-Financeiro
-</a>
-</li>
+            <li>
+                <a href="financeiro.html">
+                    <i class="fa-solid fa-wallet"></i>
+                    Financeiro
+                </a>
+            </li>
 
-<li>
-<a href="relatorios.html">
-<i class="fa-solid fa-chart-column"></i>
-Relatórios
-</a>
-</li>
+            <li>
+                <a href="fornecedores.html">
+                    <i class="fa-solid fa-truck"></i>
+                    Fornecedores
+                </a>
+            </li>
 
-<li>
-<a href="configuracoes.html">
-<i class="fa-solid fa-gear"></i>
-Configurações
-</a>
-</li>
+            <li>
+                <a href="configuracoes.html">
+                    <i class="fa-solid fa-gear"></i>
+                    Configurações
+                </a>
+            </li>
 
-<li>
-<a href="index.html">
-<i class="fa-solid fa-right-from-bracket"></i>
-Sair
-</a>
-</li>
+            <li>
+                <a href="../index.html">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Sair
+                </a>
+            </li>
 
-</ul>
+        </ul>
 
-</nav>
+    </nav>
 
 </aside>
 
-<!-- Conteúdo -->
+<!-- CONTEÚDO -->
 
 <main class="content">
 
 <header class="topbar">
 
-<div class="topbar-left">
+    <div class="topbar-left">
 
-<h1>Clientes</h1>
+        <h1>
 
-<p>Gerencie todos os clientes da hamburgueria</p>
+            <i class="fa-solid fa-users"></i>
 
-</div>
+            Clientes
 
-<div class="topbar-right">
+        </h1>
 
-<button class="btn-primary" id="novoCliente">
+        <p>Gerencie todos os clientes cadastrados.</p>
 
-<i class="fa-solid fa-user-plus"></i>
+    </div>
 
-Novo Cliente
+    <div class="topbar-right">
 
-</button>
+        <button class="btn-primary" id="novoCliente">
 
-</div>
+            <i class="fa-solid fa-user-plus"></i>
+
+            Novo Cliente
+
+        </button>
+
+    </div>
 
 </header>
-<!-- ==========================================
-BARRA DE PESQUISA
-========================================== -->
+
+<!-- RESUMO -->
+
+<section class="cards">
+
+    <div class="card">
+
+        <i class="fa-solid fa-users"></i>
+
+        <h3>Total de Clientes</h3>
+
+        <h2 id="totalClientes">3</h2>
+
+        <span>Cadastrados</span>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-crown"></i>
+
+        <h3>Clientes VIP</h3>
+
+        <h2 id="clientesVip">2</h2>
+
+        <span>Fidelizados</span>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-user"></i>
+
+        <h3>Clientes Comuns</h3>
+
+        <h2 id="clientesComuns">1</h2>
+
+        <span>Ativos</span>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-wallet"></i>
+
+        <h3>Faturamento</h3>
+
+        <h2>R$ 4.540</h2>
+
+        <span>Total gasto</span>
+
+    </div>
+
+</section>
+
+<!-- PESQUISA -->
 
 <section class="search-area">
 
@@ -154,9 +214,9 @@ BARRA DE PESQUISA
         <i class="fa-solid fa-magnifying-glass"></i>
 
         <input
-        type="text"
-        id="pesquisaCliente"
-        placeholder="Pesquisar cliente...">
+            type="text"
+            id="pesquisaCliente"
+            placeholder="Pesquisar cliente...">
 
     </div>
 
@@ -164,11 +224,9 @@ BARRA DE PESQUISA
 
         <select id="filtroCliente">
 
-            <option value="Todos">Todos</option>
-
-            <option value="VIP">Clientes VIP</option>
-
-            <option value="Comum">Clientes Comuns</option>
+            <option value="">Todos</option>
+            <option value="VIP">VIP</option>
+            <option value="Comum">Comum</option>
 
         </select>
 
@@ -176,59 +234,68 @@ BARRA DE PESQUISA
 
 </section>
 
-<!-- ==========================================
+<!-- LISTA -->
+
+<section class="produtos-grid" id="listaClientes">
+    <!-- ==========================================
 LISTA DE CLIENTES
 ========================================== -->
 
-<section class="produtos-grid">
+<section class="produtos-grid" id="listaClientes">
 
-    <!-- CLIENTE 1 -->
+    <!-- CLIENTE -->
 
     <div class="produto-card">
 
-        <div class="produto-info">
+        <div class="produto-imagem">
+
+            <img src="https://ui-avatars.com/api/?name=Joao+Pedro&background=ffb300&color=000&size=300"
+                alt="Cliente">
 
             <span class="categoria">
-
-                ⭐ Cliente VIP
-
+                ⭐ VIP
             </span>
+
+        </div>
+
+        <div class="produto-info">
 
             <h3>João Pedro Silva</h3>
 
             <p>
-
                 <i class="fa-solid fa-phone"></i>
-
                 (11) 99999-9999
-
             </p>
 
             <p>
-
                 <i class="fa-solid fa-envelope"></i>
-
                 joao@email.com
-
             </p>
 
             <p>
-
                 <i class="fa-solid fa-location-dot"></i>
-
                 Rua das Palmeiras, 150
-
             </p>
 
-            <div class="preco">
+            <div class="produto-detalhes">
 
-                Total gasto: R$ 1.250,00
+                <span>
+
+                    <i class="fa-solid fa-wallet"></i>
+
+                    Total gasto: R$ 1.250,00
+
+                </span>
 
             </div>
 
-            <div class="status disponivel">
+            <div class="produto-footer">
 
-                Ativo
+                <span class="status disponivel">
+
+                    Cliente Ativo
+
+                </span>
 
             </div>
 
@@ -256,17 +323,24 @@ LISTA DE CLIENTES
 
     </div>
 
-    <!-- CLIENTE 2 -->
+    <!-- CLIENTE -->
 
     <div class="produto-card">
 
-        <div class="produto-info">
+        <div class="produto-imagem">
+
+            <img src="https://ui-avatars.com/api/?name=Maria+Oliveira&background=2196f3&color=fff&size=300"
+                alt="Cliente">
 
             <span class="categoria">
 
-                Cliente Comum
+                Comum
 
             </span>
+
+        </div>
+
+        <div class="produto-info">
 
             <h3>Maria Oliveira</h3>
 
@@ -294,15 +368,25 @@ LISTA DE CLIENTES
 
             </p>
 
-            <div class="preco">
+            <div class="produto-detalhes">
 
-                Total gasto: R$ 420,00
+                <span>
+
+                    <i class="fa-solid fa-wallet"></i>
+
+                    Total gasto: R$ 420,00
+
+                </span>
 
             </div>
 
-            <div class="status disponivel">
+            <div class="produto-footer">
 
-                Ativo
+                <span class="status disponivel">
+
+                    Cliente Ativo
+
+                </span>
 
             </div>
 
@@ -330,17 +414,24 @@ LISTA DE CLIENTES
 
     </div>
 
-    <!-- CLIENTE 3 -->
+    <!-- CLIENTE -->
 
     <div class="produto-card">
 
-        <div class="produto-info">
+        <div class="produto-imagem">
+
+            <img src="https://ui-avatars.com/api/?name=Ana+Costa&background=e91e63&color=fff&size=300"
+                alt="Cliente">
 
             <span class="categoria">
 
-                ⭐ Cliente VIP
+                ⭐ VIP
 
             </span>
+
+        </div>
+
+        <div class="produto-info">
 
             <h3>Ana Costa</h3>
 
@@ -368,15 +459,25 @@ LISTA DE CLIENTES
 
             </p>
 
-            <div class="preco">
+            <div class="produto-detalhes">
 
-                Total gasto: R$ 2.870,00
+                <span>
+
+                    <i class="fa-solid fa-wallet"></i>
+
+                    Total gasto: R$ 2.870,00
+
+                </span>
 
             </div>
 
-            <div class="status disponivel">
+            <div class="produto-footer">
 
-                Ativo
+                <span class="status disponivel">
+
+                    Cliente Ativo
+
+                </span>
 
             </div>
 
@@ -406,7 +507,7 @@ LISTA DE CLIENTES
 
 </section>
 <!-- ==========================================
-MODAL NOVO CLIENTE
+MODAL CADASTRO DE CLIENTE
 ========================================== -->
 
 <div id="modalCliente" class="modal">
@@ -416,11 +517,8 @@ MODAL NOVO CLIENTE
         <div class="modal-header">
 
             <h2>
-
                 <i class="fa-solid fa-user-plus"></i>
-
                 Cadastro de Cliente
-
             </h2>
 
             <span class="fechar-modal">&times;</span>
@@ -435,13 +533,29 @@ MODAL NOVO CLIENTE
 
                 <div class="input-group">
 
-                    <label>Nome Completo</label>
+                    <label>Nome Completo *</label>
 
                     <input
-                    type="text"
-                    id="nomeCliente"
-                    placeholder="Digite o nome"
-                    required>
+                        type="text"
+                        id="nomeCliente"
+                        placeholder="Digite o nome completo"
+                        required>
+
+                </div>
+
+                <!-- Tipo -->
+
+                <div class="input-group">
+
+                    <label>Tipo do Cliente</label>
+
+                    <select id="tipoCliente">
+
+                        <option value="Comum">Comum</option>
+
+                        <option value="VIP">VIP</option>
+
+                    </select>
 
                 </div>
 
@@ -452,9 +566,22 @@ MODAL NOVO CLIENTE
                     <label>CPF</label>
 
                     <input
-                    type="text"
-                    id="cpfCliente"
-                    placeholder="000.000.000-00">
+                        type="text"
+                        id="cpfCliente"
+                        placeholder="000.000.000-00">
+
+                </div>
+
+                <!-- RG -->
+
+                <div class="input-group">
+
+                    <label>RG</label>
+
+                    <input
+                        type="text"
+                        id="rgCliente"
+                        placeholder="00.000.000-0">
 
                 </div>
 
@@ -465,9 +592,22 @@ MODAL NOVO CLIENTE
                     <label>Telefone</label>
 
                     <input
-                    type="tel"
-                    id="telefoneCliente"
-                    placeholder="(00) 00000-0000">
+                        type="tel"
+                        id="telefoneCliente"
+                        placeholder="(00) 00000-0000">
+
+                </div>
+
+                <!-- WhatsApp -->
+
+                <div class="input-group">
+
+                    <label>WhatsApp</label>
+
+                    <input
+                        type="tel"
+                        id="whatsappCliente"
+                        placeholder="(00) 00000-0000">
 
                 </div>
 
@@ -478,9 +618,9 @@ MODAL NOVO CLIENTE
                     <label>E-mail</label>
 
                     <input
-                    type="email"
-                    id="emailCliente"
-                    placeholder="email@exemplo.com">
+                        type="email"
+                        id="emailCliente"
+                        placeholder="email@empresa.com">
 
                 </div>
 
@@ -491,24 +631,59 @@ MODAL NOVO CLIENTE
                     <label>Data de Nascimento</label>
 
                     <input
-                    type="date"
-                    id="nascimentoCliente">
+                        type="date"
+                        id="nascimentoCliente">
 
                 </div>
 
-                <!-- VIP -->
+                <!-- CEP -->
 
                 <div class="input-group">
 
-                    <label>Tipo do Cliente</label>
+                    <label>CEP</label>
 
-                    <select id="tipoCliente">
+                    <input
+                        type="text"
+                        id="cepCliente"
+                        placeholder="00000-000">
 
-                        <option>Comum</option>
+                </div>
 
-                        <option>VIP</option>
+                <!-- Cidade -->
 
-                    </select>
+                <div class="input-group">
+
+                    <label>Cidade</label>
+
+                    <input
+                        type="text"
+                        id="cidadeCliente">
+
+                </div>
+
+                <!-- Estado -->
+
+                <div class="input-group">
+
+                    <label>Estado</label>
+
+                    <input
+                        type="text"
+                        id="estadoCliente">
+
+                </div>
+
+                <!-- Limite -->
+
+                <div class="input-group">
+
+                    <label>Limite de Crédito</label>
+
+                    <input
+                        type="number"
+                        step="0.01"
+                        id="limiteCliente"
+                        placeholder="0,00">
 
                 </div>
 
@@ -518,12 +693,12 @@ MODAL NOVO CLIENTE
 
             <div class="input-group">
 
-                <label>Endereço</label>
+                <label>Endereço Completo</label>
 
                 <input
-                type="text"
-                id="enderecoCliente"
-                placeholder="Rua, Número, Bairro">
+                    type="text"
+                    id="enderecoCliente"
+                    placeholder="Rua, Número, Bairro">
 
             </div>
 
@@ -534,25 +709,27 @@ MODAL NOVO CLIENTE
                 <label>Observações</label>
 
                 <textarea
-                id="observacoesCliente"
-                rows="4"
-                placeholder="Informações adicionais..."></textarea>
+                    id="observacoesCliente"
+                    rows="5"
+                    placeholder="Informações adicionais sobre o cliente..."></textarea>
 
             </div>
 
             <div class="modal-buttons">
 
                 <button
-                type="button"
-                class="cancelar">
+                    type="button"
+                    class="cancelar">
+
+                    <i class="fa-solid fa-xmark"></i>
 
                     Cancelar
 
                 </button>
 
                 <button
-                type="submit"
-                class="salvar">
+                    type="submit"
+                    class="salvar">
 
                     <i class="fa-solid fa-floppy-disk"></i>
 
@@ -568,7 +745,7 @@ MODAL NOVO CLIENTE
 
 </div>
 
-<script src="js/clientes.js"></script>
+<script src="../js/clientes.js"></script>
 
 </main>
 

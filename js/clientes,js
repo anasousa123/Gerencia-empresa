@@ -1,6 +1,7 @@
 // =========================================
 // SMART BURGUER ERP
 // MÓDULO CLIENTES
+// PARTE 1
 // =========================================
 
 // -----------------------------
@@ -17,27 +18,37 @@ const cancelar = document.querySelector(".cancelar");
 
 const form = document.getElementById("formCliente");
 
+const listaClientes = document.getElementById("listaClientes");
+
 const pesquisa = document.getElementById("pesquisaCliente");
 
 const filtro = document.getElementById("filtroCliente");
 
-const listaClientes = document.querySelector(".produtos-grid");
-
 // -----------------------------
-// LOCAL STORAGE
+// DADOS
 // -----------------------------
 
 let clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+
+let editando = false;
+
+let idEdicao = null;
 
 // -----------------------------
 // ABRIR MODAL
 // -----------------------------
 
-btnNovo.addEventListener("click", () => {
+function abrirModal(){
 
-    modal.style.display = "flex";
+    modal.style.display="flex";
 
-});
+}
+
+if(btnNovo){
+
+    btnNovo.addEventListener("click",abrirModal);
+
+}
 
 // -----------------------------
 // FECHAR MODAL
@@ -45,75 +56,41 @@ btnNovo.addEventListener("click", () => {
 
 function fechar(){
 
-    modal.style.display = "none";
+    modal.style.display="none";
 
     form.reset();
 
+    editando=false;
+
+    idEdicao=null;
+
 }
 
-fecharModal.addEventListener("click", fechar);
+if(fecharModal){
 
-cancelar.addEventListener("click", fechar);
+    fecharModal.addEventListener("click",fechar);
+
+}
+
+if(cancelar){
+
+    cancelar.addEventListener("click",fechar);
+
+}
 
 window.addEventListener("click",(e)=>{
 
-    if(e.target === modal){
+    if(e.target===modal){
 
         fechar();
 
     }
 
 });
-// =========================================
-// CADASTRAR CLIENTE
-// =========================================
 
-form.addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    const cliente = {
-
-        id: Date.now(),
-
-        nome: document.getElementById("nomeCliente").value,
-
-        cpf: document.getElementById("cpfCliente").value,
-
-        telefone: document.getElementById("telefoneCliente").value,
-
-        email: document.getElementById("emailCliente").value,
-
-        nascimento: document.getElementById("nascimentoCliente").value,
-
-        endereco: document.getElementById("enderecoCliente").value,
-
-        observacoes: document.getElementById("observacoesCliente").value,
-
-        tipo: document.getElementById("tipoCliente").value,
-
-        totalGasto: 0,
-
-        status: "Ativo"
-
-    };
-
-    clientes.push(cliente);
-
-    salvarClientes();
-
-    renderizarClientes();
-
-    fechar();
-
-    mostrarMensagem("Cliente cadastrado com sucesso!");
-
-});
-
-
-// =========================================
-// SALVAR CLIENTES
-// =========================================
+// -----------------------------
+// LOCAL STORAGE
+// -----------------------------
 
 function salvarClientes(){
 
@@ -126,19 +103,59 @@ function salvarClientes(){
     );
 
 }
-// =========================================
-// MENSAGEM DE SUCESSO
-// =========================================
+
+// -----------------------------
+// RESUMO
+// -----------------------------
+
+function atualizarResumo(){
+
+    const total=clientes.length;
+
+    const vip=clientes.filter(c=>c.tipo==="VIP").length;
+
+    const comum=clientes.filter(c=>c.tipo==="Comum").length;
+
+    const gasto=clientes.reduce(
+
+        (total,c)=>total+Number(c.totalGasto||0),
+
+        0
+
+    );
+
+    document.getElementById("totalClientes").textContent=total;
+
+    document.getElementById("clientesVip").textContent=vip;
+
+    document.getElementById("clientesComuns").textContent=comum;
+
+    document.querySelectorAll(".card h2")[3].textContent=
+
+        "R$ "+gasto.toLocaleString("pt-BR",{
+
+            minimumFractionDigits:2
+
+        });
+
+}
+
+// -----------------------------
+// TOAST
+// -----------------------------
 
 function mostrarMensagem(texto){
 
-    const toast = document.createElement("div");
+    const toast=document.createElement("div");
 
-    toast.className = "toast";
+    toast.className="toast";
 
-    toast.innerHTML = `
-        <i class="fa-solid fa-circle-check"></i>
-        ${texto}
+    toast.innerHTML=`
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    ${texto}
+
     `;
 
     document.body.appendChild(toast);
@@ -153,127 +170,325 @@ function mostrarMensagem(texto){
 
         toast.classList.remove("mostrar");
 
-    },2800);
+    },3000);
 
     setTimeout(()=>{
 
         toast.remove();
 
-    },3200);
+    },3400);
 
 }
 // =========================================
-// RENDERIZAR CLIENTES
+// SMART BURGUER ERP
+// MÓDULO CLIENTES
+// PARTE 2
+// Cadastro | Editar | Excluir
 // =========================================
 
-function renderizarClientes(){
+// -----------------------------
+// CADASTRAR / ATUALIZAR CLIENTE
+// -----------------------------
+
+if(form){
+
+form.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const cliente={
+
+id:editando?idEdicao:Date.now(),
+
+nome:document.getElementById("nomeCliente").value.trim(),
+
+cpf:document.getElementById("cpfCliente").value.trim(),
+
+rg:document.getElementById("rgCliente").value.trim(),
+
+telefone:document.getElementById("telefoneCliente").value.trim(),
+
+whatsapp:document.getElementById("whatsappCliente").value.trim(),
+
+email:document.getElementById("emailCliente").value.trim(),
+
+nascimento:document.getElementById("nascimentoCliente").value,
+
+cep:document.getElementById("cepCliente").value.trim(),
+
+cidade:document.getElementById("cidadeCliente").value.trim(),
+
+estado:document.getElementById("estadoCliente").value.trim(),
+
+endereco:document.getElementById("enderecoCliente").value.trim(),
+
+observacoes:document.getElementById("observacoesCliente").value.trim(),
+
+tipo:document.getElementById("tipoCliente").value,
+
+limite:Number(document.getElementById("limiteCliente").value)||0,
+
+totalGasto:editando?
+
+clientes.find(c=>c.id===idEdicao)?.totalGasto||0
+
+:0,
+
+status:"Ativo"
+
+};
+
+// Validação
+
+if(cliente.nome===""){
+
+alert("Informe o nome do cliente.");
+
+return;
+
+}
+
+if(cliente.telefone===""){
+
+alert("Informe o telefone.");
+
+return;
+
+}
+
+if(editando){
+
+const indice=clientes.findIndex(c=>c.id===idEdicao);
+
+if(indice!==-1){
+
+clientes[indice]=cliente;
+
+}
+
+mostrarMensagem("Cliente atualizado com sucesso!");
+
+}else{
+
+clientes.push(cliente);
+
+mostrarMensagem("Cliente cadastrado com sucesso!");
+
+}
+
+salvarClientes();
+
+renderizarClientes();
+
+fechar();
+
+});
+
+}
+
+// -----------------------------
+// EDITAR CLIENTE
+// -----------------------------
+
+function editarCliente(id){
+
+const cliente=clientes.find(c=>c.id===id);
+
+if(!cliente)return;
+
+editando=true;
+
+idEdicao=id;
+
+document.getElementById("nomeCliente").value=cliente.nome;
+
+document.getElementById("cpfCliente").value=cliente.cpf;
+
+document.getElementById("rgCliente").value=cliente.rg||"";
+
+document.getElementById("telefoneCliente").value=cliente.telefone;
+
+document.getElementById("whatsappCliente").value=cliente.whatsapp||"";
+
+document.getElementById("emailCliente").value=cliente.email;
+
+document.getElementById("nascimentoCliente").value=cliente.nascimento;
+
+document.getElementById("cepCliente").value=cliente.cep||"";
+
+document.getElementById("cidadeCliente").value=cliente.cidade||"";
+
+document.getElementById("estadoCliente").value=cliente.estado||"";
+
+document.getElementById("enderecoCliente").value=cliente.endereco;
+
+document.getElementById("observacoesCliente").value=cliente.observacoes;
+
+document.getElementById("tipoCliente").value=cliente.tipo;
+
+document.getElementById("limiteCliente").value=cliente.limite||0;
+
+abrirModal();
+
+}
+
+// -----------------------------
+// EXCLUIR CLIENTE
+// -----------------------------
+
+function excluirCliente(id){
+
+const confirmar=confirm("Deseja realmente excluir este cliente?");
+
+if(!confirmar)return;
+
+clientes=clientes.filter(cliente=>cliente.id!==id);
+
+salvarClientes();
+
+renderizarClientes();
+
+mostrarMensagem("Cliente excluído com sucesso!");
+
+}
+
+// -----------------------------
+// LIMPAR FORMULÁRIO
+// -----------------------------
+
+function limparFormulario(){
+
+form.reset();
+
+editando=false;
+
+idEdicao=null;
+
+}
+// =========================================
+// SMART BURGUER ERP
+// MÓDULO CLIENTES
+// PARTE 3
+// Renderização | Pesquisa | Filtro
+// =========================================
+
+// -----------------------------
+// RENDERIZAR CLIENTES
+// -----------------------------
+
+function renderizarClientes() {
+
+    if (!listaClientes) return;
 
     listaClientes.innerHTML = "";
 
-    if(clientes.length === 0){
+    atualizarResumo();
+
+    if (clientes.length === 0) {
 
         listaClientes.innerHTML = `
-
-        <div class="sem-produtos">
-
-            <i class="fa-solid fa-users"></i>
-
-            <h2>Nenhum cliente cadastrado</h2>
-
-            <p>Clique em "Novo Cliente" para começar.</p>
-
-        </div>
-
+            <div class="sem-produtos">
+                <i class="fa-solid fa-users"></i>
+                <h2>Nenhum cliente cadastrado</h2>
+                <p>Clique em <strong>Novo Cliente</strong> para cadastrar o primeiro cliente.</p>
+            </div>
         `;
 
         return;
-
     }
 
-    clientes.forEach(cliente=>{
-
-        const tipo = cliente.tipo === "VIP"
-            ? "⭐ Cliente VIP"
-            : "Cliente Comum";
+    clientes.forEach(cliente => {
 
         const card = document.createElement("div");
 
         card.className = "produto-card";
 
+        card.dataset.nome = cliente.nome.toLowerCase();
+        card.dataset.tipo = cliente.tipo.toLowerCase();
+
+        const avatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(cliente.nome)}&background=ffb300&color=000&size=300`;
+
         card.innerHTML = `
 
-            <div class="produto-info">
+        <div class="produto-imagem">
 
-                <span class="categoria">
+            <img src="${avatar}" alt="${cliente.nome}">
 
-                    ${tipo}
+            <span class="categoria">
+
+                ${cliente.tipo === "VIP" ? "⭐ VIP" : "Comum"}
+
+            </span>
+
+        </div>
+
+        <div class="produto-info">
+
+            <h3>${cliente.nome}</h3>
+
+            <p>
+                <i class="fa-solid fa-phone"></i>
+                ${cliente.telefone}
+            </p>
+
+            <p>
+                <i class="fa-solid fa-envelope"></i>
+                ${cliente.email || "-"}
+            </p>
+
+            <p>
+                <i class="fa-solid fa-location-dot"></i>
+                ${cliente.endereco || "-"}
+            </p>
+
+            <div class="produto-detalhes">
+
+                <span>
+
+                    <i class="fa-solid fa-wallet"></i>
+
+                    Total gasto:
+                    R$ ${Number(cliente.totalGasto).toFixed(2)}
 
                 </span>
 
-                <h3>${cliente.nome}</h3>
+            </div>
 
-                <p>
+            <div class="produto-footer">
 
-                    <i class="fa-solid fa-phone"></i>
-
-                    ${cliente.telefone}
-
-                </p>
-
-                <p>
-
-                    <i class="fa-solid fa-envelope"></i>
-
-                    ${cliente.email}
-
-                </p>
-
-                <p>
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    ${cliente.endereco}
-
-                </p>
-
-                <div class="preco">
-
-                    Total gasto:
-                    R$ ${cliente.totalGasto.toFixed(2)}
-
-                </div>
-
-                <div class="status disponivel">
+                <span class="status disponivel">
 
                     ${cliente.status}
 
-                </div>
-
-                <div class="acoes">
-
-                    <button
-                        class="editar"
-                        onclick="editarCliente(${cliente.id})">
-
-                        <i class="fa-solid fa-pen"></i>
-
-                        Editar
-
-                    </button>
-
-                    <button
-                        class="excluir"
-                        onclick="excluirCliente(${cliente.id})">
-
-                        <i class="fa-solid fa-trash"></i>
-
-                        Excluir
-
-                    </button>
-
-                </div>
+                </span>
 
             </div>
+
+            <div class="acoes">
+
+                <button
+                    class="editar"
+                    onclick="editarCliente(${cliente.id})">
+
+                    <i class="fa-solid fa-pen"></i>
+
+                    Editar
+
+                </button>
+
+                <button
+                    class="excluir"
+                    onclick="excluirCliente(${cliente.id})">
+
+                    <i class="fa-solid fa-trash"></i>
+
+                    Excluir
+
+                </button>
+
+            </div>
+
+        </div>
 
         `;
 
@@ -283,185 +498,89 @@ function renderizarClientes(){
 
 }
 
-// =========================================
-// CARREGAR CLIENTES
-// =========================================
+// -----------------------------
+// PESQUISA
+// -----------------------------
 
-renderizarClientes();
-// =========================================
-// PESQUISAR CLIENTES
-// =========================================
+if (pesquisa) {
 
-pesquisa.addEventListener("keyup", () => {
+    pesquisa.addEventListener("keyup", filtrarClientes);
 
-    const texto = pesquisa.value.toLowerCase();
+}
 
-    const cards = document.querySelectorAll(".produto-card");
+// -----------------------------
+// FILTRO
+// -----------------------------
 
-    cards.forEach(card => {
+if (filtro) {
 
-        const nome = card.querySelector("h3").innerText.toLowerCase();
+    filtro.addEventListener("change", filtrarClientes);
 
-        if(nome.includes(texto)){
+}
 
-            card.style.display = "block";
+function filtrarClientes() {
 
-        }else{
+    const texto = pesquisa ? pesquisa.value.toLowerCase() : "";
 
-            card.style.display = "none";
+    const tipo = filtro ? filtro.value.toLowerCase() : "";
 
-        }
+    document.querySelectorAll(".produto-card").forEach(card => {
 
-    });
+        const nome = card.dataset.nome;
 
-});
+        const categoria = card.dataset.tipo;
 
+        const pesquisaOK = nome.includes(texto);
 
-// =========================================
-// FILTRAR CLIENTES
-// =========================================
+        const tipoOK =
+            tipo === "" ||
+            tipo === "todos" ||
+            categoria === tipo;
 
-filtro.addEventListener("change",()=>{
-
-    const tipoSelecionado = filtro.value;
-
-    const cards = document.querySelectorAll(".produto-card");
-
-    cards.forEach(card=>{
-
-        const tipo = card.querySelector(".categoria").innerText;
-
-        if(tipoSelecionado==="Todos"){
-
-            card.style.display="block";
-
-        }
-
-        else if(tipoSelecionado==="VIP" && tipo.includes("VIP")){
-
-            card.style.display="block";
-
-        }
-
-        else if(tipoSelecionado==="Comum" && tipo.includes("Comum")){
-
-            card.style.display="block";
-
-        }
-
-        else{
-
-            card.style.display="none";
-
-        }
+        card.style.display = (pesquisaOK && tipoOK)
+            ? "block"
+            : "none";
 
     });
 
-});
+}
 
+// -----------------------------
+// ANIMAÇÃO DOS CARDS
+// -----------------------------
 
-// =========================================
-// EXCLUIR CLIENTE
-// =========================================
+function animarCards() {
 
-function excluirCliente(id){
+    const cards = document.querySelectorAll(".produto-card");
 
-    const confirmar = confirm(
-        "Deseja realmente excluir este cliente?"
-    );
+    cards.forEach((card, index) => {
 
-    if(!confirmar) return;
+        card.style.opacity = "0";
 
-    clientes = clientes.filter(cliente => cliente.id !== id);
+        card.style.transform = "translateY(20px)";
 
-    salvarClientes();
+        setTimeout(() => {
+
+            card.style.transition = ".35s";
+
+            card.style.opacity = "1";
+
+            card.style.transform = "translateY(0)";
+
+        }, index * 80);
+
+    });
+
+}
+
+// -----------------------------
+// INICIALIZAÇÃO
+// -----------------------------
+
+document.addEventListener("DOMContentLoaded", () => {
 
     renderizarClientes();
 
-    mostrarMensagem("Cliente excluído com sucesso!");
-
-}
-
-
-
-// =========================================
-// EDITAR CLIENTE
-// =========================================
-
-function editarCliente(id){
-
-    const cliente = clientes.find(c => c.id === id);
-
-    if(!cliente) return;
-
-    document.getElementById("nomeCliente").value = cliente.nome;
-
-    document.getElementById("cpfCliente").value = cliente.cpf;
-
-    document.getElementById("telefoneCliente").value = cliente.telefone;
-
-    document.getElementById("emailCliente").value = cliente.email;
-
-    document.getElementById("nascimentoCliente").value = cliente.nascimento;
-
-    document.getElementById("enderecoCliente").value = cliente.endereco;
-
-    document.getElementById("observacoesCliente").value = cliente.observacoes;
-
-    document.getElementById("tipoCliente").value = cliente.tipo;
-
-    modal.style.display = "flex";
-
-    clientes = clientes.filter(c => c.id !== id);
-
-}
-
-
-
-// =========================================
-// ATUALIZA DASHBOARD
-// =========================================
-
-function atualizarDashboardClientes(){
-
-    localStorage.setItem(
-
-        "totalClientes",
-
-        clientes.length
-
-    );
-
-}
-
-atualizarDashboardClientes();
-
-
-
-// =========================================
-// ANIMAÇÃO DOS CARDS
-// =========================================
-
-window.addEventListener("load",()=>{
-
-    const cards = document.querySelectorAll(".produto-card");
-
-    cards.forEach((card,index)=>{
-
-        card.style.opacity="0";
-
-        card.style.transform="translateY(30px)";
-
-        setTimeout(()=>{
-
-            card.style.transition=".4s";
-
-            card.style.opacity="1";
-
-            card.style.transform="translateY(0px)";
-
-        },index*120);
-
-    });
+    animarCards();
 
 });
