@@ -1,161 +1,214 @@
-// ======================================
+//==================================================
 // SMART BURGUER ERP
-// Dashboard
-// ======================================
+// DASHBOARD
+//==================================================
 
-// Data atual
-function atualizarData() {
+//==============================
+// DADOS SIMULADOS
+//==============================
 
-    const data = new Date();
+const dashboard = {
 
-    const opcoes = {
-        weekday: "long",
-        day: "2-digit",
-        month: "long",
-        year: "numeric"
-    };
+    pedidosHoje: 38,
 
-    const elemento = document.getElementById("dataAtual");
+    faturamento: 4580.75,
 
-    if (elemento) {
-        elemento.innerHTML = data.toLocaleDateString("pt-BR", opcoes);
-    }
+    clientes: 184,
 
-}
+    produtos: 97
 
-atualizarData();
+};
 
+//==============================
+// CARREGAR INDICADORES
+//==============================
 
-// ======================================
-// Gráfico de vendas
-// ======================================
+document.getElementById("pedidosHoje").textContent =
+dashboard.pedidosHoje;
+
+document.getElementById("faturamento").textContent =
+dashboard.faturamento.toLocaleString("pt-BR",{
+    style:"currency",
+    currency:"BRL"
+});
+
+document.getElementById("clientesTotal").textContent =
+dashboard.clientes;
+
+document.getElementById("produtosTotal").textContent =
+dashboard.produtos;
+
+//==============================
+// GRÁFICO DE VENDAS
+//==============================
 
 const vendas = document.getElementById("graficoVendas");
 
-if(vendas){
-
 new Chart(vendas,{
 
-type:"line",
+    type:"line",
 
-data:{
+    data:{
 
-labels:[
-"Seg",
-"Ter",
-"Qua",
-"Qui",
-"Sex",
-"Sáb",
-"Dom"
-],
+        labels:[
+            "Seg",
+            "Ter",
+            "Qua",
+            "Qui",
+            "Sex",
+            "Sáb",
+            "Dom"
+        ],
 
-datasets:[{
+        datasets:[{
 
-label:"Vendas",
+            label:"Vendas",
 
-data:[
-1500,
-2200,
-1800,
-2600,
-3100,
-4200,
-3900
-],
+            data:[
+                850,
+                1200,
+                950,
+                1800,
+                2200,
+                3100,
+                2500
+            ],
 
-borderColor:"#6D4C41",
+            fill:true,
 
-backgroundColor:"rgba(109,76,65,.15)",
+            borderWidth:3,
 
-fill:true,
+            borderColor:"#ff9800",
 
-tension:.4
+            backgroundColor:"rgba(255,152,0,.15)",
 
-}]
+            tension:.4
 
-},
+        }]
 
-options:{
+    },
 
-responsive:true,
+    options:{
 
-plugins:{
+        responsive:true,
 
-legend:{
-display:false
-}
+        plugins:{
 
-}
+            legend:{
 
-}
+                display:false
+
+            }
+
+        }
+
+    }
 
 });
 
-}
-
-
-
-// ======================================
-// Produtos mais vendidos
-// ======================================
+//==============================
+// GRÁFICO DE PRODUTOS
+//==============================
 
 const produtos = document.getElementById("graficoProdutos");
 
-if(produtos){
-
 new Chart(produtos,{
 
-type:"doughnut",
+    type:"doughnut",
 
-data:{
+    data:{
 
-labels:[
-"X-Bacon",
-"Smash",
-"X-Salada",
-"Batata",
-"Refrigerante"
-],
+        labels:[
+            "Hambúrguer",
+            "Pizza",
+            "Porções",
+            "Bebidas",
+            "Sobremesas"
+        ],
 
-datasets:[{
+        datasets:[{
 
-data:[
-42,
-25,
-18,
-10,
-5
-],
+            data:[
+                42,
+                21,
+                17,
+                12,
+                8
+            ],
 
-backgroundColor:[
+            backgroundColor:[
 
-"#6D4C41",
-"#8D6E63",
-"#A1887F",
-"#D7CCC8",
-"#5D4037"
+                "#ff9800",
 
-]
+                "#ef4444",
 
-}]
+                "#22c55e",
 
-},
+                "#3b82f6",
 
-options:{
+                "#8b5cf6"
 
-responsive:true,
+            ]
 
-plugins:{
+        }]
 
-legend:{
-position:"bottom"
-}
+    },
 
-}
+    options:{
 
-}
+        responsive:true,
+
+        plugins:{
+
+            legend:{
+
+                position:"bottom"
+
+            }
+
+        }
+
+    }
 
 });
 
+//==============================
+// ATUALIZAÇÃO AUTOMÁTICA
+//==============================
+
+setInterval(()=>{
+
+    dashboard.pedidosHoje++;
+
+    dashboard.faturamento += Math.random()*120;
+
+    document.getElementById("pedidosHoje").textContent =
+    dashboard.pedidosHoje;
+
+    document.getElementById("faturamento").textContent =
+    dashboard.faturamento.toLocaleString("pt-BR",{
+        style:"currency",
+        currency:"BRL"
+    });
+
+},15000);
+
+//==============================
+// DATA E HORA
+//==============================
+
+function atualizarHorario(){
+
+    const agora = new Date();
+
+    console.log(
+
+        agora.toLocaleDateString("pt-BR"),
+
+        agora.toLocaleTimeString("pt-BR")
+
+    );
+
 }
+
+setInterval(atualizarHorario,1000);

@@ -1,67 +1,247 @@
-// ===============================
-// SMART BURGER - APP PRINCIPAL
-// ===============================
+//==================================================
+// SMART BURGUER ERP
+// APP.JS
+//==================================================
 
-// Inicialização geral do sistema
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("🍔 Smart Burger iniciado com sucesso!");
+//==============================
+// ELEMENTOS
+//==============================
 
-    inicializarSistema();
+const sidebar = document.getElementById("sidebar");
+const btnMenu = document.getElementById("btnMenu");
+const frame = document.getElementById("frameSistema");
+
+const menuLinks = document.querySelectorAll(".menu li a");
+
+//==============================
+// SIDEBAR
+//==============================
+
+let menuAberto = true;
+
+btnMenu.addEventListener("click", () => {
+
+    if(menuAberto){
+
+        sidebar.style.width = "85px";
+
+        document.querySelector(".principal").style.marginLeft = "85px";
+        document.querySelector(".principal").style.width = "calc(100% - 85px)";
+
+        document.querySelectorAll(".menu li a").forEach(link=>{
+
+            link.childNodes.forEach(node=>{
+
+                if(node.nodeType===3){
+
+                    node.textContent="";
+
+                }
+
+            });
+
+        });
+
+        document.querySelector(".logo h2").style.display="none";
+
+    }else{
+
+        sidebar.style.width="270px";
+
+        document.querySelector(".principal").style.marginLeft="270px";
+        document.querySelector(".principal").style.width="calc(100% - 270px)";
+
+        restaurarMenu();
+
+        document.querySelector(".logo h2").style.display="block";
+
+    }
+
+    menuAberto=!menuAberto;
+
 });
 
-// Função principal de inicialização
-function inicializarSistema() {
-    atualizarResumoGlobal();
+//==============================
+// RESTAURA MENU
+//==============================
+
+function restaurarMenu(){
+
+    const nomes=[
+        "Dashboard",
+        "Produtos",
+        "Pedidos",
+        "Clientes",
+        "Cardápio",
+        "Estoque",
+        "Financeiro",
+        "Fornecedores",
+        "Relatórios",
+        "Configurações",
+        "Perfil"
+    ];
+
+    document.querySelectorAll(".menu li a").forEach((item,index)=>{
+
+        item.innerHTML=`
+            ${item.querySelector("i").outerHTML}
+            ${nomes[index]}
+        `;
+
+    });
+
 }
 
-// ===============================
-// RESUMO GERAL DO SISTEMA
-// ===============================
+//==============================
+// CARREGAR PÁGINAS
+//==============================
 
-function atualizarResumoGlobal() {
-    const produtos = JSON.parse(localStorage.getItem("produtos")) || [];
-    const pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
-    const fornecedores = JSON.parse(localStorage.getItem("fornecedores")) || [];
+menuLinks.forEach(link=>{
 
-    const pendentes = pedidos.filter(p => p.status === "Pendente").length;
-    const concluidos = pedidos.filter(p => p.status === "Concluído").length;
+    link.addEventListener("click",(e)=>{
 
-    // Atualiza elementos globais (se existirem na página)
-    if (document.getElementById("resTotalProdutos")) {
-        document.getElementById("resTotalProdutos").innerText = produtos.length;
+        e.preventDefault();
+
+        let pagina=link.getAttribute("href");
+
+        frame.src=pagina;
+
+        localStorage.setItem("paginaAtual",pagina);
+
+        document.querySelectorAll(".menu li").forEach(li=>{
+
+            li.classList.remove("ativo");
+
+        });
+
+        link.parentElement.classList.add("ativo");
+
+    });
+
+});
+
+//==============================
+// ABRIR ÚLTIMA PÁGINA
+//==============================
+
+window.addEventListener("load",()=>{
+
+    const ultimaPagina=localStorage.getItem("paginaAtual");
+
+    if(ultimaPagina){
+
+        frame.src=ultimaPagina;
+
     }
 
-    if (document.getElementById("resTotalPedidos")) {
-        document.getElementById("resTotalPedidos").innerText = pedidos.length;
-    }
+});
 
-    if (document.getElementById("resPendentes")) {
-        document.getElementById("resPendentes").innerText = pendentes;
-    }
+//==============================
+// LOADING
+//==============================
 
-    if (document.getElementById("resConcluidos")) {
-        document.getElementById("resConcluidos").innerText = concluidos;
-    }
+function mostrarLoading(){
 
-    if (document.getElementById("resFornecedores")) {
-        document.getElementById("resFornecedores").innerText = fornecedores.length;
-    }
+    if(document.querySelector(".loading")) return;
+
+    const loading=document.createElement("div");
+
+    loading.className="loading";
+
+    loading.innerHTML=`
+        <div class="spinner"></div>
+    `;
+
+    document.body.appendChild(loading);
+
 }
 
-// ===============================
-// LIMPAR DADOS (RESET DO SISTEMA)
-// ===============================
+function esconderLoading(){
 
-function resetarSistema() {
-    const confirmar = confirm("Deseja realmente apagar todos os dados do sistema?");
+    const loading=document.querySelector(".loading");
 
-    if (confirmar) {
-        localStorage.removeItem("produtos");
-        localStorage.removeItem("pedidos");
-        localStorage.removeItem("fornecedores");
+    if(loading){
 
-        alert("Sistema resetado com sucesso!");
+        loading.remove();
 
-        location.reload();
     }
+
 }
+
+//==============================
+// LOADING DO IFRAME
+//==============================
+
+frame.addEventListener("load",()=>{
+
+    esconderLoading();
+
+});
+
+menuLinks.forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        mostrarLoading();
+
+    });
+
+});
+
+//==============================
+// TOAST
+//==============================
+
+function mostrarToast(mensagem,tipo="sucesso"){
+
+    const toast=document.createElement("div");
+
+    toast.className="toast";
+
+    if(tipo==="erro"){
+
+        toast.classList.add("erro");
+
+    }
+
+    if(tipo==="aviso"){
+
+        toast.classList.add("aviso");
+
+    }
+
+    toast.innerHTML=`
+        <i class="fa-solid fa-circle-check"></i>
+        <span>${mensagem}</span>
+    `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(()=>{
+
+        toast.classList.add("show");
+
+    },100);
+
+    setTimeout(()=>{
+
+        toast.classList.remove("show");
+
+        setTimeout(()=>{
+
+            toast.remove();
+
+        },400);
+
+    },3000);
+
+}
+
+//==============================
+// EXEMPLO
+//==============================
+
+// mostrarToast("Bem-vindo ao SMART BURGUER ERP!");
+// mostrarToast("Produto salvo com sucesso!");
+// mostrarToast("Erro ao salvar!","erro");
+// mostrarToast("Estoque baixo!","aviso");
