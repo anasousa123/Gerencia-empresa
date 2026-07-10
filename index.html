@@ -8,14 +8,18 @@
 
     <title>SMART BURGUER ERP</title>
 
+    <meta name="description" content="Sistema Inteligente de Gestão Empresarial">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -24,17 +28,23 @@
 
 <body>
 
-    <!-- ========================= -->
-    <!-- MENU LATERAL -->
-    <!-- ========================= -->
+    <!-- =======================
+         SIDEBAR
+    ======================== -->
 
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
 
         <div class="logo">
 
             <i class="fa-solid fa-burger"></i>
 
-            <h2>SMART ERP</h2>
+            <div>
+
+                <h2>SMART ERP</h2>
+
+                <span>Business System</span>
+
+            </div>
 
         </div>
 
@@ -43,66 +53,111 @@
             <ul>
 
                 <li class="active">
+
                     <a href="#">
+
                         <i class="fa-solid fa-chart-line"></i>
+
                         <span>Dashboard</span>
+
                     </a>
+
                 </li>
 
                 <li>
+
                     <a href="#">
+
                         <i class="fa-solid fa-box"></i>
+
                         <span>Produtos</span>
+
                     </a>
+
                 </li>
 
                 <li>
+
                     <a href="#">
+
                         <i class="fa-solid fa-cart-shopping"></i>
+
                         <span>Pedidos</span>
+
                     </a>
+
                 </li>
 
                 <li>
+
                     <a href="#">
+
                         <i class="fa-solid fa-users"></i>
+
                         <span>Clientes</span>
+
                     </a>
+
                 </li>
 
                 <li>
+
                     <a href="#">
+
                         <i class="fa-solid fa-warehouse"></i>
+
                         <span>Estoque</span>
+
                     </a>
+
                 </li>
 
                 <li>
+
                     <a href="#">
-                        <i class="fa-solid fa-sack-dollar"></i>
+
+                        <i class="fa-solid fa-money-bill-trend-up"></i>
+
                         <span>Financeiro</span>
+
                     </a>
+
                 </li>
 
                 <li>
+
                     <a href="#">
+
                         <i class="fa-solid fa-truck"></i>
+
                         <span>Fornecedores</span>
+
                     </a>
+
                 </li>
 
                 <li>
+
                     <a href="#">
+
                         <i class="fa-solid fa-chart-pie"></i>
+
                         <span>Relatórios</span>
+
                     </a>
+
                 </li>
 
                 <li>
+
                     <a href="#">
+
                         <i class="fa-solid fa-gear"></i>
+
                         <span>Configurações</span>
+
                     </a>
+
                 </li>
 
             </ul>
@@ -111,9 +166,9 @@
 
     </aside>
 
-    <!-- ========================= -->
-    <!-- CONTEÚDO -->
-    <!-- ========================= -->
+    <!-- =======================
+         CONTEÚDO
+    ======================== -->
 
     <main class="main">
 
@@ -121,31 +176,49 @@
 
         <header class="topbar">
 
-            <button id="btnMenu">
+            <div class="top-left">
 
-                <i class="fa-solid fa-bars"></i>
+                <button id="btnMenu">
 
-            </button>
+                    <i class="fa-solid fa-bars"></i>
 
-            <div class="search">
+                </button>
 
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <div class="search">
 
-                <input type="text" placeholder="Pesquisar...">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="text" placeholder="Pesquisar produtos, clientes, pedidos...">
+
+                </div>
 
             </div>
 
-            <div class="user">
+            <div class="top-right">
 
-                <i class="fa-regular fa-bell notification"></i>
+                <button class="icon-btn">
 
-                <img src="https://i.pravatar.cc/100" alt="Usuário">
+                    <i class="fa-regular fa-bell"></i>
 
-                <div>
+                </button>
 
-                    <h4>Ana Sousa</h4>
+                <button class="icon-btn">
 
-                    <small>Administrador</small>
+                    <i class="fa-regular fa-envelope"></i>
+
+                </button>
+
+                <div class="user">
+
+                    <img src="assets/avatar.png" alt="Administrador">
+
+                    <div>
+
+                        <h4>Ana Sousa</h4>
+
+                        <span>Administrador</span>
+
+                    </div>
 
                 </div>
 
@@ -157,51 +230,99 @@
 
         <section class="content">
 
-            <h1>Dashboard</h1>
+            <div class="page-title">
 
-            <p>Bem-vinda ao SMART BURGUER ERP.</p>
+                <div>
+
+                    <h1>Dashboard</h1>
+
+                    <p>Bem-vinda ao SMART BURGUER ERP</p>
+
+                </div>
+
+                <button class="btn-primary">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Novo Pedido
+
+                </button>
+
+            </div>
+
+            <!-- CARDS -->
 
             <div class="cards">
 
                 <div class="card">
 
-                    <h3>Pedidos Hoje</h3>
+                    <div>
 
-                    <h2>0</h2>
+                        <h3>Pedidos Hoje</h3>
 
-                </div>
+                        <h2>0</h2>
 
-                <div class="card">
+                    </div>
 
-                    <h3>Clientes</h3>
-
-                    <h2>0</h2>
+                    <i class="fa-solid fa-cart-shopping"></i>
 
                 </div>
 
                 <div class="card">
 
-                    <h3>Produtos</h3>
+                    <div>
 
-                    <h2>0</h2>
+                        <h3>Faturamento</h3>
+
+                        <h2>R$ 0,00</h2>
+
+                    </div>
+
+                    <i class="fa-solid fa-sack-dollar"></i>
 
                 </div>
 
                 <div class="card">
 
-                    <h3>Faturamento</h3>
+                    <div>
 
-                    <h2>R$ 0,00</h2>
+                        <h3>Clientes</h3>
+
+                        <h2>0</h2>
+
+                    </div>
+
+                    <i class="fa-solid fa-users"></i>
 
                 </div>
+
+                <div class="card">
+
+                    <div>
+
+                        <h3>Produtos</h3>
+
+                        <h2>0</h2>
+
+                    </div>
+
+                    <i class="fa-solid fa-box"></i>
+
+                </div>
+
+            </div>
+
+            <!-- ÁREA DOS MÓDULOS -->
+
+            <div id="conteudoSistema">
+
+                <!-- Dashboard será carregado aqui nas próximas etapas -->
 
             </div>
 
         </section>
 
     </main>
-
-    <!-- JavaScript -->
 
     <script src="js/app.js"></script>
 
