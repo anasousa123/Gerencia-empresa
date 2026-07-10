@@ -1,0 +1,730 @@
+/*=========================================
+DASHBOARD
+=========================================*/
+
+.dashboard{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+/*=========================================
+TÍTULO
+=========================================*/
+
+.titulo-pagina{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.titulo-pagina h1{
+
+    font-size:32px;
+
+    color:#1f2937;
+
+}
+
+.titulo-pagina p{
+
+    color:#6b7280;
+
+    margin-top:5px;
+
+}
+
+/*=========================================
+CARDS
+=========================================*/
+
+.cards-dashboard{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+    border-left:6px solid #ff9800;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.card small{
+
+    color:#6b7280;
+
+    font-size:14px;
+
+}
+
+.card h2{
+
+    font-size:32px;
+
+    margin:10px 0;
+
+}
+
+.card span{
+
+    color:#22c55e;
+
+    font-size:14px;
+
+}
+
+.card i{
+
+    font-size:45px;
+
+    color:#ff9800;
+
+}
+
+/*=========================================
+GRÁFICOS
+=========================================*/
+
+.graficos{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+}
+
+.grafico-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.grafico-card canvas{
+
+    margin-top:20px;
+
+    width:100% !important;
+
+    height:320px !important;
+
+}
+
+.cabecalho{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.cabecalho h2{
+
+    font-size:20px;
+
+}
+/*=========================================
+GRID DOS PAINÉIS
+=========================================*/
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+    margin-top:10px;
+
+}
+
+/*=========================================
+PAINÉIS
+=========================================*/
+
+.painel{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.painel-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.painel-header h2{
+
+    font-size:20px;
+
+    color:#1f2937;
+
+}
+
+/*=========================================
+TABELAS
+=========================================*/
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#f8fafc;
+
+}
+
+thead th{
+
+    text-align:left;
+
+    padding:15px;
+
+    font-size:14px;
+
+    color:#6b7280;
+
+    border-bottom:2px solid #ececec;
+
+}
+
+tbody td{
+
+    padding:16px;
+
+    border-bottom:1px solid #ececec;
+
+    font-size:14px;
+
+}
+
+tbody tr{
+
+    transition:.3s;
+
+}
+
+tbody tr:hover{
+
+    background:#f9fafb;
+
+}
+
+/*=========================================
+BADGES
+=========================================*/
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    color:#fff;
+
+}
+
+.badge-success{
+
+    background:#22c55e;
+
+}
+
+.badge-warning{
+
+    background:#f59e0b;
+
+}
+
+.badge-danger{
+
+    background:#ef4444;
+
+}
+
+.badge-info{
+
+    background:#3b82f6;
+
+}
+
+/*=========================================
+LISTA ESTOQUE
+=========================================*/
+
+.lista{
+
+    list-style:none;
+
+}
+
+.lista li{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 0;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.lista li:last-child{
+
+    border:none;
+
+}
+
+.lista span{
+
+    color:#374151;
+
+}
+
+.lista strong{
+
+    color:#ef4444;
+
+}
+
+/*=========================================
+ATIVIDADES
+=========================================*/
+
+.atividades{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.atividade{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px;
+
+    background:#f8fafc;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.atividade:hover{
+
+    background:#eef2ff;
+
+    transform:translateX(5px);
+
+}
+
+.atividade i{
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:#ff9800;
+
+    color:#fff;
+
+    font-size:18px;
+
+}
+
+.atividade strong{
+
+    display:block;
+
+    font-size:15px;
+
+    color:#1f2937;
+
+}
+
+.atividade small{
+
+    color:#6b7280;
+
+    font-size:13px;
+
+}
+/*=========================================
+BARRAS DE PROGRESSO
+=========================================*/
+
+.progresso{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    margin-top:20px;
+
+}
+
+.progresso-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.progresso-topo{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:14px;
+
+    color:#374151;
+
+}
+
+.progresso-barra{
+
+    width:100%;
+
+    height:10px;
+
+    background:#e5e7eb;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.progresso-preenchimento{
+
+    height:100%;
+
+    background:linear-gradient(90deg,#ff9800,#ffb74d);
+
+    border-radius:20px;
+
+    transition:width .6s ease;
+
+}
+
+/*=========================================
+BOTÕES DOS PAINÉIS
+=========================================*/
+
+.painel button{
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.painel button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/*=========================================
+EFEITO NOS CARDS
+=========================================*/
+
+.card{
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+    );
+
+    transition:.8s;
+
+}
+
+.card:hover::before{
+
+    left:100%;
+
+}
+
+/*=========================================
+ANIMAÇÃO
+=========================================*/
+
+.fade-in{
+
+    animation:fadeIn .6s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================
+SCROLL PERSONALIZADO
+=========================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f3f4f6;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#ff9800;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#f57c00;
+
+}
+
+/*=========================================
+RESPONSIVIDADE
+=========================================*/
+
+@media(max-width:1200px){
+
+    .cards-dashboard{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .graficos{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .dashboard-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .cards-dashboard{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .titulo-pagina{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+    .grafico-card{
+
+        overflow-x:auto;
+
+    }
+
+    table{
+
+        min-width:650px;
+
+    }
+
+    .painel{
+
+        overflow-x:auto;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .dashboard{
+
+        gap:20px;
+
+    }
+
+    .card{
+
+        padding:18px;
+
+    }
+
+    .card h2{
+
+        font-size:24px;
+
+    }
+
+    .titulo-pagina h1{
+
+        font-size:24px;
+
+    }
+
+    .painel{
+
+        padding:18px;
+
+    }
+
+}

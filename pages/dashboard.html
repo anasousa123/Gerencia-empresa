@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Smart ERP</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <section class="dashboard fade">
+
+        <div class="titulo-pagina">
+
+            <div>
+
+                <h1>Dashboard</h1>
+
+                <p>Painel geral do sistema</p>
+
+            </div>
+
+            <button class="btn-primary">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Novo Pedido
+
+            </button>
+
+        </div>
+
+        <!-- CARDS -->
+
+        <section class="cards-dashboard">
+
+            <div class="card">
+
+                <div>
+
+                    <small>Pedidos Hoje</small>
+
+                    <h2 id="pedidosHoje">0</h2>
+
+                    <span>+12% hoje</span>
+
+                </div>
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+            </div>
+
+            <div class="card">
+
+                <div>
+
+                    <small>Faturamento</small>
+
+                    <h2 id="faturamentoDia">R$ 0,00</h2>
+
+                    <span>Hoje</span>
+
+                </div>
+
+                <i class="fa-solid fa-sack-dollar"></i>
+
+            </div>
+
+            <div class="card">
+
+                <div>
+
+                    <small>Clientes</small>
+
+                    <h2 id="clientesTotal">0</h2>
+
+                    <span>Cadastrados</span>
+
+                </div>
+
+                <i class="fa-solid fa-users"></i>
+
+            </div>
+
+            <div class="card">
+
+                <div>
+
+                    <small>Produtos</small>
+
+                    <h2 id="produtosTotal">0</h2>
+
+                    <span>No sistema</span>
+
+                </div>
+
+                <i class="fa-solid fa-box"></i>
+
+            </div>
+
+        </section>
+
+        <!-- GRÁFICOS -->
+
+        <section class="graficos">
+
+            <div class="grafico-card">
+
+                <div class="cabecalho">
+
+                    <h2>Vendas do Mês</h2>
+
+                </div>
+
+                <canvas id="graficoVendas"></canvas>
+
+            </div>
+
+            <div class="grafico-card">
+
+                <div class="cabecalho">
+
+                    <h2>Produtos por Categoria</h2>
+
+                </div>
+
+                <canvas id="graficoCategorias"></canvas>
+
+            </div>
+
+        </section>
+                <!-- TABELAS -->
+
+        <section class="dashboard-grid">
+
+            <!-- Últimos Pedidos -->
+
+            <div class="painel">
+
+                <div class="painel-header">
+
+                    <h2>Últimos Pedidos</h2>
+
+                    <button class="btn-primary">
+                        Ver Todos
+                    </button>
+
+                </div>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Pedido</th>
+
+                            <th>Cliente</th>
+
+                            <th>Total</th>
+
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tabelaPedidos">
+
+                        <tr>
+
+                            <td>#0001</td>
+
+                            <td>João Silva</td>
+
+                            <td>R$ 75,90</td>
+
+                            <td>
+                                <span class="badge badge-success">
+                                    Finalizado
+                                </span>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>#0002</td>
+
+                            <td>Maria Souza</td>
+
+                            <td>R$ 42,00</td>
+
+                            <td>
+                                <span class="badge badge-warning">
+                                    Preparando
+                                </span>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>#0003</td>
+
+                            <td>Carlos Lima</td>
+
+                            <td>R$ 98,40</td>
+
+                            <td>
+                                <span class="badge badge-danger">
+                                    Cancelado
+                                </span>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- Estoque -->
+
+            <div class="painel">
+
+                <div class="painel-header">
+
+                    <h2>Estoque Baixo</h2>
+
+                </div>
+
+                <ul class="lista">
+
+                    <li>
+
+                        <span>Pão Brioche</span>
+
+                        <strong>8 unidades</strong>
+
+                    </li>
+
+                    <li>
+
+                        <span>Hambúrguer Bovino</span>
+
+                        <strong>5 unidades</strong>
+
+                    </li>
+
+                    <li>
+
+                        <span>Queijo Cheddar</span>
+
+                        <strong>9 unidades</strong>
+
+                    </li>
+
+                    <li>
+
+                        <span>Refrigerante Lata</span>
+
+                        <strong>12 unidades</strong>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- CLIENTES -->
+
+        <section class="dashboard-grid">
+
+            <div class="painel">
+
+                <div class="painel-header">
+
+                    <h2>Clientes Recentes</h2>
+
+                </div>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Nome</th>
+
+                            <th>Telefone</th>
+
+                            <th>Cidade</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>Ana Paula</td>
+
+                            <td>(11)99999-1111</td>
+
+                            <td>São Paulo</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Lucas Henrique</td>
+
+                            <td>(11)98888-5555</td>
+
+                            <td>Guarulhos</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Mariana Costa</td>
+
+                            <td>(11)97777-2222</td>
+
+                            <td>Osasco</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- Atividades -->
+
+            <div class="painel">
+
+                <div class="painel-header">
+
+                    <h2>Atividades Recentes</h2>
+
+                </div>
+
+                <div class="atividades">
+
+                    <div class="atividade">
+
+                        <i class="fa-solid fa-box"></i>
+
+                        <div>
+
+                            <strong>Novo produto cadastrado</strong>
+
+                            <small>Agora mesmo</small>
+
+                        </div>
+
+                    </div>
+
+                    <div class="atividade">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <div>
+
+                            <strong>Novo cliente cadastrado</strong>
+
+                            <small>10 minutos atrás</small>
+
+                        </div>
+
+                    </div>
+
+                    <div class="atividade">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        <div>
+
+                            <strong>Pedido #0003 finalizado</strong>
+
+                            <small>25 minutos atrás</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+    <!-- Chart.js -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="../js/dashboard.js"></script>
+
+</body>
+
+</html>
