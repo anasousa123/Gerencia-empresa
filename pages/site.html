@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nexus ERP | Site</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="../css/style.css">
+
+<link rel="stylesheet" href="../css/site.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<i class="fa-solid fa-burger"></i>
+
+<h2>Nexus ERP</h2>
+
+</div>
+
+<ul>
+
+<li onclick="location.href='dashboard.html'">
+
+<i class="fa-solid fa-house"></i>
+
+<span>Dashboard</span>
+
+</li>
+
+<li onclick="location.href='produtos.html'">
+
+<i class="fa-solid fa-box"></i>
+
+<span>Produtos</span>
+
+</li>
+
+<li onclick="location.href='pedidos.html'">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+<span>Pedidos</span>
+
+</li>
+
+<li onclick="location.href='estoque.html'">
+
+<i class="fa-solid fa-layer-group"></i>
+
+<span>Estoque</span>
+
+</li>
+
+<li class="active">
+
+<i class="fa-solid fa-globe"></i>
+
+<span>Site</span>
+
+</li>
+
+</ul>
+
+</aside>
+
+<main class="content">
+
+<header>
+
+<div>
+
+<h1>Configurações do Site</h1>
+
+<p>As alterações aparecerão automaticamente no site da hamburgueria.</p>
+
+</div>
+
+</header>
+<section class="configuracoes">
+
+<form id="formSite">
+
+<div class="grupo">
+
+<label>Nome da Empresa</label>
+
+<input
+type="text"
+id="empresa">
+
+</div>
+
+<div class="grupo">
+
+<label>Slogan</label>
+
+<input
+type="text"
+id="slogan">
+
+</div>
+
+<div class="grupo">
+
+<label>WhatsApp</label>
+
+<input
+type="text"
+id="whatsapp">
+
+</div>
+
+<div class="grupo">
+
+<label>Telefone</label>
+
+<input
+type="text"
+id="telefone">
+
+</div>
+
+<div class="grupo">
+
+<label>Instagram</label>
+
+<input
+type="text"
+id="instagram">
+
+</div>
+
+<div class="grupo">
+
+<label>Facebook</label>
+
+<input
+type="text"
+id="facebook">
+
+</div>
+
+<div class="grupo">
+
+<label>Endereço</label>
+
+<input
+type="text"
+id="endereco">
+
+</div>
+
+<div class="grupo">
+
+<label>Horário</label>
+
+<input
+type="text"
+id="horario">
+
+</div>
+
+<div class="grupo">
+
+<label>Taxa de Entrega</label>
+
+<input
+type="number"
+id="taxa">
+
+</div>
+
+<div class="grupo">
+
+<label>PIX</label>
+
+<input
+type="text"
+id="pix">
+
+</div>
+
+<div class="grupo">
+
+<label>Cor Principal</label>
+
+<input
+type="color"
+id="cor"
+value="#ff9800">
+
+</div>
+
+<div class="grupo">
+
+<label>Logo</label>
+
+<input
+type="file"
+id="logo">
+
+</div>
+
+<div class="grupo">
+
+<label>Banner</label>
+
+<input
+type="file"
+id="banner">
+
+</div>
+
+<button class="btn-primary">
+
+Salvar Informações
+
+</button>
+
+</form>
+
+</section>
+
+<script src="../js/site.js"></script>
+
+</main>
+
+</div>
+
+</body>
+
+</html>
