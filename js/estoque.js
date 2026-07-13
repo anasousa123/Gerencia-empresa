@@ -1,7 +1,18 @@
 //==================================================
 // NEXUS ERP
-// MÓDULO ESTOQUE
+// ESTOQUE
 //==================================================
+
+import { db } from "./firebase.js";
+
+import {
+    collection,
+    addDoc,
+    getDocs,
+    deleteDoc,
+    doc,
+    updateDoc
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 //==============================
 // ELEMENTOS
@@ -12,7 +23,9 @@ const btnMovimento = document.getElementById("btnMovimento");
 const fecharModal = document.getElementById("fecharModal");
 const cancelar = document.querySelector(".cancelar");
 const form = document.getElementById("formMovimento");
+
 const listaMovimentos = document.getElementById("listaMovimentos");
+
 const pesquisar = document.getElementById("pesquisar");
 
 //==============================
@@ -24,185 +37,70 @@ const tipo = document.getElementById("tipo");
 const quantidade = document.getElementById("quantidade");
 const responsavel = document.getElementById("responsavel");
 const observacao = document.getElementById("observacao");
-
-//==============================
-// DADOS
-//==============================
-
-let movimentacoes = JSON.parse(localStorage.getItem("movimentacoes")) || [];
-let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
-
-//==============================
-// ABRIR MODAL
-//==============================
-
-btnMovimento.addEventListener("click", () => {
-
-    modal.classList.add("ativo");
-
-});
-
-//==============================
-// FECHAR MODAL
-//==============================
-
-function fechar() {
-
-    modal.classList.remove("ativo");
-
-    form.reset();
-
-}
-
-fecharModal.addEventListener("click", fechar);
-
-cancelar.addEventListener("click", fechar);
-
-//==============================
-// SALVAR MOVIMENTAÇÃO
-//==============================
-
-form.addEventListener("submit", function (e) {
+form.addEventListener("submit", async (e)=>{
 
     e.preventDefault();
 
-    const movimento = {
+    await addDoc(collection(db,"estoque"),{
 
-        id: Date.now(),
+        data:new Date(),
 
-        data: new Date().toLocaleDateString("pt-BR"),
+        produto:produto.value,
 
-        produto: produto.value,
+        tipo:tipo.value,
 
-        tipo: tipo.value,
+        quantidade:Number(quantidade.value),
 
-        quantidade: Number(quantidade.value),
+        responsavel:responsavel.value,
 
-        responsavel: responsavel.value,
+        observacao:observacao.value
 
-        observacao: observacao.value
+    });
 
-    };
-
-    movimentacoes.push(movimento);
-
-    atualizarEstoque(movimento);
-
-    salvar();
-
-    atualizarTabela();
-
-    atualizarCards();
+    alert("Movimentação salva!");
 
     fechar();
 
+    carregarMovimentos();
+
 });
-//==================================================
-// SALVAR LOCALSTORAGE
-//==================================================
+async function carregarMovimentos(){
 
-function salvar() {
+    listaMovimentos.innerHTML="";
 
-    localStorage.setItem("movimentacoes", JSON.stringify(movimentacoes));
-    localStorage.setItem("produtos", JSON.stringify(produtos));
+    const snapshot =
+    await getDocs(collection(db,"estoque"));
 
-}
+    snapshot.forEach((documento)=>{
 
-//==================================================
-// ATUALIZAR ESTOQUE
-//==================================================
+        const mov=documento.data();
 
-function atualizarEstoque(movimento) {
-
-    const item = produtos.find(p => p.nome === movimento.produto);
-
-    if (!item) return;
-
-    if (movimento.tipo === "Entrada") {
-
-        item.estoque =
-            Number(item.estoque) + movimento.quantidade;
-
-    } else {
-
-        item.estoque =
-            Number(item.estoque) - movimento.quantidade;
-
-        if (item.estoque < 0) {
-
-            item.estoque = 0;
-
-        }
-
-    }
-
-}
-
-//==================================================
-// ATUALIZAR TABELA
-//==================================================
-
-function atualizarTabela(lista = movimentacoes) {
-
-    listaMovimentos.innerHTML = "";
-
-    if (lista.length === 0) {
-
-        listaMovimentos.innerHTML = `
+        listaMovimentos.innerHTML+=`
 
         <tr>
 
-            <td colspan="7" style="text-align:center;padding:30px;">
+        <td>${new Date(mov.data.seconds*1000).toLocaleDateString()}</td>
 
-                Nenhuma movimentação cadastrada.
+        <td>${mov.produto}</td>
 
-            </td>
+        <td>${mov.tipo}</td>
 
-        </tr>
+        <td>${mov.quantidade}</td>
 
-        `;
+        <td>${mov.responsavel}</td>
 
-        return;
+        <td>${mov.observacao}</td>
 
-    }
+        <td>
 
-    lista.forEach(mov => {
+        <button
+        onclick="excluir('${documento.id}')">
 
-        listaMovimentos.innerHTML += `
+        Excluir
 
-        <tr>
+        </button>
 
-            <td>${mov.data}</td>
-
-            <td>${mov.produto}</td>
-
-            <td class="${mov.tipo === "Entrada" ? "entrada" : "saida"}">
-
-                ${mov.tipo}
-
-            </td>
-
-            <td>${mov.quantidade}</td>
-
-            <td>${mov.responsavel}</td>
-
-            <td>${mov.observacao}</td>
-
-            <td>
-
-                <div class="acoes">
-
-                    <button
-                        class="btn-excluir"
-                        onclick="excluirMovimento(${mov.id})">
-
-                        <i class="fa-solid fa-trash"></i>
-
-                    </button>
-
-                </div>
-
-            </td>
+        </td>
 
         </tr>
 
@@ -211,74 +109,112 @@ function atualizarTabela(lista = movimentacoes) {
     });
 
 }
+window.excluir = async(id)=>{
 
-//==================================================
-// EXCLUIR MOVIMENTAÇÃO
-//==================================================
+    if(confirm("Excluir movimentação?")){
 
-function excluirMovimento(id) {
+        await deleteDoc(doc(db,"estoque",id));
 
-    if (confirm("Deseja excluir esta movimentação?")) {
+        carregarMovimentos();
 
-        movimentacoes =
-            movimentacoes.filter(m => m.id !== id);
+    }
 
-        salvar();
+}
+btnMovimento.onclick=()=>{
 
-        atualizarTabela();
+    modal.classList.add("ativo");
 
-        atualizarCards();
+}
+
+function fechar(){
+
+    modal.classList.remove("ativo");
+
+    form.reset();
+
+}
+
+fecharModal.onclick=fechar;
+
+cancelar.onclick=fechar;
+
+carregarMovimentos();
+import {
+collection,
+getDocs,
+doc,
+updateDoc,
+getDoc,
+addDoc
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+async function carregarProdutos(){
+
+    produto.innerHTML =
+    '<option value="">Selecione um produto</option>';
+
+    const snapshot =
+    await getDocs(collection(db,"produtos"));
+
+    snapshot.forEach(documento=>{
+
+        const p=documento.data();
+
+        produto.innerHTML += `
+
+        <option value="${documento.id}">
+
+            ${p.nome}
+
+        </option>
+
+        `;
+
+    });
+
+}
+produto.addEventListener("change", async()=>{
+
+    const id=produto.value;
+
+    if(!id) return;
+
+    const documento =
+    await getDoc(doc(db,"produtos",id));
+
+    const dados=documento.data();
+
+    document.getElementById("estoqueAtual").innerHTML=
+
+    "Estoque Atual: "+dados.estoque;
+
+});
+const documento =
+await getDoc(doc(db,"produtos",produto.value));
+
+const dados=documento.data();
+
+let novoEstoque=dados.estoque;
+
+if(tipo.value=="Entrada"){
+
+    novoEstoque += Number(quantidade.value);
+
+}else{
+
+    novoEstoque -= Number(quantidade.value);
+
+    if(novoEstoque<0){
+
+        alert("Estoque insuficiente.");
+
+        return;
 
     }
 
 }
 
-//==================================================
-// PESQUISA
-//==================================================
+await updateDoc(doc(db,"produtos",produto.value),{
 
-pesquisar.addEventListener("keyup", () => {
-
-    const texto = pesquisar.value.toLowerCase();
-
-    const resultado = movimentacoes.filter(m =>
-
-        m.produto.toLowerCase().includes(texto) ||
-
-        m.responsavel.toLowerCase().includes(texto)
-
-    );
-
-    atualizarTabela(resultado);
+    estoque:novoEstoque
 
 });
-
-//==================================================
-// CARDS
-//==================================================
-
-function atualizarCards() {
-
-    document.getElementById("totalProdutos").innerHTML =
-        produtos.length;
-
-    document.getElementById("totalEntradas").innerHTML =
-        movimentacoes.filter(m => m.tipo === "Entrada").length;
-
-    document.getElementById("totalSaidas").innerHTML =
-        movimentacoes.filter(m => m.tipo === "Saída").length;
-
-    document.getElementById("estoqueBaixo").innerHTML =
-        produtos.filter(p => Number(p.estoque) <= 10).length;
-
-}
-
-//==================================================
-// INICIAR
-//==================================================
-
-atualizarTabela();
-
-atualizarCards();
-
-console.log("Módulo de Estoque carregado com sucesso.");

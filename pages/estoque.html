@@ -15,8 +15,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="stylesheet" href="../css/style.css">
 
@@ -28,342 +27,318 @@
 
 <div class="dashboard">
 
-<!-- SIDEBAR -->
+    <!-- MENU LATERAL -->
 
-<aside class="sidebar">
+    <aside class="sidebar">
 
-<div class="logo">
+        <div class="logo">
 
-<i class="fa-solid fa-chart-line"></i>
+            <i class="fa-solid fa-burger"></i>
 
-<h2>Nexus ERP</h2>
+            <h2>Nexus ERP</h2>
+
+        </div>
+
+        <ul>
+
+            <li onclick="location.href='dashboard.html'">
+
+                <i class="fa-solid fa-house"></i>
+
+                <span>Dashboard</span>
+
+            </li>
+
+            <li onclick="location.href='produtos.html'">
+
+                <i class="fa-solid fa-box"></i>
+
+                <span>Produtos</span>
+
+            </li>
+
+            <li class="active">
+
+                <i class="fa-solid fa-layer-group"></i>
+
+                <span>Estoque</span>
+
+            </li>
+
+            <li onclick="location.href='pedidos.html'">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span>Pedidos</span>
+
+            </li>
+
+            <li onclick="location.href='site.html'">
+
+                <i class="fa-solid fa-globe"></i>
+
+                <span>Site</span>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+
+    <main class="content">
+
+        <header>
+
+            <div>
+
+                <h1>Controle de Estoque</h1>
+
+                <p>Gerencie entradas e saídas de produtos.</p>
+
+            </div>
+
+            <button class="btn-primary" id="btnMovimento">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Nova Movimentação
+
+            </button>
+
+        </header>
+
+        <!-- CARDS -->
+
+        <section class="cards">
+
+            <div class="card">
+
+                <i class="fa-solid fa-box"></i>
+
+                <h3>Total de Produtos</h3>
+
+                <h2 id="totalProdutos">0</h2>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-arrow-down"></i>
+
+                <h3>Entradas</h3>
+
+                <h2 id="totalEntradas">0</h2>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-arrow-up"></i>
+
+                <h3>Saídas</h3>
+
+                <h2 id="totalSaidas">0</h2>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <h3>Estoque Baixo</h3>
+
+                <h2 id="estoqueBaixo">0</h2>
+
+            </div>
+
+        </section>
+
+        <!-- PESQUISA -->
+
+        <section class="top-bar">
+
+            <div class="pesquisa">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="pesquisar"
+                    placeholder="Pesquisar movimentação">
+
+            </div>
+
+        </section>
+
+        <!-- TABELA -->
+
+        <section class="tabela">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Data</th>
+
+                        <th>Produto</th>
+
+                        <th>Tipo</th>
+
+                        <th>Quantidade</th>
+
+                        <th>Responsável</th>
+
+                        <th>Observação</th>
+
+                        <th>Ações</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="listaMovimentos">
+
+                </tbody>
+
+            </table>
+
+        </section>
+                <!-- ===========================
+        MODAL NOVA MOVIMENTAÇÃO
+        ============================ -->
+
+        <div class="modal" id="modalMovimento">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h2>Nova Movimentação</h2>
+
+                    <button id="fecharModal">
+
+                        <i class="fa-solid fa-xmark"></i>
+
+                    </button>
+
+                </div>
+
+                <form id="formMovimento">
+
+                    <div class="grupo">
+
+                        <label>Produto</label>
+
+                        <select id="produto" required>
+
+                            <option value="">Selecione um produto</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="grupo">
+
+                        <label>Estoque Atual</label>
+
+                        <input
+                            type="text"
+                            id="estoqueAtual"
+                            readonly
+                            value="0">
+
+                    </div>
+
+                    <div class="linha">
+
+                        <div class="grupo">
+
+                            <label>Tipo de Movimentação</label>
+
+                            <select id="tipo" required>
+
+                                <option value="Entrada">Entrada</option>
+
+                                <option value="Saída">Saída</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="grupo">
+
+                            <label>Quantidade</label>
+
+                            <input
+                                type="number"
+                                id="quantidade"
+                                min="1"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <div class="grupo">
+
+                        <label>Responsável</label>
+
+                        <input
+                            type="text"
+                            id="responsavel"
+                            placeholder="Nome do responsável"
+                            required>
+
+                    </div>
+
+                    <div class="grupo">
+
+                        <label>Observação</label>
+
+                        <textarea
+                            id="observacao"
+                            rows="4"
+                            placeholder="Ex.: Compra de fornecedor ou venda de balcão"></textarea>
+
+                    </div>
+
+                    <div class="botoes">
+
+                        <button
+                            type="button"
+                            class="cancelar">
+
+                            Cancelar
+
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="salvar">
+
+                            <i class="fa-solid fa-floppy-disk"></i>
+
+                            Salvar Movimentação
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
 
 </div>
 
-<ul>
-
-<li onclick="location.href='dashboard.html'">
-
-<i class="fa-solid fa-house"></i>
-
-<span>Dashboard</span>
-
-</li>
-
-<li onclick="location.href='produtos.html'">
-
-<i class="fa-solid fa-box"></i>
-
-<span>Produtos</span>
-
-</li>
-
-<li class="active">
-
-<i class="fa-solid fa-layer-group"></i>
-
-<span>Estoque</span>
-
-</li>
-
-<li>
-
-<i class="fa-solid fa-cart-shopping"></i>
-
-<span>Pedidos</span>
-
-</li>
-
-<li>
-
-<i class="fa-solid fa-users"></i>
-
-<span>Clientes</span>
-
-</li>
-
-<li>
-
-<i class="fa-solid fa-money-bill"></i>
-
-<span>Financeiro</span>
-
-</li>
-
-<li>
-
-<i class="fa-solid fa-chart-column"></i>
-
-<span>Relatórios</span>
-
-</li>
-
-<li>
-
-<i class="fa-solid fa-gear"></i>
-
-<span>Configurações</span>
-
-</li>
-
-</ul>
-
-</aside>
-
-<!-- CONTEÚDO -->
-
-<main class="content">
-
-<header>
-
-<div>
-
-<h1>Controle de Estoque</h1>
-
-<p>Gerencie entradas e saídas dos produtos.</p>
-
-</div>
-
-<button class="btn-primary" id="btnMovimento">
-
-<i class="fa-solid fa-plus"></i>
-
-Nova Movimentação
-
-</button>
-
-</header>
-<!-- =======================
-CARDS
-======================== -->
-
-<section class="cards">
-
-    <div class="card">
-
-        <i class="fa-solid fa-box"></i>
-
-        <h3>Total de Produtos</h3>
-
-        <h2 id="totalProdutos">0</h2>
-
-    </div>
-
-    <div class="card">
-
-        <i class="fa-solid fa-arrow-down"></i>
-
-        <h3>Entradas</h3>
-
-        <h2 id="totalEntradas">0</h2>
-
-    </div>
-
-    <div class="card">
-
-        <i class="fa-solid fa-arrow-up"></i>
-
-        <h3>Saídas</h3>
-
-        <h2 id="totalSaidas">0</h2>
-
-    </div>
-
-    <div class="card">
-
-        <i class="fa-solid fa-triangle-exclamation"></i>
-
-        <h3>Estoque Baixo</h3>
-
-        <h2 id="estoqueBaixo">0</h2>
-
-    </div>
-
-</section>
-
-<!-- =======================
-FILTROS
-======================== -->
-
-<section class="top-bar">
-
-    <div class="pesquisa">
-
-        <i class="fa-solid fa-magnifying-glass"></i>
-
-        <input
-            type="text"
-            id="pesquisar"
-            placeholder="Pesquisar produto...">
-
-    </div>
-
-    <select id="filtroTipo">
-
-        <option value="">Todas Movimentações</option>
-
-        <option value="Entrada">Entrada</option>
-
-        <option value="Saída">Saída</option>
-
-    </select>
-
-</section>
-
-<!-- =======================
-TABELA
-======================== -->
-
-<section class="tabela">
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Data</th>
-
-<th>Produto</th>
-
-<th>Tipo</th>
-
-<th>Quantidade</th>
-
-<th>Responsável</th>
-
-<th>Observação</th>
-
-<th>Ações</th>
-
-</tr>
-
-</thead>
-
-<tbody id="listaMovimentos">
-
-<!-- JavaScript -->
-
-</tbody>
-
-</table>
-
-</section>
-
-</main>
-
-</div>
-
-<!-- =======================
-MODAL
-======================== -->
-
-<div class="modal" id="modalMovimento">
-
-<div class="modal-content">
-
-<div class="modal-header">
-
-<h2>Nova Movimentação</h2>
-
-<button id="fecharModal">
-
-<i class="fa-solid fa-xmark"></i>
-
-</button>
-
-</div>
-
-<form id="formMovimento">
-
-<div class="grupo">
-
-<label>Produto</label>
-
-<input
-type="text"
-id="produto"
-required>
-
-</div>
-
-<div class="linha">
-
-<div class="grupo">
-
-<label>Tipo</label>
-
-<select id="tipo">
-
-<option>Entrada</option>
-
-<option>Saída</option>
-
-</select>
-
-</div>
-
-<div class="grupo">
-
-<label>Quantidade</label>
-
-<input
-type="number"
-id="quantidade"
-required>
-
-</div>
-
-</div>
-
-<div class="grupo">
-
-<label>Responsável</label>
-
-<input
-type="text"
-id="responsavel"
-required>
-
-</div>
-
-<div class="grupo">
-
-<label>Observação</label>
-
-<textarea
-id="observacao"
-rows="4"></textarea>
-
-</div>
-
-<div class="botoes">
-
-<button
-type="button"
-class="cancelar">
-
-Cancelar
-
-</button>
-
-<button
-type="submit"
-class="salvar">
-
-Salvar
-
-</button>
-
-</div>
-
-</form>
-
-</div>
-
-</div>
-
-<script src="../js/estoque.js"></script>
+<script type="module" src="../js/estoque.js"></script>
 
 </body>
 
