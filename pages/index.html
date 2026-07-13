@@ -2,329 +2,121 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SMART BURGUER GERENCIA</title>
-
-    <meta name="description" content="Sistema Inteligente de Gestão Empresarial">
+    <title>Nexus ERP | Login</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
+    <!-- Ícones -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
 
-    <!-- =======================
-         SIDEBAR
-    ======================== -->
+    <div class="login-container">
 
-    <aside class="sidebar" id="sidebar">
+        <!-- Lado esquerdo -->
+        <div class="login-left">
 
-        <div class="logo">
+            <div class="logo">
 
-            <i class="fa-solid fa-burger"></i>
+                <i class="fa-solid fa-chart-line"></i>
 
-            <div>
+                <h1>Nexus ERP</h1>
 
-                <h2>SMART ERP</h2>
-
-                <span>Business System</span>
+                <p>Gestão Inteligente para sua Empresa</p>
 
             </div>
 
         </div>
 
-        <nav>
+        <!-- Lado direito -->
+        <div class="login-right">
 
-            <ul>
+            <form id="formLogin">
 
-                <li class="active">
+                <h2>Bem-vindo!</h2>
 
-                    <a href="#">
+                <p>Entre com sua conta</p>
 
-                        <i class="fa-solid fa-chart-line"></i>
+                <div class="input-group">
 
-                        <span>Dashboard</span>
+                    <label>E-mail</label>
 
-                    </a>
+                    <div class="input">
 
-                </li>
+                        <i class="fa-solid fa-envelope"></i>
 
-                <li>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Digite seu e-mail"
+                            required>
 
-                    <a href="#">
+                    </div>
 
-                        <i class="fa-solid fa-box"></i>
+                </div>
 
-                        <span>Produtos</span>
+                <div class="input-group">
 
-                    </a>
+                    <label>Senha</label>
 
-                </li>
+                    <div class="input">
 
-                <li>
+                        <i class="fa-solid fa-lock"></i>
 
-                    <a href="#">
+                        <input
+                            type="password"
+                            id="senha"
+                            placeholder="Digite sua senha"
+                            required>
 
-                        <i class="fa-solid fa-cart-shopping"></i>
+                        <i
+                            class="fa-solid fa-eye toggleSenha"
+                            id="mostrarSenha"></i>
 
-                        <span>Pedidos</span>
+                    </div>
 
-                    </a>
+                </div>
 
-                </li>
+                <div class="options">
 
-                <li>
+                    <label>
 
-                    <a href="#">
+                        <input type="checkbox">
 
-                        <i class="fa-solid fa-users"></i>
+                        Lembrar-me
 
-                        <span>Clientes</span>
+                    </label>
 
-                    </a>
+                    <a href="#">Esqueci minha senha</a>
 
-                </li>
+                </div>
 
-                <li>
+                <button type="submit">
 
-                    <a href="#">
-
-                        <i class="fa-solid fa-warehouse"></i>
-
-                        <span>Estoque</span>
-
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <a href="#">
-
-                        <i class="fa-solid fa-money-bill-trend-up"></i>
-
-                        <span>Financeiro</span>
-
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <a href="#">
-
-                        <i class="fa-solid fa-truck"></i>
-
-                        <span>Fornecedores</span>
-
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <a href="#">
-
-                        <i class="fa-solid fa-chart-pie"></i>
-
-                        <span>Relatórios</span>
-
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <a href="#">
-
-                        <i class="fa-solid fa-gear"></i>
-
-                        <span>Configurações</span>
-
-                    </a>
-
-                </li>
-
-            </ul>
-
-        </nav>
-
-    </aside>
-
-    <!-- =======================
-         CONTEÚDO
-    ======================== -->
-
-    <main class="main">
-
-        <!-- TOPO -->
-
-        <header class="topbar">
-
-            <div class="top-left">
-
-                <button id="btnMenu">
-
-                    <i class="fa-solid fa-bars"></i>
+                    Entrar
 
                 </button>
 
-                <div class="search">
+            </form>
 
-                    <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
 
-                    <input type="text" placeholder="Pesquisar produtos, clientes, pedidos...">
+    </div>
 
-                </div>
-
-            </div>
-
-            <div class="top-right">
-
-                <button class="icon-btn">
-
-                    <i class="fa-regular fa-bell"></i>
-
-                </button>
-
-                <button class="icon-btn">
-
-                    <i class="fa-regular fa-envelope"></i>
-
-                </button>
-
-                <div class="user">
-
-                    <img src="assets/avatar.png" alt="Administrador">
-
-                    <div>
-
-                        <h4>Ana Sousa</h4>
-
-                        <span>Administrador</span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </header>
-
-        <!-- CONTEÚDO -->
-
-        <section class="content">
-
-            <div class="page-title">
-
-                <div>
-
-                    <h1>Dashboard</h1>
-
-                    <p>Bem-vinda ao SMART BURGUER ERP</p>
-
-                </div>
-
-                <button class="btn-primary">
-
-                    <i class="fa-solid fa-plus"></i>
-
-                    Novo Pedido
-
-                </button>
-
-            </div>
-
-            <!-- CARDS -->
-
-            <div class="cards">
-
-                <div class="card">
-
-                    <div>
-
-                        <h3>Pedidos Hoje</h3>
-
-                        <h2>0</h2>
-
-                    </div>
-
-                    <i class="fa-solid fa-cart-shopping"></i>
-
-                </div>
-
-                <div class="card">
-
-                    <div>
-
-                        <h3>Faturamento</h3>
-
-                        <h2>R$ 0,00</h2>
-
-                    </div>
-
-                    <i class="fa-solid fa-sack-dollar"></i>
-
-                </div>
-
-                <div class="card">
-
-                    <div>
-
-                        <h3>Clientes</h3>
-
-                        <h2>0</h2>
-
-                    </div>
-
-                    <i class="fa-solid fa-users"></i>
-
-                </div>
-
-                <div class="card">
-
-                    <div>
-
-                        <h3>Produtos</h3>
-
-                        <h2>0</h2>
-
-                    </div>
-
-                    <i class="fa-solid fa-box"></i>
-
-                </div>
-
-            </div>
-
-            <!-- ÁREA DOS MÓDULOS -->
-
-            <div id="conteudoSistema">
-
-                <!-- Dashboard será carregado aqui nas próximas etapas -->
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <script src="js/app.js"></script>
+    <script src="js/login.js"></script>
 
 </body>
 
