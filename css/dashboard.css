@@ -1,730 +1,611 @@
-/*=========================================
-DASHBOARD
-=========================================*/
+/*==================================================
+  NEXUS ERP
+  DASHBOARD
+==================================================*/
+
+/*=========================
+  LAYOUT
+=========================*/
+
+body{
+    margin:0;
+    background:#F4F7FC;
+    font-family:'Poppins',sans-serif;
+}
 
 .dashboard{
-
-    width:100%;
-
     display:flex;
-
-    flex-direction:column;
-
-    gap:30px;
-
+    min-height:100vh;
 }
 
-/*=========================================
-TÍTULO
-=========================================*/
-
-.titulo-pagina{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-}
-
-.titulo-pagina h1{
-
-    font-size:32px;
-
-    color:#1f2937;
-
-}
-
-.titulo-pagina p{
-
-    color:#6b7280;
-
-    margin-top:5px;
-
-}
-
-/*=========================================
-CARDS
-=========================================*/
-
-.cards-dashboard{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:25px;
-
-}
-
-.card{
-
-    background:#fff;
-
-    border-radius:18px;
-
-    padding:25px;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    transition:.3s;
-
-    cursor:pointer;
-
-    border-left:6px solid #ff9800;
-
-}
-
-.card:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.card small{
-
-    color:#6b7280;
-
-    font-size:14px;
-
-}
-
-.card h2{
-
-    font-size:32px;
-
-    margin:10px 0;
-
-}
-
-.card span{
-
-    color:#22c55e;
-
-    font-size:14px;
-
-}
-
-.card i{
-
-    font-size:45px;
-
-    color:#ff9800;
-
-}
-
-/*=========================================
-GRÁFICOS
-=========================================*/
-
-.graficos{
-
-    display:grid;
-
-    grid-template-columns:2fr 1fr;
-
-    gap:25px;
-
-}
-
-.grafico-card{
-
-    background:#fff;
-
-    border-radius:18px;
-
-    padding:25px;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-}
-
-.grafico-card canvas{
-
-    margin-top:20px;
-
-    width:100% !important;
-
-    height:320px !important;
-
-}
-
-.cabecalho{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-}
-
-.cabecalho h2{
-
-    font-size:20px;
-
-}
-/*=========================================
-GRID DOS PAINÉIS
-=========================================*/
-
-.dashboard-grid{
-
-    display:grid;
-
-    grid-template-columns:2fr 1fr;
-
-    gap:25px;
-
-    margin-top:10px;
-
-}
-
-/*=========================================
-PAINÉIS
-=========================================*/
-
-.painel{
-
-    background:#fff;
-
-    border-radius:18px;
-
-    padding:25px;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-}
-
-.painel-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:20px;
-
-}
-
-.painel-header h2{
-
-    font-size:20px;
-
-    color:#1f2937;
-
-}
-
-/*=========================================
-TABELAS
-=========================================*/
-
-table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
-}
-
-thead{
-
-    background:#f8fafc;
-
-}
-
-thead th{
-
-    text-align:left;
-
-    padding:15px;
-
-    font-size:14px;
-
-    color:#6b7280;
-
-    border-bottom:2px solid #ececec;
-
-}
-
-tbody td{
-
-    padding:16px;
-
-    border-bottom:1px solid #ececec;
-
-    font-size:14px;
-
-}
-
-tbody tr{
-
-    transition:.3s;
-
-}
-
-tbody tr:hover{
-
-    background:#f9fafb;
-
-}
-
-/*=========================================
-BADGES
-=========================================*/
-
-.badge{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:6px 14px;
-
-    border-radius:30px;
-
-    font-size:12px;
-
-    font-weight:600;
-
+/*=========================
+  SIDEBAR
+=========================*/
+
+.sidebar{
+    width:270px;
+    background:#0F172A;
     color:#fff;
-
-}
-
-.badge-success{
-
-    background:#22c55e;
-
-}
-
-.badge-warning{
-
-    background:#f59e0b;
-
-}
-
-.badge-danger{
-
-    background:#ef4444;
-
-}
-
-.badge-info{
-
-    background:#3b82f6;
-
-}
-
-/*=========================================
-LISTA ESTOQUE
-=========================================*/
-
-.lista{
-
-    list-style:none;
-
-}
-
-.lista li{
-
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
     display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:15px 0;
-
-    border-bottom:1px solid #ececec;
-
-}
-
-.lista li:last-child{
-
-    border:none;
-
-}
-
-.lista span{
-
-    color:#374151;
-
-}
-
-.lista strong{
-
-    color:#ef4444;
-
-}
-
-/*=========================================
-ATIVIDADES
-=========================================*/
-
-.atividades{
-
-    display:flex;
-
     flex-direction:column;
-
-    gap:18px;
-
+    box-shadow:5px 0 20px rgba(0,0,0,.15);
+    z-index:999;
 }
 
-.atividade{
-
+.logo{
+    padding:30px 25px;
     display:flex;
-
     align-items:center;
-
     gap:15px;
-
-    padding:15px;
-
-    background:#f8fafc;
-
-    border-radius:12px;
-
-    transition:.3s;
-
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-.atividade:hover{
-
-    background:#eef2ff;
-
-    transform:translateX(5px);
-
+.logo i{
+    font-size:34px;
+    color:#3B82F6;
 }
 
-.atividade i{
+.logo h2{
+    font-size:24px;
+    font-weight:700;
+}
 
-    width:45px;
+.sidebar ul{
+    padding:20px 0;
+    flex:1;
+}
 
-    height:45px;
-
+.sidebar ul li{
     display:flex;
-
-    justify-content:center;
-
     align-items:center;
-
-    border-radius:50%;
-
-    background:#ff9800;
-
-    color:#fff;
-
-    font-size:18px;
-
-}
-
-.atividade strong{
-
-    display:block;
-
-    font-size:15px;
-
-    color:#1f2937;
-
-}
-
-.atividade small{
-
-    color:#6b7280;
-
-    font-size:13px;
-
-}
-/*=========================================
-BARRAS DE PROGRESSO
-=========================================*/
-
-.progresso{
-
-    display:flex;
-
-    flex-direction:column;
-
     gap:18px;
-
-    margin-top:20px;
-
-}
-
-.progresso-item{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:8px;
-
-}
-
-.progresso-topo{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    font-size:14px;
-
-    color:#374151;
-
-}
-
-.progresso-barra{
-
-    width:100%;
-
-    height:10px;
-
-    background:#e5e7eb;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-}
-
-.progresso-preenchimento{
-
-    height:100%;
-
-    background:linear-gradient(90deg,#ff9800,#ffb74d);
-
-    border-radius:20px;
-
-    transition:width .6s ease;
-
-}
-
-/*=========================================
-BOTÕES DOS PAINÉIS
-=========================================*/
-
-.painel button{
-
+    padding:16px 25px;
     cursor:pointer;
-
     transition:.3s;
-
+    font-size:15px;
+    color:#CBD5E1;
 }
 
-.painel button:hover{
-
-    transform:translateY(-2px);
-
+.sidebar ul li:hover{
+    background:#1E293B;
+    color:#fff;
+    padding-left:35px;
 }
 
-/*=========================================
-EFEITO NOS CARDS
-=========================================*/
+.sidebar ul li.active{
+    background:#2563EB;
+    color:#fff;
+    border-left:5px solid #60A5FA;
+}
+
+.sidebar ul li i{
+    width:22px;
+    text-align:center;
+    font-size:18px;
+}
+
+/*=========================
+  CONTEÚDO
+=========================*/
+
+.content{
+    margin-left:270px;
+    width:calc(100% - 270px);
+    padding:35px;
+}
+
+/*=========================
+  HEADER
+=========================*/
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+header h1{
+    font-size:32px;
+    color:#0F172A;
+}
+
+.perfil{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.perfil i{
+    font-size:22px;
+    cursor:pointer;
+    color:#64748B;
+    transition:.3s;
+}
+
+.perfil i:hover{
+    color:#2563EB;
+}
+
+.perfil img{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #2563EB;
+}
+
+/*=========================
+  CARDS
+=========================*/
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:25px;
+    margin-bottom:35px;
+}
 
 .card{
-
-    overflow:hidden;
-
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.35s;
     position:relative;
-
+    overflow:hidden;
 }
 
 .card::before{
-
     content:"";
-
     position:absolute;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:rgba(37,99,235,.08);
+    top:-40px;
+    right:-40px;
+}
 
-    top:0;
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+}
 
-    left:-100%;
+.card i{
+    font-size:34px;
+    color:#2563EB;
+    margin-bottom:20px;
+}
 
+.card h3{
+    color:#64748B;
+    font-size:16px;
+    margin-bottom:10px;
+}
+
+.card h2{
+    font-size:30px;
+    color:#0F172A;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#10B981;
+    font-weight:600;
+}
+
+/*=========================
+  GRÁFICO
+=========================*/
+
+.grafico{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:35px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.grafico h2{
+    margin-bottom:25px;
+}
+
+#graficoVendas{
     width:100%;
-
-    height:100%;
-
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.35),
-        transparent
-    );
-
-    transition:.8s;
-
+    height:400px;
 }
 
-.card:hover::before{
+/*=========================
+  TABELA
+=========================*/
 
-    left:100%;
-
+.ultimas-vendas{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
-/*=========================================
-ANIMAÇÃO
-=========================================*/
-
-.fade-in{
-
-    animation:fadeIn .6s ease;
-
+.ultimas-vendas h2{
+    margin-bottom:20px;
 }
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#2563EB;
+    color:#fff;
+}
+
+th{
+    padding:18px;
+    text-align:left;
+}
+
+td{
+    padding:18px;
+    border-bottom:1px solid #E2E8F0;
+}
+
+tbody tr{
+    transition:.3s;
+}
+
+tbody tr:hover{
+    background:#F8FAFC;
+}
+
+.ok{
+    background:#22C55E;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+}
+
+.pendente{
+    background:#F59E0B;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+}
+/*==================================================
+  NEXUS ERP
+  DASHBOARD
+  PARTE 2
+==================================================*/
+
+/*=========================
+  ANIMAÇÕES
+=========================*/
 
 @keyframes fadeIn{
-
     from{
-
         opacity:0;
-
         transform:translateY(20px);
-
     }
-
     to{
-
         opacity:1;
-
         transform:translateY(0);
-
     }
-
 }
 
-/*=========================================
-SCROLL PERSONALIZADO
-=========================================*/
-
-::-webkit-scrollbar{
-
-    width:8px;
-
+@keyframes slideLeft{
+    from{
+        opacity:0;
+        transform:translateX(-30px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
 }
 
-::-webkit-scrollbar-track{
-
-    background:#f3f4f6;
-
+@keyframes zoom{
+    from{
+        transform:scale(.95);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
 }
 
-::-webkit-scrollbar-thumb{
+.sidebar{
+    animation:slideLeft .6s ease;
+}
 
-    background:#ff9800;
+header,
+.cards,
+.grafico,
+.ultimas-vendas{
+    animation:fadeIn .8s ease;
+}
 
+/*=========================
+  SCROLL SIDEBAR
+=========================*/
+
+.sidebar{
+    overflow-y:auto;
+}
+
+.sidebar::-webkit-scrollbar{
+    width:6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+    background:#334155;
     border-radius:20px;
-
 }
 
-::-webkit-scrollbar-thumb:hover{
+/*=========================
+  CARDS
+=========================*/
 
-    background:#f57c00;
-
+.card{
+    cursor:pointer;
 }
 
-/*=========================================
-RESPONSIVIDADE
-=========================================*/
+.card:hover i{
+    transform:scale(1.15) rotate(5deg);
+}
+
+.card i{
+    transition:.3s;
+}
+
+.card::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:5px;
+    background:#2563EB;
+    transform:scaleX(0);
+    transition:.3s;
+}
+
+.card:hover::after{
+    transform:scaleX(1);
+}
+
+/*=========================
+  HEADER
+=========================*/
+
+header{
+    background:#fff;
+    padding:20px 30px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.perfil{
+    position:relative;
+}
+
+.perfil img{
+    cursor:pointer;
+    transition:.3s;
+}
+
+.perfil img:hover{
+    transform:scale(1.08);
+}
+
+/*=========================
+  NOTIFICAÇÃO
+=========================*/
+
+.perfil i{
+    position:relative;
+}
+
+.perfil i::after{
+    content:"";
+    position:absolute;
+    top:-3px;
+    right:-2px;
+    width:10px;
+    height:10px;
+    background:#EF4444;
+    border-radius:50%;
+}
+
+/*=========================
+  TABELA
+=========================*/
+
+tbody tr:nth-child(even){
+    background:#FAFAFA;
+}
+
+tbody tr:hover{
+    transform:scale(1.01);
+}
+
+/*=========================
+  BOTÕES FUTUROS
+=========================*/
+
+.btn{
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    background:#2563EB;
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
+    font-weight:600;
+}
+
+.btn:hover{
+    background:#1D4ED8;
+    transform:translateY(-2px);
+}
+
+.btn-success{
+    background:#22C55E;
+}
+
+.btn-danger{
+    background:#EF4444;
+}
+
+.btn-warning{
+    background:#F59E0B;
+}
+
+/*=========================
+  INPUT DE PESQUISA
+=========================*/
+
+.search{
+    background:#fff;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 18px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.search input{
+    width:100%;
+    border:none;
+    background:none;
+    font-size:15px;
+}
+
+/*=========================
+  RESPONSIVO
+=========================*/
 
 @media(max-width:1200px){
 
-    .cards-dashboard{
-
+    .cards{
         grid-template-columns:repeat(2,1fr);
-
     }
 
-    .graficos{
+}
 
-        grid-template-columns:1fr;
+@media(max-width:900px){
 
+    .sidebar{
+        width:85px;
     }
 
-    .dashboard-grid{
+    .sidebar .logo h2{
+        display:none;
+    }
 
-        grid-template-columns:1fr;
+    .sidebar ul li span{
+        display:none;
+    }
 
+    .sidebar ul li{
+        justify-content:center;
+        padding:18px;
+    }
+
+    .content{
+        margin-left:85px;
+        width:calc(100% - 85px);
     }
 
 }
 
 @media(max-width:768px){
 
-    .cards-dashboard{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .titulo-pagina{
-
+    header{
         flex-direction:column;
-
         align-items:flex-start;
-
-        gap:15px;
-
+        gap:20px;
     }
 
-    .grafico-card{
-
-        overflow-x:auto;
-
+    .cards{
+        grid-template-columns:1fr;
     }
 
     table{
-
-        min-width:650px;
-
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
     }
 
-    .painel{
+}
 
-        overflow-x:auto;
+@media(max-width:600px){
 
+    .content{
+        padding:20px;
+    }
+
+    .grafico,
+    .ultimas-vendas,
+    header{
+        padding:20px;
     }
 
 }
 
 @media(max-width:480px){
 
-    .dashboard{
-
-        gap:20px;
-
+    .sidebar{
+        position:fixed;
+        left:-270px;
+        transition:.3s;
     }
 
-    .card{
-
-        padding:18px;
-
+    .sidebar.ativo{
+        left:0;
+        width:270px;
     }
 
-    .card h2{
-
-        font-size:24px;
-
+    .sidebar.ativo h2,
+    .sidebar.ativo span{
+        display:block;
     }
 
-    .titulo-pagina h1{
-
-        font-size:24px;
-
+    .content{
+        margin-left:0;
+        width:100%;
     }
 
-    .painel{
+}
 
-        padding:18px;
+/*=========================
+  FOOTER
+=========================*/
 
-    }
+.footer{
+    margin-top:40px;
+    text-align:center;
+    color:#64748B;
+    font-size:14px;
+    padding:20px;
+}
 
+/*=========================
+  TRANSIÇÕES GERAIS
+=========================*/
+
+*{
+    transition:
+        background .3s,
+        color .3s,
+        border .3s,
+        box-shadow .3s;
 }

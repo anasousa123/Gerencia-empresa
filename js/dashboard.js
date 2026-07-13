@@ -1,323 +1,105 @@
 //==================================================
-// SMART BURGUER ERP
-// DASHBOARD.JS
+// NEXUS ERP
+// DASHBOARD
 //==================================================
 
-//==========================================
-// DADOS DO DASHBOARD
-//==========================================
+//------------------------------
+// VERIFICAR LOGIN
+//------------------------------
 
-const dashboard = {
+const usuario = localStorage.getItem("usuarioLogado");
 
-    pedidosHoje: 28,
-
-    faturamento: 2840.90,
-
-    clientes: 125,
-
-    produtos: 94
-
-};
-
-//==========================================
-// ELEMENTOS
-//==========================================
-
-const pedidosHoje = document.getElementById("pedidosHoje");
-
-const faturamentoDia = document.getElementById("faturamentoDia");
-
-const clientesTotal = document.getElementById("clientesTotal");
-
-const produtosTotal = document.getElementById("produtosTotal");
-
-//==========================================
-// ATUALIZAR CARDS
-//==========================================
-
-function atualizarCards(){
-
-    if(pedidosHoje){
-
-        pedidosHoje.textContent = dashboard.pedidosHoje;
-
-    }
-
-    if(faturamentoDia){
-
-        faturamentoDia.textContent =
-        dashboard.faturamento.toLocaleString("pt-BR",{
-
-            style:"currency",
-
-            currency:"BRL"
-
-        });
-
-    }
-
-    if(clientesTotal){
-
-        clientesTotal.textContent = dashboard.clientes;
-
-    }
-
-    if(produtosTotal){
-
-        produtosTotal.textContent = dashboard.produtos;
-
-    }
-
+if (!usuario) {
+    window.location.href = "../index.html";
 }
 
-//==========================================
+//------------------------------
 // GRÁFICO DE VENDAS
-//==========================================
+//------------------------------
 
-const graficoVendas = document.getElementById("graficoVendas");
+const ctx = document.getElementById("graficoVendas");
 
-if(graficoVendas){
+if (ctx) {
 
-new Chart(graficoVendas,{
+    new Chart(ctx, {
 
-type:"line",
+        type: "line",
 
-data:{
+        data: {
 
-labels:[
-"Jan",
-"Fev",
-"Mar",
-"Abr",
-"Mai",
-"Jun",
-"Jul"
-],
+            labels: [
+                "Jan",
+                "Fev",
+                "Mar",
+                "Abr",
+                "Mai",
+                "Jun",
+                "Jul",
+                "Ago",
+                "Set",
+                "Out",
+                "Nov",
+                "Dez"
+            ],
 
-datasets:[{
+            datasets: [{
 
-label:"Vendas",
+                label: "Vendas",
 
-data:[
-1500,
-2200,
-1900,
-3100,
-4200,
-3600,
-5100
-],
+                data: [
+                    12000,
+                    18000,
+                    15000,
+                    25000,
+                    28000,
+                    32000,
+                    35000,
+                    38000,
+                    42000,
+                    46000,
+                    50000,
+                    52800
+                ],
 
-borderWidth:3,
+                borderColor: "#2563EB",
 
-tension:.4,
+                backgroundColor: "rgba(37,99,235,.15)",
 
-fill:true,
+                borderWidth: 4,
 
-backgroundColor:"rgba(255,152,0,.15)",
+                fill: true,
 
-borderColor:"#ff9800"
+                tension: .4
 
-}]
+            }]
 
-},
+        },
 
-options:{
+        options: {
 
-responsive:true,
+            responsive: true,
 
-plugins:{
+            maintainAspectRatio: false,
 
-legend:{
+            plugins: {
 
-display:true
+                legend: {
 
-}
+                    display: true
 
-}
+                }
 
-}
+            },
 
-});
+            scales: {
 
-}
+                y: {
 
-//==========================================
-// GRÁFICO CATEGORIAS
-//==========================================
+                    beginAtZero: true
 
-const graficoCategorias = document.getElementById("graficoCategorias");
+                }
 
-if(graficoCategorias){
-
-new Chart(graficoCategorias,{
-
-type:"doughnut",
-
-data:{
-
-labels:[
-
-"Hambúrguer",
-
-"Bebidas",
-
-"Porções",
-
-"Combos"
-
-],
-
-datasets:[{
-
-data:[45,20,15,20]
-
-}]
-
-},
-
-options:{
-
-responsive:true
-
-}
-
-});
-
-}
-
-//==========================================
-// INICIAR
-//==========================================
-
-window.onload=()=>{
-
-atualizarCards();
-
-};
-//==================================================
-// SMART BURGUER ERP
-// DASHBOARD.JS - PARTE 2
-//==================================================
-
-//==========================================
-// RELÓGIO
-//==========================================
-
-function atualizarRelogio(){
-
-    const data = new Date();
-
-    const hora = data.toLocaleTimeString("pt-BR");
-
-    const elemento = document.getElementById("horaAtual");
-
-    if(elemento){
-
-        elemento.textContent = hora;
-
-    }
-
-}
-
-setInterval(atualizarRelogio,1000);
-
-//==========================================
-// CONTADORES ANIMADOS
-//==========================================
-
-function animarNumero(elemento, destino){
-
-    if(!elemento) return;
-
-    let atual = 0;
-
-    const incremento = Math.ceil(destino / 80);
-
-    const intervalo = setInterval(()=>{
-
-        atual += incremento;
-
-        if(atual >= destino){
-
-            atual = destino;
-
-            clearInterval(intervalo);
-
-        }
-
-        elemento.textContent = atual;
-
-    },20);
-
-}
-
-//==========================================
-// ATUALIZAÇÃO DOS CARDS
-//==========================================
-
-window.addEventListener("load",()=>{
-
-    animarNumero(pedidosHoje,dashboard.pedidosHoje);
-
-    animarNumero(clientesTotal,dashboard.clientes);
-
-    animarNumero(produtosTotal,dashboard.produtos);
-
-});
-
-//==========================================
-// ATUALIZAÇÃO AUTOMÁTICA
-//==========================================
-
-function atualizarDashboard(){
-
-    dashboard.pedidosHoje += Math.floor(Math.random()*2);
-
-    dashboard.faturamento += Math.random()*80;
-
-    atualizarCards();
-
-}
-
-setInterval(atualizarDashboard,30000);
-
-//==========================================
-// ESTOQUE BAIXO
-//==========================================
-
-const estoqueBaixo=[
-
-    {
-        nome:"Pão Brioche",
-        quantidade:8
-    },
-
-    {
-        nome:"Cheddar",
-        quantidade:6
-    },
-
-    {
-        nome:"Hambúrguer Bovino",
-        quantidade:9
-    }
-
-];
-
-function verificarEstoque(){
-
-    estoqueBaixo.forEach(produto=>{
-
-        if(produto.quantidade<=10){
-
-            console.log(
-
-                "⚠ Estoque baixo:",
-
-                produto.nome
-
-            );
+            }
 
         }
 
@@ -325,38 +107,116 @@ function verificarEstoque(){
 
 }
 
-verificarEstoque();
+//------------------------------
+// ANIMAÇÃO DOS CARDS
+//------------------------------
 
-//==========================================
-// ÚLTIMOS PEDIDOS
-//==========================================
+function animarNumero(elemento, valorFinal){
 
-const pedidosRecentes=[
+    let atual = 0;
 
-    {
-        numero:1,
-        cliente:"João",
-        total:79.90
-    },
+    const incremento = Math.ceil(valorFinal / 100);
 
-    {
-        numero:2,
-        cliente:"Maria",
-        total:45.00
-    },
+    const intervalo = setInterval(() => {
 
-    {
-        numero:3,
-        cliente:"Carlos",
-        total:129.50
-    }
+        atual += incremento;
 
-];
+        if(atual >= valorFinal){
 
-console.table(pedidosRecentes);
+            atual = valorFinal;
 
-//==========================================
-// MENSAGEM
-//==========================================
+            clearInterval(intervalo);
 
-console.log("Dashboard carregado com sucesso!");
+        }
+
+        elemento.innerText = atual.toLocaleString("pt-BR");
+
+    },20);
+
+}
+
+const cards = document.querySelectorAll(".card h2");
+
+if(cards.length >= 4){
+
+    animarNumero(cards[0],52800);
+
+    animarNumero(cards[1],348);
+
+    animarNumero(cards[2],1240);
+
+    animarNumero(cards[3],620);
+
+}
+
+//------------------------------
+// BOAS-VINDAS
+//------------------------------
+
+console.log("Bem-vindo ao Nexus ERP!");
+
+console.log("Usuário:", usuario);
+
+//------------------------------
+// DATA ATUAL
+//------------------------------
+
+const hoje = new Date();
+
+console.log(
+
+    hoje.toLocaleDateString("pt-BR"),
+
+    hoje.toLocaleTimeString("pt-BR")
+
+);
+
+//------------------------------
+// EFEITO NOS CARDS
+//------------------------------
+
+const listaCards = document.querySelectorAll(".card");
+
+listaCards.forEach(card => {
+
+    card.addEventListener("mouseenter", () => {
+
+        card.style.transform = "translateY(-10px)";
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = "translateY(0px)";
+
+    });
+
+});
+
+//------------------------------
+// NOTIFICAÇÃO DE DEMONSTRAÇÃO
+//------------------------------
+
+setTimeout(() => {
+
+    console.log("Você possui novas notificações.");
+
+},3000);
+
+//------------------------------
+// PREPARAÇÃO FIREBASE
+//------------------------------
+
+// Futuramente iremos buscar:
+//
+// Produtos
+// Clientes
+// Vendas
+// Financeiro
+// Estoque
+//
+// diretamente do Firestore.
+
+//==================================================
+// FIM
+//==================================================

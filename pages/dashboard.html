@@ -6,421 +6,253 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dashboard | Smart ERP</title>
+    <title>Nexus ERP | Dashboard</title>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboard.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
-<link rel="stylesheet" 
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
 
 <body>
 
-    <section class="dashboard fade">
-        <aside class="sidebar"></aside>
+<div class="dashboard">
 
-        <div class="titulo-pagina">
+<!-- ================= SIDEBAR ================= -->
 
-            <div>
+<aside class="sidebar">
 
-                <h1>Dashboard</h1>
+<div class="logo">
 
-                <p>Painel geral do sistema</p>
+<i class="fa-solid fa-chart-line"></i>
 
-            </div>
+<h2>Nexus ERP</h2>
 
-            <button class="btn-primary">
+</div>
 
-                <i class="fa-solid fa-plus"></i>
+<ul>
 
-                Novo Pedido
+<li class="active">
+<i class="fa-solid fa-house"></i>
+<span>Dashboard</span>
+</li>
 
-            </button>
+<li>
+<i class="fa-solid fa-box"></i>
+<span>Produtos</span>
+</li>
 
-        </div>
+<li>
+<i class="fa-solid fa-layer-group"></i>
+<span>Estoque</span>
+</li>
 
-        <!-- CARDS -->
+<li>
+<i class="fa-solid fa-cart-shopping"></i>
+<span>Vendas</span>
+</li>
 
-        <section class="cards-dashboard">
+<li>
+<i class="fa-solid fa-users"></i>
+<span>Clientes</span>
+</li>
 
-            <div class="card">
+<li>
+<i class="fa-solid fa-user-tie"></i>
+<span>Funcionários</span>
+</li>
 
-                <div>
+<li>
+<i class="fa-solid fa-truck"></i>
+<span>Fornecedores</span>
+</li>
 
-                    <small>Pedidos Hoje</small>
+<li>
+<i class="fa-solid fa-wallet"></i>
+<span>Financeiro</span>
+</li>
 
-</head
-                    <h2 id="pedidosHoje">0</h2>
+<li>
+<i class="fa-solid fa-chart-column"></i>
+<span>Relatórios</span>
+</li>
 
-                    <span>+12% hoje</span>
+<li>
+<i class="fa-solid fa-gear"></i>
+<span>Configurações</span>
+</li>
 
-                </div>
+</ul>
 
-                <i class="fa-solid fa-cart-shopping"></i>
+</aside>
 
-            </div>
+<!-- ================= CONTEÚDO ================= -->
 
-            <div class="card">
+<main class="content">
 
-                <div>
+<header>
 
-                    <small>Faturamento</small>
+<h1>Dashboard</h1>
 
-                    <h2 id="faturamentoDia">R$ 0,00</h2>
+<div class="perfil">
 
-                    <span>Hoje</span>
+<i class="fa-solid fa-bell"></i>
 
-                </div>
+<img src="https://i.pravatar.cc/50" alt="Usuário">
 
-                <i class="fa-solid fa-sack-dollar"></i>
+</div>
 
-            </div>
+</header>
 
-            <div class="card">
+<!-- ================= CARDS ================= -->
 
-                <div>
+<section class="cards">
 
-                    <small>Clientes</small>
+<div class="card">
 
-                    <h2 id="clientesTotal">0</h2>
+<i class="fa-solid fa-sack-dollar"></i>
 
-                    <span>Cadastrados</span>
+<h3>Receita</h3>
 
-                </div>
+<h2>R$ 52.800</h2>
 
-                <i class="fa-solid fa-users"></i>
+<p>+12% este mês</p>
 
-            </div>
+</div>
 
-            <div class="card">
+<div class="card">
 
-                <div>
+<i class="fa-solid fa-cart-shopping"></i>
 
-                    <small>Produtos</small>
+<h3>Vendas</h3>
 
-                    <h2 id="produtosTotal">0</h2>
+<h2>348</h2>
 
-                    <span>No sistema</span>
+<p>+8% este mês</p>
 
-                </div>
+</div>
 
-                <i class="fa-solid fa-box"></i>
+<div class="card">
 
-            </div>
+<i class="fa-solid fa-users"></i>
 
-        </section>
+<h3>Clientes</h3>
 
-        <!-- GRÁFICOS -->
+<h2>1.240</h2>
 
-        <section class="graficos">
+<p>23 novos</p>
 
-            <div class="grafico-card">
+</div>
 
-                <div class="cabecalho">
+<div class="card">
 
-                    <h2>Vendas do Mês</h2>
+<i class="fa-solid fa-box-open"></i>
 
-                </div>
+<h3>Produtos</h3>
 
-                <canvas id="graficoVendas"></canvas>
+<h2>620</h2>
 
-            </div>
+<p>18 em falta</p>
 
-            <div class="grafico-card">
+</div>
 
-                <div class="cabecalho">
+</section>
 
-                    <h2>Produtos por Categoria</h2>
+<!-- ================= GRÁFICO ================= -->
 
-                </div>
+<section class="grafico">
 
-                <canvas id="graficoCategorias"></canvas>
+<h2>Gráfico de Vendas</h2>
 
-            </div>
+<canvas id="graficoVendas"></canvas>
 
-        </section>
-                <!-- TABELAS -->
+</section>
 
-        <section class="dashboard-grid">
+<!-- ================= TABELA ================= -->
 
-            <!-- Últimos Pedidos -->
+<section class="ultimas-vendas">
 
-            <div class="painel">
+<h2>Últimas Vendas</h2>
 
-                <div class="painel-header">
+<table>
 
-                    <h2>Últimos Pedidos</h2>
+<thead>
 
-                    <button class="btn-primary">
-                        Ver Todos
-                    </button>
+<tr>
 
-                </div>
+<th>Cliente</th>
 
-                <table>
+<th>Produto</th>
 
-                    <thead>
+<th>Valor</th>
 
-                        <tr>
+<th>Status</th>
 
-                            <th>Pedido</th>
+</tr>
 
-                            <th>Cliente</th>
+</thead>
 
-                            <th>Total</th>
+<tbody>
 
-                            <th>Status</th>
+<tr>
 
-                        </tr>
+<td>Ana Silva</td>
 
-                    </thead>
+<td>Notebook</td>
 
-                    <tbody id="tabelaPedidos">
+<td>R$ 4.500</td>
 
-                        <tr>
+<td><span class="ok">Pago</span></td>
 
-                            <td>#0001</td>
+</tr>
 
-                            <td>João Silva</td>
+<tr>
 
-                            <td>R$ 75,90</td>
+<td>Pedro Souza</td>
 
-                            <td>
-                                <span class="badge badge-success">
-                                    Finalizado
-                                </span>
-                            </td>
+<td>Monitor</td>
 
-                        </tr>
+<td>R$ 1.250</td>
 
-                        <tr>
+<td><span class="ok">Pago</span></td>
 
-                            <td>#0002</td>
+</tr>
 
-                            <td>Maria Souza</td>
+<tr>
 
-                            <td>R$ 42,00</td>
+<td>Carlos Lima</td>
 
-                            <td>
-                                <span class="badge badge-warning">
-                                    Preparando
-                                </span>
-                            </td>
+<td>Teclado</td>
 
-                        </tr>
+<td>R$ 350</td>
 
-                        <tr>
+<td><span class="pendente">Pendente</span></td>
 
-                            <td>#0003</td>
+</tr>
 
-                            <td>Carlos Lima</td>
+</tbody>
 
-                            <td>R$ 98,40</td>
+</table>
 
-                            <td>
-                                <span class="badge badge-danger">
-                                    Cancelado
-                                </span>
-                            </td>
+</section>
 
-                        </tr>
+</main>
 
-                    </tbody>
+</div>
 
-                </table>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-            </div>
-
-            <!-- Estoque -->
-
-            <div class="painel">
-
-                <div class="painel-header">
-
-                    <h2>Estoque Baixo</h2>
-
-                </div>
-
-                <ul class="lista">
-
-                    <li>
-
-                        <span>Pão Brioche</span>
-
-                        <strong>8 unidades</strong>
-
-                    </li>
-
-                    <li>
-
-                        <span>Hambúrguer Bovino</span>
-
-                        <strong>5 unidades</strong>
-
-                    </li>
-
-                    <li>
-
-                        <span>Queijo Cheddar</span>
-
-                        <strong>9 unidades</strong>
-
-                    </li>
-
-                    <li>
-
-                        <span>Refrigerante Lata</span>
-
-                        <strong>12 unidades</strong>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </section>
-
-        <!-- CLIENTES -->
-
-        <section class="dashboard-grid">
-
-            <div class="painel">
-
-                <div class="painel-header">
-
-                    <h2>Clientes Recentes</h2>
-
-                </div>
-
-                <table>
-
-                    <thead>
-
-                        <tr>
-
-                            <th>Nome</th>
-
-                            <th>Telefone</th>
-
-                            <th>Cidade</th>
-
-                        </tr>
-
-                    </thead>
-
-                    <tbody>
-
-                        <tr>
-
-                            <td>Ana Paula</td>
-
-                            <td>(11)99999-1111</td>
-
-                            <td>São Paulo</td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td>Lucas Henrique</td>
-
-                            <td>(11)98888-5555</td>
-
-                            <td>Guarulhos</td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td>Mariana Costa</td>
-
-                            <td>(11)97777-2222</td>
-
-                            <td>Osasco</td>
-
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-            <!-- Atividades -->
-
-            <div class="painel">
-
-                <div class="painel-header">
-
-                    <h2>Atividades Recentes</h2>
-
-                </div>
-
-                <div class="atividades">
-
-                    <div class="atividade">
-
-                        <i class="fa-solid fa-box"></i>
-
-                        <div>
-
-                            <strong>Novo produto cadastrado</strong>
-
-                            <small>Agora mesmo</small>
-
-                        </div>
-
-                    </div>
-
-                    <div class="atividade">
-
-                        <i class="fa-solid fa-user"></i>
-
-                        <div>
-
-                            <strong>Novo cliente cadastrado</strong>
-
-                            <small>10 minutos atrás</small>
-
-                        </div>
-
-                    </div>
-
-                    <div class="atividade">
-
-                        <i class="fa-solid fa-cart-shopping"></i>
-
-                        <div>
-
-                            <strong>Pedido #0003 finalizado</strong>
-
-                            <small>25 minutos atrás</small>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </section>
-
-    <!-- Chart.js -->
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <script src="../js/dashboard.js"></script>
+<script src="../js/dashboard.js"></script>
 
 </body>
 
