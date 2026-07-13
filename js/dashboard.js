@@ -202,6 +202,17 @@ setTimeout(() => {
     console.log("Você possui novas notificações.");
 
 },3000);
+//==============================
+// DASHBOARD
+//==============================
+
+const produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+
+document.getElementById("totalProdutos").innerHTML = produtos.length;
+
+const categorias = [...new Set(produtos.map(p => p.categoria))];
+
+document.getElementById("totalCategorias").innerHTML = categorias.length;
 
 //------------------------------
 // PREPARAÇÃO FIREBASE
