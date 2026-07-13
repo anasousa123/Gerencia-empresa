@@ -7,6 +7,24 @@
 // ELEMENTOS
 //------------------------------
 
+import { db } from "./firebase.js";
+
+import {
+
+collection,
+
+addDoc,
+
+getDocs,
+
+deleteDoc,
+
+doc,
+
+updateDoc
+
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
 const modal = document.getElementById("modalProduto");
 
 const btnNovo = document.getElementById("btnNovo");
@@ -112,9 +130,31 @@ form.addEventListener("submit", function(e){
 // SALVAR LOCALSTORAGE
 //==================================================
 
-function salvar() {
+async function salvarProduto(){
 
-    localStorage.setItem("produtos", JSON.stringify(produtos));
+    await addDoc(collection(db,"produtos"),{
+
+        nome:nome.value,
+
+        categoria:categoria.value,
+
+        compra:Number(compra.value),
+
+        venda:Number(venda.value),
+
+        estoque:Number(estoque.value),
+
+        codigo:codigo.value,
+
+        descricao:descricao.value,
+
+        criadoEm:new Date()
+
+    });
+
+    alert("Produto cadastrado!");
+
+    carregarProdutos();
 
 }
 
@@ -122,79 +162,36 @@ function salvar() {
 // ATUALIZAR TABELA
 //==================================================
 
-function atualizarTabela(lista = produtos) {
+async function carregarProdutos(){
 
-    listaProdutos.innerHTML = "";
+    listaProdutos.innerHTML="";
 
-    if (lista.length === 0) {
+    const querySnapshot =
+    await getDocs(collection(db,"produtos"));
 
-        listaProdutos.innerHTML = `
-            <tr>
-                <td colspan="8" style="text-align:center;padding:30px;">
-                    Nenhum produto cadastrado.
-                </td>
-            </tr>
-        `;
+    querySnapshot.forEach((documento)=>{
 
-        return;
-    }
-
-    lista.forEach(produto => {
-
-        const status = Number(produto.estoque) > 10
-            ? '<span class="status ativo">Disponível</span>'
-            : '<span class="status baixo">Estoque Baixo</span>';
+        const produto=documento.data();
 
         listaProdutos.innerHTML += `
 
-            <tr>
+        <tr>
 
-                <td>${produto.id}</td>
+        <td>${produto.nome}</td>
 
-                <td>${produto.nome}</td>
+        <td>${produto.categoria}</td>
 
-                <td>${produto.categoria}</td>
+        <td>${produto.estoque}</td>
 
-                <td>${produto.estoque}</td>
+        <td>R$ ${produto.venda.toFixed(2)}</td>
 
-                <td>R$ ${Number(produto.compra).toFixed(2)}</td>
-
-                <td>R$ ${Number(produto.venda).toFixed(2)}</td>
-
-                <td>${status}</td>
-
-                <td>
-
-                    <div class="acoes">
-
-                        <button
-                            class="btn-editar"
-                            onclick="editarProduto(${produto.id})">
-
-                            <i class="fa-solid fa-pen"></i>
-
-                        </button>
-
-                        <button
-                            class="btn-excluir"
-                            onclick="excluirProduto(${produto.id})">
-
-                            <i class="fa-solid fa-trash"></i>
-
-                        </button>
-
-                    </div>
-
-                </td>
-
-            </tr>
+        </tr>
 
         `;
 
     });
 
 }
-
 //==================================================
 // EXCLUIR
 //==================================================
