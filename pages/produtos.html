@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nexus ERP | Produtos</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/produtos.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-chart-line"></i>
+            <h2>Nexus ERP</h2>
+        </div>
+
+        <ul>
+
+            <li onclick="location.href='dashboard.html'">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </li>
+
+            <li class="active">
+                <i class="fa-solid fa-box"></i>
+                <span>Produtos</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Estoque</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Vendas</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-users"></i>
+                <span>Clientes</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-wallet"></i>
+                <span>Financeiro</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Relatórios</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-gear"></i>
+                <span>Configurações</span>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+
+    <main class="content">
+
+        <!-- CABEÇALHO -->
+
+        <header>
+
+            <div>
+
+                <h1>Produtos</h1>
+
+                <p>Gerencie todos os produtos da empresa.</p>
+
+            </div>
+
+            <button class="btn-primary" id="btnNovo">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Novo Produto
+
+            </button>
+
+        </header>
+
+        <!-- FILTROS -->
+
+        <section class="top-bar">
+
+            <div class="pesquisa">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="pesquisar"
+                    placeholder="Pesquisar produto...">
+
+            </div>
+
+            <select id="categoria">
+
+                <option>Todas Categorias</option>
+
+                <option>Bebidas</option>
+
+                <option>Alimentos</option>
+
+                <option>Limpeza</option>
+
+                <option>Eletrônicos</option>
+
+            </select>
+
+        </section>
+
+        <!-- TABELA -->
+
+        <section class="tabela">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Produto</th>
+
+                        <th>Categoria</th>
+
+                        <th>Estoque</th>
+
+                        <th>Compra</th>
+
+                        <th>Venda</th>
+
+                        <th>Status</th>
+
+                        <th>Ações</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="listaProdutos">
+
+                    <!-- Produtos serão adicionados via JavaScript -->
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- ===========================
+     MODAL
+=========================== -->
+
+<div class="modal" id="modalProduto">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Novo Produto</h2>
+
+            <button class="fechar" id="fecharModal">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <form id="formProduto">
+
+            <div class="grupo">
+
+                <label>Nome do Produto</label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    required>
+
+            </div>
+
+            <div class="grupo">
+
+                <label>Categoria</label>
+
+                <select id="categoriaProduto">
+
+                    <option>Bebidas</option>
+
+                    <option>Alimentos</option>
+
+                    <option>Limpeza</option>
+
+                    <option>Eletrônicos</option>
+
+                </select>
+
+            </div>
+
+            <div class="linha">
+
+                <div class="grupo">
+
+                    <label>Preço Compra</label>
+
+                    <input
+                        type="number"
+                        id="compra">
+
+                </div>
+
+                <div class="grupo">
+
+                    <label>Preço Venda</label>
+
+                    <input
+                        type="number"
+                        id="venda">
+
+                </div>
+
+            </div>
+
+            <div class="linha">
+
+                <div class="grupo">
+
+                    <label>Quantidade</label>
+
+                    <input
+                        type="number"
+                        id="estoque">
+
+                </div>
+
+                <div class="grupo">
+
+                    <label>Código</label>
+
+                    <input
+                        type="text"
+                        id="codigo">
+
+                </div>
+
+            </div>
+
+            <div class="grupo">
+
+                <label>Descrição</label>
+
+                <textarea
+                    id="descricao"
+                    rows="4"></textarea>
+
+            </div>
+
+            <div class="botoes">
+
+                <button
+                    type="button"
+                    class="cancelar">
+
+                    Cancelar
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="salvar">
+
+                    Salvar Produto
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="../js/produtos.js"></script>
+
+</body>
+
+</html>

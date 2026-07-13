@@ -55,7 +55,7 @@ formLogin.addEventListener("submit", function(e){
 
     if(usuario === ""){
 
-        alert("Digite seu e-mail.");
+        alert("ana.7410062@aluno.mg.gov.br");
 
         email.focus();
 
@@ -65,7 +65,7 @@ formLogin.addEventListener("submit", function(e){
 
     if(password === ""){
 
-        alert("Digite sua senha.");
+        alert("Ana0123");
 
         senha.focus();
 
