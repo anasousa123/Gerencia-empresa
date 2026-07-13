@@ -1,0 +1,600 @@
+<!-- ===========================
+CARDS
+=========================== -->
+
+<section class="cards">
+
+    <div class="card">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <h3>Pedidos Hoje</h3>
+
+        <h2 id="pedidosHoje">0</h2>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-spinner"></i>
+
+        <h3>Em Preparo</h3>
+
+        <h2 id="preparo">0</h2>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-motorcycle"></i>
+
+        <h3>Em Entrega</h3>
+
+        <h2 id="entrega">0</h2>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-sack-dollar"></i>
+
+        <h3>Faturamento</h3>
+
+        <h2 id="faturamento">R$ 0,00</h2>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+PESQUISA
+=========================== -->
+
+<section class="top-bar">
+
+    <div class="pesquisa">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="text"
+            id="pesquisar"
+            placeholder="Pesquisar pedido ou cliente">
+
+    </div>
+
+</section>
+
+<!-- ===========================
+TABELA
+=========================== -->
+
+<section class="tabela">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Nº</th>
+
+<th>Cliente</th>
+
+<th>Telefone</th>
+
+<th>Total</th>
+
+<th>Pagamento</th>
+
+<th>Status</th>
+
+<th>Ações</th>
+
+</tr>
+
+</thead>
+
+<tbody id="listaPedidos">
+
+<!-- JavaScript -->
+
+</tbody>
+
+</table>
+
+</section>
+
+</main>
+
+</div>
+
+<!-- ===========================
+MODAL
+=========================== -->
+
+<div class="modal" id="modalPedido">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h2>Novo Pedido</h2>
+
+<button id="fecharModal">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+</div>
+
+<form id="formPedido">
+
+<div class="grupo">
+
+<label>Cliente</label>
+
+<input
+type="text"
+id="cliente"
+required>
+
+</div>
+
+<div class="grupo">
+
+<label>Telefone</label>
+
+<input
+type="text"
+id="telefone"
+required>
+
+</div>
+
+<div class="grupo">
+
+<label>Produto</label>
+
+<select id="produto">
+
+<option value="">Selecione um produto</option>
+
+</select>
+
+</div>
+
+<div class="linha">
+
+<div class="grupo">
+
+<label>Quantidade</label>
+
+<input
+type="number"
+id="quantidade"
+value="1"
+min="1">
+
+</div>
+
+<div class="grupo">
+
+<label>Pagamento</label>
+
+<select id="pagamento">
+
+<option>PIX</option>
+
+<option>Dinheiro</option>
+
+<option>Cartão de Débito</option>
+
+<option>Cartão de Crédito</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="grupo">
+
+<label>Status</label>
+
+<select id="status">
+
+<option>Em preparo</option>
+
+<option>Saiu para entrega</option>
+
+<option>Finalizado</option>
+
+<option>Cancelado</option>
+
+</select>
+
+</div>
+
+<div class="grupo">
+
+<label>Observações</label>
+
+<textarea
+id="observacoes"
+rows="3"
+placeholder="Ex.: sem cebola, ponto da carne, etc."></textarea>
+
+</div>
+
+<div class="botoes">
+
+<button
+type="button"
+class="cancelar">
+
+Cancelar
+
+</button>
+
+<button
+type="submit"
+class="salvar">
+
+Salvar Pedido
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+<script src="../js/pedidos.js"></script>
+
+</body>
+
+</html>
+/*=========================
+TABELA
+=========================*/
+
+.tabela{
+
+    background:#FFF;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#2563EB;
+
+    color:#FFF;
+
+}
+
+th{
+
+    padding:18px;
+
+    text-align:left;
+
+}
+
+td{
+
+    padding:18px;
+
+    border-bottom:1px solid #E2E8F0;
+
+}
+
+tbody tr{
+
+    transition:.3s;
+
+}
+
+tbody tr:hover{
+
+    background:#F8FAFC;
+
+}
+
+/*=========================
+STATUS
+=========================*/
+
+.status{
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.preparo{
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+}
+
+.entrega{
+
+    background:#DBEAFE;
+
+    color:#1D4ED8;
+
+}
+
+.finalizado{
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+}
+
+.cancelado{
+
+    background:#FEE2E2;
+
+    color:#DC2626;
+
+}
+
+/*=========================
+MODAL
+=========================*/
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.5);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+.modal.ativo{
+
+    display:flex;
+
+}
+
+.modal-content{
+
+    width:700px;
+
+    max-width:95%;
+
+    background:#FFF;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    animation:abrir .3s;
+
+}
+
+@keyframes abrir{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.modal-header{
+
+    background:#2563EB;
+
+    color:#FFF;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px;
+
+}
+
+.modal-header button{
+
+    background:none;
+
+    border:none;
+
+    color:#FFF;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+}
+
+form{
+
+    padding:25px;
+
+}
+
+.grupo{
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin-bottom:18px;
+
+}
+
+.grupo label{
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.grupo input,
+.grupo select,
+.grupo textarea{
+
+    padding:14px;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:10px;
+
+    outline:none;
+
+}
+
+.linha{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
+}
+
+textarea{
+
+    resize:none;
+
+}
+
+.botoes{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.cancelar{
+
+    background:#E2E8F0;
+
+    border:none;
+
+    padding:14px 25px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.salvar{
+
+    background:#2563EB;
+
+    color:#FFF;
+
+    border:none;
+
+    padding:14px 25px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.salvar:hover{
+
+    background:#1D4ED8;
+
+}
+
+@media(max-width:768px){
+
+    .cards{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .linha{
+
+        grid-template-columns:1fr;
+
+    }
+
+    table{
+
+        display:block;
+
+        overflow-x:auto;
+
+        white-space:nowrap;
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
