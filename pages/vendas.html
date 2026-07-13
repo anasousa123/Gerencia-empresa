@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nexus ERP | Vendas</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="../css/vendas.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-burger"></i>
+
+            <h2>Nexus ERP</h2>
+
+        </div>
+
+        <ul>
+
+            <li onclick="location.href='dashboard.html'">
+
+                <i class="fa-solid fa-house"></i>
+
+                <span>Dashboard</span>
+
+            </li>
+
+            <li onclick="location.href='produtos.html'">
+
+                <i class="fa-solid fa-box"></i>
+
+                <span>Produtos</span>
+
+            </li>
+
+            <li onclick="location.href='estoque.html'">
+
+                <i class="fa-solid fa-layer-group"></i>
+
+                <span>Estoque</span>
+
+            </li>
+
+            <li class="active">
+
+                <i class="fa-solid fa-cash-register"></i>
+
+                <span>Vendas</span>
+
+            </li>
+
+            <li onclick="location.href='pedidos.html'">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span>Pedidos</span>
+
+            </li>
+
+            <li onclick="location.href='clientes.html'">
+
+                <i class="fa-solid fa-users"></i>
+
+                <span>Clientes</span>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <main class="content">
+
+        <header>
+
+            <div>
+
+                <h1>Controle de Vendas</h1>
+
+                <p>Registre e acompanhe todas as vendas da empresa.</p>
+
+            </div>
+
+            <button class="btn-primary" id="btnVenda">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Nova Venda
+
+            </button>
+
+        </header>
+
+        <section class="cards">
+
+            <div class="card">
+
+                <i class="fa-solid fa-receipt"></i>
+
+                <h3>Vendas Hoje</h3>
+
+                <h2 id="vendasHoje">0</h2>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-dollar-sign"></i>
+
+                <h3>Faturamento Hoje</h3>
+
+                <h2 id="faturamentoHoje">R$ 0,00</h2>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-credit-card"></i>
+
+                <h3>Ticket Médio</h3>
+
+                <h2 id="ticketMedio">R$ 0,00</h2>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-burger"></i>
+
+                <h3>Produtos Vendidos</h3>
+
+                <h2 id="produtosVendidos">0</h2>
+
+            </div>
+
+        </section>
+
+        <section class="top-bar">
+
+            <div class="pesquisa">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="pesquisar"
+                    placeholder="Pesquisar venda">
+
+            </div>
+
+        </section>
+
+        <section class="tabela">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Nº</th>
+
+                        <th>Data</th>
+
+                        <th>Cliente</th>
+
+                        <th>Total</th>
+
+                        <th>Pagamento</th>
+
+                        <th>Status</th>
+
+                        <th>Ações</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="listaVendas">
+
+                </tbody>
+
+            </table>
+
+        </section>
