@@ -75,7 +75,7 @@ formLogin.addEventListener("submit", function(e){
 
     // Login de demonstração
     if(
-        usuario === "admin@nexuserp.com" &&
+        usuario === "admin@gmail" &&
         password === "123456"
     ){
 
