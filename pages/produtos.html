@@ -3,323 +3,323 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-    <title>Nexus ERP | Produtos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Produtos | Nexus ERP</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/produtos.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/produtos.css">
 
 </head>
 
 <body>
 
-<div class="dashboard">
+<div class="layout">
 
-    <!-- SIDEBAR -->
+<!-- SIDEBAR -->
+<aside class="sidebar">
 
-    <aside class="sidebar">
+<div class="logo">
 
-        <div class="logo">
-            <i class="fa-solid fa-chart-line"></i>
-            <h2>Nexus ERP</h2>
-        </div>
+<i class="fa-solid fa-chart-line"></i>
 
-        <ul>
+<div>
 
-            <li onclick="location.href='dashboard.html'">
-                <i class="fa-solid fa-house"></i>
-                <span>Dashboard</span>
-            </li>
+<h2>Nexus ERP</h2>
 
-            <li class="active">
-                <i class="fa-solid fa-box"></i>
-                <span>Produtos</span>
-            </li>
-
-            <li>
-                <i class="fa-solid fa-layer-group"></i>
-                <span>Estoque</span>
-            </li>
-
-            <li>
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span>Vendas</span>
-            </li>
-
-            <li>
-                <i class="fa-solid fa-users"></i>
-                <span>Clientes</span>
-            </li>
-
-            <li>
-                <i class="fa-solid fa-wallet"></i>
-                <span>Financeiro</span>
-            </li>
-
-            <li>
-                <i class="fa-solid fa-chart-column"></i>
-                <span>Relatórios</span>
-            </li>
-
-            <li>
-                <i class="fa-solid fa-gear"></i>
-                <span>Configurações</span>
-            </li>
-
-        </ul>
-
-    </aside>
-
-    <!-- CONTEÚDO -->
-
-    <main class="content">
-
-        <!-- CABEÇALHO -->
-
-        <header>
-
-            <div>
-
-                <h1>Produtos</h1>
-
-                <p>Gerencie todos os produtos da empresa.</p>
-
-            </div>
-
-            <button class="btn-primary" id="btnNovo">
-
-                <i class="fa-solid fa-plus"></i>
-
-                Novo Produto
-
-            </button>
-
-        </header>
-
-        <!-- FILTROS -->
-
-        <section class="top-bar">
-
-            <div class="pesquisa">
-
-                <i class="fa-solid fa-magnifying-glass"></i>
-
-                <input
-                    type="text"
-                    id="pesquisar"
-                    placeholder="Pesquisar produto...">
-
-            </div>
-
-            <select id="categoria">
-
-                <option>Todas Categorias</option>
-
-                <option>Bebidas</option>
-
-                <option>Alimentos</option>
-
-                <option>Limpeza</option>
-
-                <option>Eletrônicos</option>
-
-            </select>
-
-        </section>
-
-        <!-- TABELA -->
-
-        <section class="tabela">
-
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>ID</th>
-
-                        <th>Produto</th>
-
-                        <th>Categoria</th>
-
-                        <th>Estoque</th>
-
-                        <th>Compra</th>
-
-                        <th>Venda</th>
-
-                        <th>Status</th>
-
-                        <th>Ações</th>
-
-                    </tr>
-
-                </thead>
-
-                <tbody id="listaProdutos">
-
-                    <!-- Produtos serão adicionados via JavaScript -->
-
-                </tbody>
-
-            </table>
-
-        </section>
-
-    </main>
+<small>Gestão Inteligente</small>
 
 </div>
 
-<!-- ===========================
-     MODAL
-=========================== -->
+</div>
 
-<div class="modal" id="modalProduto">
+<nav class="menu">
 
-    <div class="modal-content">
+<ul>
 
-        <div class="modal-header">
+<li><a href="../dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a></li>
 
-            <h2>Novo Produto</h2>
+<li><a class="active"><i class="fa-solid fa-box"></i> Produtos</a></li>
 
-            <button class="fechar" id="fecharModal">
+<li><a href="#"><i class="fa-solid fa-users"></i> Clientes</a></li>
 
-                <i class="fa-solid fa-xmark"></i>
+<li><a href="#"><i class="fa-solid fa-cart-shopping"></i> Vendas</a></li>
 
-            </button>
+<li><a href="#"><i class="fa-solid fa-wallet"></i> Financeiro</a></li>
 
-        </div>
+<li><a href="#"><i class="fa-solid fa-chart-column"></i> Relatórios</a></li>
 
-        <form id="formProduto">
+</ul>
 
-            <div class="grupo">
+</nav>
 
-                <label>Nome do Produto</label>
+</aside>
 
-                <input
-                    type="text"
-                    id="nome"
-                    required>
+<!-- CONTEÚDO -->
 
-            </div>
+<main class="main">
 
-            <div class="grupo">
+<header class="topbar">
 
-                <label>Categoria</label>
+<div class="left-top">
 
-                <select id="categoriaProduto">
-
-                    <option>Bebidas</option>
-
-                    <option>Alimentos</option>
-
-                    <option>Limpeza</option>
-
-                    <option>Eletrônicos</option>
-
-                </select>
-
-            </div>
-
-            <div class="linha">
-
-                <div class="grupo">
-
-                    <label>Preço Compra</label>
-
-                    <input
-                        type="number"
-                        id="compra">
-
-                </div>
-
-                <div class="grupo">
-
-                    <label>Preço Venda</label>
-
-                    <input
-                        type="number"
-                        id="venda">
-
-                </div>
-
-            </div>
-
-            <div class="linha">
-
-                <div class="grupo">
-
-                    <label>Quantidade</label>
-
-                    <input
-                        type="number"
-                        id="estoque">
-
-                </div>
-
-                <div class="grupo">
-
-                    <label>Código</label>
-
-                    <input
-                        type="text"
-                        id="codigo">
-
-                </div>
-
-            </div>
-
-            <div class="grupo">
-
-                <label>Descrição</label>
-
-                <textarea
-                    id="descricao"
-                    rows="4"></textarea>
-
-            </div>
-
-            <div class="botoes">
-
-                <button
-                    type="button"
-                    class="cancelar">
-
-                    Cancelar
-
-                </button>
-
-                <button
-                    type="submit"
-                    class="salvar">
-
-                    Salvar Produto
-
-                </button>
-
-            </div>
-
-        </form>
-
-    </div>
+<h3>Produtos</h3>
 
 </div>
 
-<script src="../js/produtos.js"></script>
+<div class="right-top">
+
+<div class="profile">
+
+<img src="../assets/img/avatar.png">
+
+<div>
+
+<h4>Ana Sousa</h4>
+
+<p>Administrador</p>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<div class="content">
+
+<div class="page-header">
+
+<div>
+
+<h1>Produtos</h1>
+
+<p>Gerencie todos os produtos cadastrados.</p>
+
+</div>
+
+<button class="btn btn-primary">
+
+<i class="fa-solid fa-plus"></i>
+
+Novo Produto
+
+</button>
+
+</div>
+
+<!-- Cards -->
+
+<div class="dashboard-cards">
+
+<div class="card stat-card">
+
+<div class="stat-info">
+
+<p>Total de Produtos</p>
+
+<h2>320</h2>
+
+</div>
+
+<div class="stat-icon">
+
+<i class="fa-solid fa-box"></i>
+
+</div>
+
+</div>
+
+<div class="card stat-card">
+
+<div class="stat-info">
+
+<p>Estoque Baixo</p>
+
+<h2>12</h2>
+
+</div>
+
+<div class="stat-icon">
+
+<i class="fa-solid fa-triangle-exclamation"></i>
+
+</div>
+
+</div>
+
+<div class="card stat-card">
+
+<div class="stat-info">
+
+<p>Sem Estoque</p>
+
+<h2>3</h2>
+
+</div>
+
+<div class="stat-icon">
+
+<i class="fa-solid fa-ban"></i>
+
+</div>
+
+</div>
+
+<div class="card stat-card">
+
+<div class="stat-info">
+
+<p>Categorias</p>
+
+<h2>15</h2>
+
+</div>
+
+<div class="stat-icon">
+
+<i class="fa-solid fa-layer-group"></i>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Filtros -->
+
+<div class="card">
+
+<div class="grid grid-4">
+
+<input class="form-control" placeholder="Pesquisar produto...">
+
+<select class="form-control">
+
+<option>Todas Categorias</option>
+
+</select>
+
+<select class="form-control">
+
+<option>Todos Fornecedores</option>
+
+</select>
+
+<button class="btn btn-outline">
+
+<i class="fa-solid fa-filter"></i>
+
+Filtrar
+
+</button>
+
+</div>
+
+</div>
+
+<br>
+
+<!-- Tabela -->
+
+<div class="table-container">
+
+<table class="table">
+
+<thead>
+
+<tr>
+
+<th>Imagem</th>
+
+<th>Código</th>
+
+<th>Produto</th>
+
+<th>Categoria</th>
+
+<th>Fornecedor</th>
+
+<th>Compra</th>
+
+<th>Venda</th>
+
+<th>Estoque</th>
+
+<th>Status</th>
+
+<th>Ações</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td><img src="../assets/img/sem-imagem.png" width="45"></td>
+
+<td>0001</td>
+
+<td>Mouse Gamer RGB</td>
+
+<td>Periféricos</td>
+
+<td>Logitech</td>
+
+<td>R$ 120,00</td>
+
+<td>R$ 189,90</td>
+
+<td>52</td>
+
+<td><span class="badge badge-success">Ativo</span></td>
+
+<td>
+
+<button class="btn btn-outline">
+
+<i class="fa-solid fa-pen"></i>
+
+</button>
+
+<button class="btn btn-danger">
+
+<i class="fa-solid fa-trash"></i>
+
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+<script src="../assets/js/produtos.js"></script>
 
 </body>
 

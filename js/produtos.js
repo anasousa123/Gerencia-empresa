@@ -1,267 +1,268 @@
-//==================================================
-// NEXUS ERP
-// MÓDULO PRODUTOS
-//==================================================
+/* ======================================================
+   NEXUS ERP
+   PRODUTOS.JS
+====================================================== */
 
-//------------------------------
-// ELEMENTOS
-//------------------------------
+class Produtos {
 
-import { db } from "./firebase.js";
+    constructor() {
 
-import {
+        this.produtos = [];
 
-collection,
+        this.iniciar();
 
-addDoc,
+    }
 
-getDocs,
+    iniciar() {
 
-deleteDoc,
+        this.carregarProdutos();
 
-doc,
+        this.eventos();
 
-updateDoc
+        this.atualizarCards();
 
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+    }
 
-const modal = document.getElementById("modalProduto");
+    /* ===============================
+       EVENTOS
+    =============================== */
 
-const btnNovo = document.getElementById("btnNovo");
+    eventos() {
 
-const fecharModal = document.getElementById("fecharModal");
+        const pesquisa = document.querySelector("#pesquisaProduto");
 
-const cancelar = document.querySelector(".cancelar");
+        if (pesquisa) {
 
-const form = document.getElementById("formProduto");
+            pesquisa.addEventListener("keyup", (e) => {
 
-const listaProdutos = document.getElementById("listaProdutos");
+                this.pesquisar(e.target.value);
 
-const pesquisar = document.getElementById("pesquisar");
+            });
 
-//------------------------------
-// CAMPOS
-//------------------------------
+        }
 
-const nome = document.getElementById("nome");
+        const btnNovo = document.querySelector("#btnNovoProduto");
 
-const categoria = document.getElementById("categoriaProduto");
+        if (btnNovo) {
 
-const compra = document.getElementById("compra");
+            btnNovo.addEventListener("click", () => {
 
-const venda = document.getElementById("venda");
+                this.novoProduto();
 
-const estoque = document.getElementById("estoque");
+            });
 
-const codigo = document.getElementById("codigo");
+        }
 
-const descricao = document.getElementById("descricao");
+    }
 
-//==================================================
-// LOCAL STORAGE
-//==================================================
+    /* ===============================
+       CARREGAR PRODUTOS
+    =============================== */
 
-let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+    carregarProdutos() {
 
-//==================================================
-// ABRIR MODAL
-//==================================================
+        const dados = localStorage.getItem("produtos");
 
-btnNovo.addEventListener("click", () => {
+        this.produtos = dados ? JSON.parse(dados) : [];
 
-    modal.classList.add("ativo");
+        this.renderizarTabela();
 
-});
+    }
 
-//==================================================
-// FECHAR MODAL
-//==================================================
+    /* ===============================
+       SALVAR
+    =============================== */
 
-function fechar(){
+    salvar() {
 
-    modal.classList.remove("ativo");
+        localStorage.setItem(
 
-    form.reset();
+            "produtos",
 
-}
+            JSON.stringify(this.produtos)
 
-fecharModal.addEventListener("click", fechar);
+        );
 
-cancelar.addEventListener("click", fechar);
+    }
 
-//==================================================
-// CADASTRAR PRODUTO
-//==================================================
+    /* ===============================
+       RENDERIZAR
+    =============================== */
 
-form.addEventListener("submit", function(e){
+    renderizarTabela(lista = this.produtos) {
 
-    e.preventDefault();
+        const tbody = document.querySelector("#tabelaProdutos");
 
-    const produto = {
+        if (!tbody) return;
 
-        id: Date.now(),
+        tbody.innerHTML = "";
 
-        nome: nome.value,
+        if (lista.length === 0) {
 
-        categoria: categoria.value,
+            tbody.innerHTML = `
 
-        compra: compra.value,
+            <tr>
 
-        venda: venda.value,
+                <td colspan="10">
 
-        estoque: estoque.value,
+                    Nenhum produto cadastrado.
 
-        codigo: codigo.value,
+                </td>
 
-        descricao: descricao.value
+            </tr>
 
-    };
+            `;
 
-    produtos.push(produto);
+            return;
 
-    salvar();
+        }
 
-    atualizarTabela();
+        lista.forEach((produto,index)=>{
 
-    fechar();
+            tbody.innerHTML += `
 
-});
-//==================================================
-// SALVAR LOCALSTORAGE
-//==================================================
+            <tr>
 
-async function salvarProduto(){
+                <td>
 
-    await addDoc(collection(db,"produtos"),{
+                    <img class="product-image"
 
-        nome:nome.value,
+                    src="${produto.imagem || '../assets/img/sem-imagem.png'}">
 
-        categoria:categoria.value,
+                </td>
 
-        compra:Number(compra.value),
+                <td>${produto.codigo}</td>
 
-        venda:Number(venda.value),
+                <td>${produto.nome}</td>
 
-        estoque:Number(estoque.value),
+                <td>${produto.categoria}</td>
 
-        codigo:codigo.value,
+                <td>${produto.fornecedor}</td>
 
-        descricao:descricao.value,
+                <td>R$ ${produto.compra}</td>
 
-        criadoEm:new Date()
+                <td>R$ ${produto.venda}</td>
 
-    });
+                <td>${produto.estoque}</td>
 
-    alert("Produto cadastrado!");
+                <td>
 
-    carregarProdutos();
+                    <span class="badge badge-success">
 
-}
+                        Ativo
 
-//==================================================
-// ATUALIZAR TABELA
-//==================================================
+                    </span>
 
-async function carregarProdutos(){
+                </td>
 
-    listaProdutos.innerHTML="";
+                <td>
 
-    const querySnapshot =
-    await getDocs(collection(db,"produtos"));
+                    <button onclick="app.editar(${index})"
 
-    querySnapshot.forEach((documento)=>{
+                    class="btn btn-outline">
 
-        const produto=documento.data();
+                    <i class="fa-solid fa-pen"></i>
 
-        listaProdutos.innerHTML += `
+                    </button>
 
-        <tr>
+                    <button onclick="app.excluir(${index})"
 
-        <td>${produto.nome}</td>
+                    class="btn btn-danger">
 
-        <td>${produto.categoria}</td>
+                    <i class="fa-solid fa-trash"></i>
 
-        <td>${produto.estoque}</td>
+                    </button>
 
-        <td>R$ ${produto.venda.toFixed(2)}</td>
+                </td>
 
-        </tr>
+            </tr>
 
-        `;
+            `;
 
-    });
+        });
 
-}
-//==================================================
-// EXCLUIR
-//==================================================
+    }
 
-function excluirProduto(id){
+    /* ===============================
+       PESQUISA
+    =============================== */
 
-    if(confirm("Deseja realmente excluir este produto?")){
+    pesquisar(texto) {
 
-        produtos = produtos.filter(produto => produto.id !== id);
+        texto = texto.toLowerCase();
 
-        salvar();
+        const resultado = this.produtos.filter(produto =>
 
-        atualizarTabela();
+            produto.nome.toLowerCase().includes(texto) ||
+
+            produto.codigo.toLowerCase().includes(texto)
+
+        );
+
+        this.renderizarTabela(resultado);
+
+    }
+
+    /* ===============================
+       NOVO
+    =============================== */
+
+    novoProduto(){
+
+        console.log("Abrir Modal");
+
+    }
+
+    /* ===============================
+       EDITAR
+    =============================== */
+
+    editar(index){
+
+        console.log(this.produtos[index]);
+
+    }
+
+    /* ===============================
+       EXCLUIR
+    =============================== */
+
+    excluir(index){
+
+        if(confirm("Deseja excluir este produto?")){
+
+            this.produtos.splice(index,1);
+
+            this.salvar();
+
+            this.renderizarTabela();
+
+            this.atualizarCards();
+
+        }
+
+    }
+
+    /* ===============================
+       CARDS
+    =============================== */
+
+    atualizarCards(){
+
+        document.querySelectorAll(".totalProdutos")
+
+        .forEach(el=>{
+
+            el.innerHTML=this.produtos.length;
+
+        });
 
     }
 
 }
 
-//==================================================
-// EDITAR
-//==================================================
+/* ==========================================
+   INICIAR SISTEMA
+========================================== */
 
-function editarProduto(id){
-
-    const produto = produtos.find(p => p.id === id);
-
-    if(!produto) return;
-
-    nome.value = produto.nome;
-
-    categoria.value = produto.categoria;
-
-    compra.value = produto.compra;
-
-    venda.value = produto.venda;
-
-    estoque.value = produto.estoque;
-
-    codigo.value = produto.codigo;
-
-    descricao.value = produto.descricao;
-
-    excluirProduto(id);
-
-    modal.classList.add("ativo");
-
-}
-
-//==================================================
-// PESQUISA
-//==================================================
-
-pesquisar.addEventListener("keyup", () => {
-
-    const texto = pesquisar.value.toLowerCase();
-
-    const resultado = produtos.filter(produto =>
-
-        produto.nome.toLowerCase().includes(texto) ||
-
-        produto.categoria.toLowerCase().includes(texto)
-
-    );
-
-    atualizarTabela(resultado);
-
-});
-
-//==================================================
-// INICIAR
-//==================================================
-
-atualizarTabela();
+const app = new Produtos();
