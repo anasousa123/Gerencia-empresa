@@ -1,233 +1,205 @@
-//==================================================
-// NEXUS ERP
-// DASHBOARD
-//==================================================
+// ================================
+// NEXUS ERP - DASHBOARD
+// ================================
 
-//------------------------------
-// VERIFICAR LOGIN
-//------------------------------
+// Cards
+document.getElementById("vendasHoje").textContent = "R$ 2.580,00";
+document.getElementById("faturamento").textContent = "R$ 38.750,00";
+document.getElementById("lucro").textContent = "R$ 14.920,00";
+document.getElementById("estoqueBaixo").textContent = "7";
 
-const usuario = localStorage.getItem("usuarioLogado");
-
-if (!usuario) {
-    window.location.href = "../index.html";
-}
-
-//------------------------------
+// ================================
 // GRÁFICO DE VENDAS
-//------------------------------
+// ================================
 
-const ctx = document.getElementById("graficoVendas");
+new Chart(document.getElementById("graficoVendas"),{
 
-if (ctx) {
+    type:"line",
 
-    new Chart(ctx, {
+    data:{
 
-        type: "line",
+        labels:[
+            "Jan",
+            "Fev",
+            "Mar",
+            "Abr",
+            "Mai",
+            "Jun",
+            "Jul"
+        ],
 
-        data: {
+        datasets:[{
 
-            labels: [
-                "Jan",
-                "Fev",
-                "Mar",
-                "Abr",
-                "Mai",
-                "Jun",
-                "Jul",
-                "Ago",
-                "Set",
-                "Out",
-                "Nov",
-                "Dez"
+            label:"Faturamento",
+
+            data:[
+                8500,
+                9200,
+                11000,
+                9800,
+                13500,
+                15000,
+                18750
             ],
 
-            datasets: [{
+            borderColor:"#4f8cff",
 
-                label: "Vendas",
+            backgroundColor:"rgba(79,140,255,.15)",
 
-                data: [
-                    12000,
-                    18000,
-                    15000,
-                    25000,
-                    28000,
-                    32000,
-                    35000,
-                    38000,
-                    42000,
-                    46000,
-                    50000,
-                    52800
-                ],
+            fill:true,
 
-                borderColor: "#2563EB",
+            tension:.4
 
-                backgroundColor: "rgba(37,99,235,.15)",
+        }]
 
-                borderWidth: 4,
+    },
 
-                fill: true,
+    options:{
 
-                tension: .4
+        responsive:true,
 
-            }]
-
-        },
-
-        options: {
-
-            responsive: true,
-
-            maintainAspectRatio: false,
-
-            plugins: {
-
-                legend: {
-
-                    display: true
-
-                }
-
-            },
-
-            scales: {
-
-                y: {
-
-                    beginAtZero: true
-
-                }
-
+        plugins:{
+            legend:{
+                display:true
             }
-
         }
 
-    });
-
-}
-
-//------------------------------
-// ANIMAÇÃO DOS CARDS
-//------------------------------
-
-function animarNumero(elemento, valorFinal){
-
-    let atual = 0;
-
-    const incremento = Math.ceil(valorFinal / 100);
-
-    const intervalo = setInterval(() => {
-
-        atual += incremento;
-
-        if(atual >= valorFinal){
-
-            atual = valorFinal;
-
-            clearInterval(intervalo);
-
-        }
-
-        elemento.innerText = atual.toLocaleString("pt-BR");
-
-    },20);
-
-}
-
-const cards = document.querySelectorAll(".card h2");
-
-if(cards.length >= 4){
-
-    animarNumero(cards[0],52800);
-
-    animarNumero(cards[1],348);
-
-    animarNumero(cards[2],1240);
-
-    animarNumero(cards[3],620);
-
-}
-
-//------------------------------
-// BOAS-VINDAS
-//------------------------------
-
-console.log("Bem-vindo ao Nexus ERP!");
-
-console.log("Usuário:", usuario);
-
-//------------------------------
-// DATA ATUAL
-//------------------------------
-
-const hoje = new Date();
-
-console.log(
-
-    hoje.toLocaleDateString("pt-BR"),
-
-    hoje.toLocaleTimeString("pt-BR")
-
-);
-
-//------------------------------
-// EFEITO NOS CARDS
-//------------------------------
-
-const listaCards = document.querySelectorAll(".card");
-
-listaCards.forEach(card => {
-
-    card.addEventListener("mouseenter", () => {
-
-        card.style.transform = "translateY(-10px)";
-
-    });
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform = "translateY(0px)";
-
-    });
+    }
 
 });
 
-//------------------------------
-// NOTIFICAÇÃO DE DEMONSTRAÇÃO
-//------------------------------
+// ================================
+// PRODUTOS MAIS VENDIDOS
+// ================================
 
-setTimeout(() => {
+new Chart(document.getElementById("graficoProdutos"),{
 
-    console.log("Você possui novas notificações.");
+    type:"doughnut",
 
-},3000);
-//==============================
-// DASHBOARD
-//==============================
+    data:{
 
-const produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+        labels:[
+            "Hambúrguer",
+            "Pizza",
+            "Refrigerante",
+            "Açaí"
+        ],
 
-document.getElementById("totalProdutos").innerHTML = produtos.length;
+        datasets:[{
 
-const categorias = [...new Set(produtos.map(p => p.categoria))];
+            data:[
+                42,
+                30,
+                18,
+                10
+            ]
 
-document.getElementById("totalCategorias").innerHTML = categorias.length;
+        }]
 
-//------------------------------
-// PREPARAÇÃO FIREBASE
-//------------------------------
+    },
 
-// Futuramente iremos buscar:
-//
-// Produtos
-// Clientes
-// Vendas
-// Financeiro
-// Estoque
-//
-// diretamente do Firestore.
+    options:{
 
-//==================================================
-// FIM
-//==================================================
+        responsive:true
+
+    }
+
+});
+
+// ================================
+// ÚLTIMAS VENDAS
+// ================================
+
+const vendas=[
+
+{
+cliente:"João",
+produto:"Pizza Grande",
+valor:"R$ 79,90"
+},
+
+{
+cliente:"Maria",
+produto:"Hambúrguer Artesanal",
+valor:"R$ 42,00"
+},
+
+{
+cliente:"Carlos",
+produto:"Combo Família",
+valor:"R$ 129,90"
+},
+
+{
+cliente:"Ana",
+produto:"Açaí 700ml",
+valor:"R$ 28,00"
+}
+
+];
+
+const tabela=document.getElementById("ultimasVendas");
+
+vendas.forEach(venda=>{
+
+    tabela.innerHTML +=`
+
+        <tr>
+
+            <td>${venda.cliente}</td>
+
+            <td>${venda.produto}</td>
+
+            <td>${venda.valor}</td>
+
+        </tr>
+
+    `;
+
+});
+
+// ================================
+// ESTOQUE BAIXO
+// ================================
+
+const estoque=[
+
+{
+produto:"Coca-Cola 2L",
+quantidade:3
+},
+
+{
+produto:"Batata Palito",
+quantidade:5
+},
+
+{
+produto:"Queijo Mussarela",
+quantidade:2
+},
+
+{
+produto:"Bacon",
+quantidade:4
+}
+
+];
+
+const tabelaEstoque=document.getElementById("estoqueTabela");
+
+estoque.forEach(item=>{
+
+    tabelaEstoque.innerHTML +=`
+
+        <tr>
+
+            <td>${item.produto}</td>
+
+            <td>${item.quantidade}</td>
+
+        </tr>
+
+    `;
+
+});

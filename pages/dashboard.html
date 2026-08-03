@@ -2,10 +2,8 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Nexus ERP | Dashboard</title>
 
     <!-- Google Fonts -->
@@ -16,206 +14,231 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
-
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 
 <body>
 
-<div class="dashboard">
+<div class="container">
 
-<!-- ================= SIDEBAR ================= -->
+    <!-- Sidebar -->
 
-<aside class="sidebar">
+    <aside class="sidebar">
 
-<div class="logo">
+        <div class="logo">
 
-<i class="fa-solid fa-chart-line"></i>
+            <i class="fa-solid fa-chart-line"></i>
 
-<h2>Nexus ERP</h2>
+            <h2>Nexus ERP</h2>
 
-</div>
+        </div>
 
-<ul>
+        <nav>
 
-<li class="active">
-<i class="fa-solid fa-house"></i>
-<span>Dashboard</span>
-</li>
-<li onclick="window.location.href='produtos.html'">
-    <i class="fa-solid fa-box"></i>
-    <span>Produtos</span>
-</li>
+            <a href="#" class="active">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
 
-<li>
-<i class="fa-solid fa-layer-group"></i>
-<span>Estoque</span>
-</li>
+            <a href="pages/produtos.html">
+                <i class="fa-solid fa-box"></i>
+                Produtos
+            </a>
 
-<li>
-<i class="fa-solid fa-cart-shopping"></i>
-<span>Vendas</span>
-</li>
+            <a href="pages/estoque.html">
+                <i class="fa-solid fa-layer-group"></i>
+                Estoque
+            </a>
 
-<li>
-<i class="fa-solid fa-users"></i>
-<span>Clientes</span>
-</li>
+            <a href="pages/vendas.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Vendas
+            </a>
 
-<li>
-<i class="fa-solid fa-user-tie"></i>
-<span>Funcionários</span>
-</li>
+            <a href="pages/clientes.html">
+                <i class="fa-solid fa-users"></i>
+                Clientes
+            </a>
 
-<li>
-<i class="fa-solid fa-truck"></i>
-<span>Fornecedores</span>
-</li>
+            <a href="pages/fornecedores.html">
+                <i class="fa-solid fa-truck"></i>
+                Fornecedores
+            </a>
 
-<li>
-<i class="fa-solid fa-wallet"></i>
-<span>Financeiro</span>
-</li>
+            <a href="pages/financeiro.html">
+                <i class="fa-solid fa-wallet"></i>
+                Financeiro
+            </a>
 
-<li>
-<i class="fa-solid fa-chart-column"></i>
-<span>Relatórios</span>
-</li>
+            <a href="pages/relatorios.html">
+                <i class="fa-solid fa-chart-column"></i>
+                Relatórios
+            </a>
 
-<li>
-<i class="fa-solid fa-gear"></i>
-<span>Configurações</span>
-</li>
+            <a href="pages/configuracoes.html">
+                <i class="fa-solid fa-gear"></i>
+                Configurações
+            </a>
 
-</ul>
+        </nav>
 
-</aside>
+    </aside>
 
-<!-- ================= CONTEÚDO ================= -->
+    <!-- Conteúdo -->
 
-<main class="content">
+    <main class="content">
 
-<header>
+        <header>
 
-<h1>Dashboard</h1>
+            <h1>Dashboard</h1>
 
-<div class="perfil">
+            <div class="usuario">
 
-<i class="fa-solid fa-bell"></i>
+                <i class="fa-solid fa-user-circle"></i>
 
-<img src="https://i.pravatar.cc/50" alt="Usuário">
+                <span>Administrador</span>
 
-</div>
+            </div>
 
-</header>
+        </header>
 
-<!-- ================= CARDS ================= -->
+        <!-- Cards -->
 
-<section class="cards">
+        <section class="cards">
 
-    <div class="card">
+            <div class="card">
 
-        <i class="fa-solid fa-box"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
 
-        <h3>Produtos</h3>
+                <h3>Vendas Hoje</h3>
 
-        <h2 id="totalProdutos">0</h2>
+                <h2 id="vendasHoje">R$ 0,00</h2>
 
-        <p>Produtos cadastrados</p>
+            </div>
 
-    </div>
+            <div class="card">
 
-    <div class="card">
+                <i class="fa-solid fa-sack-dollar"></i>
 
-        <i class="fa-solid fa-list"></i>
+                <h3>Faturamento</h3>
 
-        <h3>Categorias</h3>
+                <h2 id="faturamento">R$ 0,00</h2>
 
-        <h2 id="totalCategorias">0</h2>
+            </div>
 
-        <p>Categorias cadastradas</p>
+            <div class="card">
 
-    </div>
+                <i class="fa-solid fa-chart-line"></i>
 
-    <div class="card">
+                <h3>Lucro</h3>
 
-        <i class="fa-solid fa-cart-shopping"></i>
+                <h2 id="lucro">R$ 0,00</h2>
 
-        <h3>Pedidos</h3>
+            </div>
 
-        <h2 id="totalPedidos">0</h2>
+            <div class="card">
 
-        <p>Pedidos realizados</p>
+                <i class="fa-solid fa-triangle-exclamation"></i>
 
-    </div>
+                <h3>Estoque Baixo</h3>
 
-    <div class="card">
+                <h2 id="estoqueBaixo">0</h2>
 
-        <i class="fa-solid fa-money-bill-wave"></i>
+            </div>
 
-        <h3>Faturamento</h3>
+        </section>
 
-        <h2 id="faturamento">R$ 0,00</h2>
+        <!-- Área dos gráficos -->
 
-        <p>Total vendido</p>
+        <section class="graficos">
 
-    </div>
+            <div class="grafico">
 
-</section>
-<!-- ================= GRÁFICO ================= -->
+                <h2>Gráfico de Vendas</h2>
 
-<section class="grafico">
+                <canvas id="graficoVendas"></canvas>
 
-<h2>Gráfico de Vendas</h2>
+            </div>
 
-<canvas id="graficoVendas"></canvas>
+            <div class="grafico">
 
-</section>
+                <h2>Produtos Mais Vendidos</h2>
 
-<!-- ================= TABELA ================= -->
+                <canvas id="graficoProdutos"></canvas>
 
-<section class="ultimas-vendas">
+            </div>
 
-<h2>Últimas Vendas</h2>
+        </section>
 
-<table>
+        <!-- Tabelas -->
 
-<thead>
+        <section class="tabelas">
 
-<tr>
+            <div class="tabela">
 
-<th>Cliente</th>
+                <h2>Últimas Vendas</h2>
 
-<th>Produto</th>
+                <table>
 
-<th>Valor</th>
+                    <thead>
 
-<th>Status</th>
+                        <tr>
 
-</tr>
+                            <th>Cliente</th>
 
-</thead>
+                            <th>Produto</th>
 
-<tbody>
+                            <th>Valor</th>
 
-<tr>
+                        </tr>
 
-</table>
+                    </thead>
 
-</section>
+                    <tbody id="ultimasVendas">
 
-</main>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="tabela">
+
+                <h2>Produtos com Estoque Baixo</h2>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Produto</th>
+
+                            <th>Quantidade</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="estoqueTabela">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script src="../js/dashboard.js"></script>
+<script src="js/dashboard.js"></script>
 
 </body>
-
 </html>
