@@ -1,0 +1,192 @@
+/* ====================================
+   RESET
+==================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#F5F7FB;
+    color:#1E293B;
+}
+
+/* ====================================
+   CORES
+==================================== */
+
+:root{
+
+    --primary:#2563EB;
+    --primary-hover:#1D4ED8;
+
+    --success:#22C55E;
+    --warning:#F59E0B;
+    --danger:#EF4444;
+
+    --dark:#111827;
+    --dark2:#1F2937;
+
+    --gray:#64748B;
+    --gray2:#94A3B8;
+
+    --background:#F5F7FB;
+
+    --card:#FFFFFF;
+
+    --border:#E5E7EB;
+
+    --shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+.layout{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+.main{
+
+    flex:1;
+
+    margin-left:270px;
+
+    transition:.3s;
+
+}
+.sidebar{
+
+    width:270px;
+
+    background:var(--dark);
+
+    color:white;
+
+    position:fixed;
+
+    height:100vh;
+
+    left:0;
+
+    top:0;
+
+    padding:25px;
+
+    overflow:auto;
+
+}
+
+.sidebar::-webkit-scrollbar{
+
+    width:5px;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+    background:#444;
+
+}
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:40px;
+
+}
+
+.logo i{
+
+    font-size:35px;
+
+    color:var(--primary);
+
+}
+
+.logo h2{
+
+    font-size:24px;
+
+}
+
+.logo small{
+
+    color:#94A3B8;
+
+}
+.menu-title{
+
+    color:#64748B;
+
+    font-size:12px;
+
+    margin-bottom:15px;
+
+    letter-spacing:2px;
+
+}
+
+.sidebar nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.sidebar nav a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    color:#CBD5E1;
+
+    text-decoration:none;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.sidebar nav a:hover{
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.sidebar nav a.ativo{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+.sidebar nav a i{
+
+    width:22px;
+
+    text-align:center;
+
+}
