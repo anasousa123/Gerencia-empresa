@@ -1,0 +1,326 @@
+/* =====================================================
+   NEXUS ERP
+   BASE.CSS
+   Desenvolvido por Ana Sousa
+===================================================== */
+
+/* ===========================
+   IMPORTAÇÃO DA FONTE
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#F8FAFC;
+    color:#1E293B;
+    font-size:15px;
+    line-height:1.5;
+}
+
+/* ===========================
+   CORES
+=========================== */
+
+:root{
+
+    /* Azul */
+
+    --primary:#2563EB;
+    --primary-light:#3B82F6;
+    --primary-dark:#1D4ED8;
+
+    /* Sucesso */
+
+    --success:#22C55E;
+
+    /* Atenção */
+
+    --warning:#F59E0B;
+
+    /* Erro */
+
+    --danger:#EF4444;
+
+    /* Informação */
+
+    --info:#06B6D4;
+
+    /* Branco */
+
+    --white:#FFFFFF;
+
+    /* Fundo */
+
+    --background:#F8FAFC;
+
+    /* Cards */
+
+    --card:#FFFFFF;
+
+    /* Sidebar */
+
+    --sidebar:#0F172A;
+
+    /* Topbar */
+
+    --topbar:#FFFFFF;
+
+    /* Texto */
+
+    --text:#1E293B;
+
+    --text-light:#64748B;
+
+    /* Bordas */
+
+    --border:#E2E8F0;
+
+    /* Sombras */
+
+    --shadow-sm:0 2px 8px rgba(0,0,0,.05);
+
+    --shadow-md:0 8px 20px rgba(0,0,0,.08);
+
+    --shadow-lg:0 15px 35px rgba(0,0,0,.12);
+
+    /* Radius */
+
+    --radius-sm:8px;
+
+    --radius-md:14px;
+
+    --radius-lg:22px;
+
+}
+
+/* ===========================
+   TIPOGRAFIA
+=========================== */
+
+h1{
+
+    font-size:32px;
+
+    font-weight:700;
+
+}
+
+h2{
+
+    font-size:26px;
+
+    font-weight:600;
+
+}
+
+h3{
+
+    font-size:20px;
+
+    font-weight:600;
+
+}
+
+h4{
+
+    font-size:18px;
+
+    font-weight:500;
+
+}
+
+p{
+
+    color:var(--text-light);
+
+}
+
+/* ===========================
+   LINKS
+=========================== */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+/* ===========================
+   LISTAS
+=========================== */
+
+ul{
+
+    list-style:none;
+
+}
+
+/* ===========================
+   IMAGENS
+=========================== */
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+/* ===========================
+   BOTÕES PADRÃO
+=========================== */
+
+button{
+
+    font-family:'Poppins',sans-serif;
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+}
+
+/* ===========================
+   INPUTS
+=========================== */
+
+input,
+textarea,
+select{
+
+    font-family:'Poppins',sans-serif;
+
+    outline:none;
+
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.grid{
+
+    display:grid;
+
+    gap:24px;
+
+}
+
+.grid-2{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.grid-3{
+
+    grid-template-columns:repeat(3,1fr);
+
+}
+
+.grid-4{
+
+    grid-template-columns:repeat(4,1fr);
+
+}
+
+.grid-auto{
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+
+.container{
+
+    width:100%;
+
+    max-width:1600px;
+
+    margin:auto;
+
+}
+
+/* ===========================
+   ESPAÇAMENTOS
+=========================== */
+
+.mt-1{margin-top:8px;}
+.mt-2{margin-top:16px;}
+.mt-3{margin-top:24px;}
+.mt-4{margin-top:32px;}
+
+.mb-1{margin-bottom:8px;}
+.mb-2{margin-bottom:16px;}
+.mb-3{margin-bottom:24px;}
+.mb-4{margin-bottom:32px;}
+
+.p-1{padding:8px;}
+.p-2{padding:16px;}
+.p-3{padding:24px;}
+.p-4{padding:32px;}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#F1F5F9;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+    border-radius:50px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#94A3B8;
+
+}
+
+/* ===========================
+   SELEÇÃO DE TEXTO
+=========================== */
+
+::selection{
+
+    background:var(--primary);
+
+    color:white;
+
+}

@@ -1,0 +1,572 @@
+/* ==========================================================
+   NEXUS ERP
+   COMPONENTS.CSS
+==========================================================*/
+
+/* =======================
+   CARDS
+======================= */
+
+.card{
+
+    background:var(--card);
+
+    border-radius:18px;
+
+    padding:24px;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:.3s;
+
+    border:1px solid var(--border);
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.card-title{
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+.card-body{
+
+    margin-top:15px;
+
+}
+
+.card-footer{
+
+    margin-top:20px;
+
+}
+
+/* =======================
+   DASHBOARD CARD
+======================= */
+
+.stat-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.stat-info h2{
+
+    font-size:30px;
+
+    margin-top:8px;
+
+}
+
+.stat-info p{
+
+    color:var(--text-light);
+
+}
+
+.stat-icon{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(37,99,235,.1);
+
+    color:var(--primary);
+
+    font-size:28px;
+
+}
+
+/* =======================
+   BOTÕES
+======================= */
+
+.btn{
+
+    height:46px;
+
+    padding:0 24px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.btn-primary{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+.btn-primary:hover{
+
+    background:var(--primary-dark);
+
+}
+
+.btn-success{
+
+    background:var(--success);
+
+    color:white;
+
+}
+
+.btn-danger{
+
+    background:var(--danger);
+
+    color:white;
+
+}
+
+.btn-warning{
+
+    background:var(--warning);
+
+    color:white;
+
+}
+
+.btn-outline{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    color:var(--text);
+
+}
+
+.btn-outline:hover{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+/* =======================
+   INPUTS
+======================= */
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    margin-bottom:20px;
+
+}
+
+.form-group label{
+
+    font-weight:500;
+
+}
+
+.form-control{
+
+    height:48px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    padding:0 16px;
+
+    transition:.3s;
+
+    background:white;
+
+}
+
+.form-control:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+
+}
+
+/* textarea */
+
+textarea.form-control{
+
+    height:120px;
+
+    padding:15px;
+
+    resize:none;
+
+}
+
+/* =======================
+   SELECT
+======================= */
+
+select.form-control{
+
+    cursor:pointer;
+
+}
+
+/* =======================
+   TABELAS
+======================= */
+
+.table-container{
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow-sm);
+
+    border:1px solid var(--border);
+
+}
+
+.table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.table thead{
+
+    background:#F1F5F9;
+
+}
+
+.table th{
+
+    padding:18px;
+
+    text-align:left;
+
+    font-weight:600;
+
+}
+
+.table td{
+
+    padding:18px;
+
+    border-top:1px solid var(--border);
+
+}
+
+.table tbody tr{
+
+    transition:.2s;
+
+}
+
+.table tbody tr:hover{
+
+    background:#F8FAFC;
+
+}
+
+/* =======================
+   BADGES
+======================= */
+
+.badge{
+
+    padding:6px 12px;
+
+    border-radius:50px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.badge-success{
+
+    background:#DCFCE7;
+
+    color:#166534;
+
+}
+
+.badge-danger{
+
+    background:#FEE2E2;
+
+    color:#991B1B;
+
+}
+
+.badge-warning{
+
+    background:#FEF3C7;
+
+    color:#92400E;
+
+}
+
+.badge-primary{
+
+    background:#DBEAFE;
+
+    color:#1D4ED8;
+
+}
+
+/* =======================
+   ALERTAS
+======================= */
+
+.alert{
+
+    padding:18px;
+
+    border-radius:14px;
+
+    margin-bottom:20px;
+
+}
+
+.alert-success{
+
+    background:#DCFCE7;
+
+    color:#166534;
+
+}
+
+.alert-danger{
+
+    background:#FEE2E2;
+
+    color:#991B1B;
+
+}
+
+.alert-warning{
+
+    background:#FEF3C7;
+
+    color:#92400E;
+
+}
+
+/* =======================
+   MODAL
+======================= */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.modal.show{
+
+    display:flex;
+
+}
+
+.modal-content{
+
+    width:700px;
+
+    max-width:95%;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    animation:modal .3s ease;
+
+}
+
+@keyframes modal{
+
+    from{
+
+        transform:translateY(-30px);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
+
+}
+
+/* =======================
+   PAGINAÇÃO
+======================= */
+
+.pagination{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:10px;
+
+    margin-top:20px;
+
+}
+
+.pagination button{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:10px;
+
+    border:1px solid var(--border);
+
+    background:white;
+
+    cursor:pointer;
+
+}
+
+.pagination button:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+/* =======================
+   LOADING
+======================= */
+
+.loader{
+
+    width:45px;
+
+    height:45px;
+
+    border:5px solid #E2E8F0;
+
+    border-top-color:var(--primary);
+
+    border-radius:50%;
+
+    animation:spin .8s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* =======================
+   SCROLL INTERNO
+======================= */
+
+.scroll{
+
+    overflow:auto;
+
+}
+
+.scroll::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.scroll::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+    border-radius:50px;
+
+}

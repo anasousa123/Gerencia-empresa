@@ -1,122 +1,87 @@
-/* ====================================
-   RESET
-==================================== */
+/* =====================================================
+   NEXUS ERP
+   LAYOUT.CSS
+===================================================== */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+/* ===========================
+   LAYOUT
+=========================== */
 
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:#F5F7FB;
-    color:#1E293B;
-}
-
-/* ====================================
-   CORES
-==================================== */
-
-:root{
-
-    --primary:#2563EB;
-    --primary-hover:#1D4ED8;
-
-    --success:#22C55E;
-    --warning:#F59E0B;
-    --danger:#EF4444;
-
-    --dark:#111827;
-    --dark2:#1F2937;
-
-    --gray:#64748B;
-    --gray2:#94A3B8;
-
-    --background:#F5F7FB;
-
-    --card:#FFFFFF;
-
-    --border:#E5E7EB;
-
-    --shadow:0 8px 25px rgba(0,0,0,.08);
-
-}
 .layout{
-
     display:flex;
-
     min-height:100vh;
-
+    background:var(--background);
 }
 
-.main{
+/* ===========================
+   SIDEBAR
+=========================== */
 
-    flex:1;
-
-    margin-left:270px;
-
-    transition:.3s;
-
-}
 .sidebar{
 
-    width:270px;
-
-    background:var(--dark);
-
-    color:white;
-
     position:fixed;
-
-    height:100vh;
 
     left:0;
 
     top:0;
 
-    padding:25px;
+    width:280px;
 
-    overflow:auto;
+    height:100vh;
+
+    background:var(--sidebar);
+
+    display:flex;
+
+    flex-direction:column;
+
+    border-right:1px solid rgba(255,255,255,.05);
+
+    transition:.3s;
+
+    z-index:1000;
 
 }
 
-.sidebar::-webkit-scrollbar{
+/* Sidebar fechada */
 
-    width:5px;
+.sidebar.close{
 
-}
-
-.sidebar::-webkit-scrollbar-thumb{
-
-    background:#444;
+    width:90px;
 
 }
+
+/* ===========================
+   LOGO
+=========================== */
+
 .logo{
+
+    height:80px;
 
     display:flex;
 
     align-items:center;
 
+    padding:0 25px;
+
     gap:15px;
 
-    margin-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255,.05);
 
 }
 
 .logo i{
 
-    font-size:35px;
+    font-size:32px;
 
     color:var(--primary);
 
 }
 
 .logo h2{
+
+    color:white;
 
     font-size:24px;
 
@@ -127,29 +92,50 @@ body{
     color:#94A3B8;
 
 }
-.menu-title{
+
+/* ===========================
+   MENU
+=========================== */
+
+.menu{
+
+    flex:1;
+
+    padding:20px 15px;
+
+}
+
+.menu span.title{
 
     color:#64748B;
 
     font-size:12px;
 
-    margin-bottom:15px;
-
     letter-spacing:2px;
+
+    display:block;
+
+    margin-bottom:15px;
 
 }
 
-.sidebar nav{
+.menu ul{
 
     display:flex;
 
     flex-direction:column;
 
-    gap:10px;
+    gap:8px;
 
 }
 
-.sidebar nav a{
+.menu li{
+
+    list-style:none;
+
+}
+
+.menu a{
 
     display:flex;
 
@@ -157,25 +143,29 @@ body{
 
     gap:15px;
 
+    height:52px;
+
+    padding:0 18px;
+
+    border-radius:14px;
+
     color:#CBD5E1;
 
-    text-decoration:none;
+    transition:.25s;
 
-    padding:14px 18px;
-
-    border-radius:12px;
-
-    transition:.3s;
+    font-weight:500;
 
 }
 
-.sidebar nav a:hover{
+.menu a:hover{
 
     background:rgba(255,255,255,.08);
 
+    color:white;
+
 }
 
-.sidebar nav a.ativo{
+.menu a.active{
 
     background:var(--primary);
 
@@ -183,10 +173,390 @@ body{
 
 }
 
-.sidebar nav a i{
+.menu a i{
 
-    width:22px;
+    width:24px;
 
     text-align:center;
+
+    font-size:18px;
+
+}
+
+/* ===========================
+   RODAPÉ SIDEBAR
+=========================== */
+
+.sidebar-footer{
+
+    padding:20px;
+
+    border-top:1px solid rgba(255,255,255,.05);
+
+}
+
+.sidebar-footer button{
+
+    width:100%;
+
+    height:48px;
+
+    border-radius:12px;
+
+    background:#EF4444;
+
+    color:white;
+
+    font-size:15px;
+
+}
+
+/* ===========================
+   MAIN
+=========================== */
+
+.main{
+
+    width:100%;
+
+    margin-left:280px;
+
+    transition:.3s;
+
+}
+
+.main.expand{
+
+    margin-left:90px;
+
+}
+
+/* ===========================
+   TOPBAR
+=========================== */
+
+.topbar{
+
+    position:sticky;
+
+    top:0;
+
+    height:80px;
+
+    background:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 35px;
+
+    box-shadow:var(--shadow-sm);
+
+    z-index:900;
+
+}
+
+/* ===========================
+   LADO ESQUERDO
+=========================== */
+
+.left-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.toggle{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:12px;
+
+    background:#F1F5F9;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.toggle:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+/* ===========================
+   PESQUISA
+=========================== */
+
+.search{
+
+    width:360px;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    background:#F8FAFC;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    padding:0 18px;
+
+}
+
+.search i{
+
+    color:#94A3B8;
+
+}
+
+.search input{
+
+    flex:1;
+
+    border:none;
+
+    background:none;
+
+    padding-left:12px;
+
+    font-size:15px;
+
+}
+
+/* ===========================
+   LADO DIREITO
+=========================== */
+
+.right-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+/* Ícones */
+
+.icon-btn{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#F8FAFC;
+
+    border:1px solid var(--border);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.icon-btn:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+/* ===========================
+   PERFIL
+=========================== */
+
+.profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    cursor:pointer;
+
+}
+
+.profile img{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.profile h4{
+
+    font-size:15px;
+
+}
+
+.profile p{
+
+    font-size:13px;
+
+    color:#64748B;
+
+}
+
+/* ===========================
+   CONTEÚDO
+=========================== */
+
+.content{
+
+    padding:35px;
+
+}
+
+/* ===========================
+   TÍTULO
+=========================== */
+
+.page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.page-header h1{
+
+    font-size:30px;
+
+    color:var(--text);
+
+}
+
+.page-header p{
+
+    margin-top:5px;
+
+}
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+
+@media(max-width:1200px){
+
+.search{
+
+    width:250px;
+
+}
+
+}
+
+@media(max-width:992px){
+
+.sidebar{
+
+    left:-280px;
+
+}
+
+.sidebar.show{
+
+    left:0;
+
+}
+
+.main{
+
+    margin-left:0;
+
+}
+
+.topbar{
+
+    padding:0 20px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.search{
+
+    display:none;
+
+}
+
+.page-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+}
+
+.content{
+
+    padding:20px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.profile div{
+
+    display:none;
+
+}
+
+.topbar{
+
+    height:70px;
+
+}
 
 }
