@@ -2,121 +2,130 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nexus ERP | Login</title>
+    <title>Fashion ERP</title>
 
-    <!-- Google Fonts -->
+    <!-- Google Font -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Ícones -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login.css">
+
+    <link rel="stylesheet" href="assets/css/base.css">
+
+    <link rel="stylesheet" href="assets/css/layout.css">
+
+    <link rel="stylesheet" href="assets/css/components.css">
+
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
 </head>
 
 <body>
+<body>
 
-    <div class="login-container">
+    <main class="login">
 
         <!-- Lado esquerdo -->
-        <div class="login-left">
+        <section class="login-banner">
 
-            <div class="logo">
+            <div class="overlay"></div>
 
-                <i class="fa-solid fa-chart-line"></i>
+            <div class="banner-content">
 
-                <h1>Nexus ERP</h1>
+                <h1>Fashion ERP</h1>
 
-                <p>Gestão Inteligente para sua Empresa</p>
+                <p>
+                    Sistema inteligente para gerenciamento
+                    da sua loja de roupas.
+                </p>
 
             </div>
 
-        </div>
+        </section>
 
         <!-- Lado direito -->
-        <div class="login-right">
+        <section class="login-form">
 
-            <form id="formLogin">
+            <div class="login-card">
 
-                <h2>Bem-vindo!</h2>
+                <div class="logo-area">
 
-                <p>Entre com sua conta</p>
+                    <div class="logo-circle">
+                        👗
+                    </div>
 
-                <div class="input-group">
+                    <h2>Fashion ERP</h2>
 
-                    <label>E-mail</label>
+                    <span>Painel Administrativo</span>
 
-                    <div class="input">
+                </div>
 
-                        <i class="fa-solid fa-envelope"></i>
+                <h3>Bem-vindo!</h3>
+
+                <p>Faça login para acessar sua conta.</p>
+
+                <form>
+
+                    <div class="input-group">
+
+                        <label>E-mail</label>
 
                         <input
                             type="email"
-                            id="email"
-                            placeholder="Digite seu e-mail"
-                            required>
+                            placeholder="Digite seu e-mail">
 
                     </div>
 
-                </div>
+                    <div class="input-group">
 
-                <div class="input-group">
-
-                    <label>Senha</label>
-
-                    <div class="input">
-
-                        <i class="fa-solid fa-lock"></i>
+                        <label>Senha</label>
 
                         <input
                             type="password"
-                            id="senha"
-                            placeholder="Digite sua senha"
-                            required>
-
-                        <i
-                            class="fa-solid fa-eye toggleSenha"
-                            id="mostrarSenha"></i>
+                            placeholder="Digite sua senha">
 
                     </div>
 
-                </div>
+                    <div class="login-options">
 
-                <div class="options">
+                        <label>
 
-                    <label>
+                            <input type="checkbox">
 
-                        <input type="checkbox">
+                            Lembrar-me
 
-                        Lembrar-me
+                        </label>
 
-                    </label>
+                        <a href="#">
+                            Esqueci minha senha
+                        </a>
 
-                    <a href="#">Esqueci minha senha</a>
+                    </div>
 
-                </div>
+                    <button class="btn-login">
 
-                <button type="submit">
+                        Entrar
 
-                    Entrar
+                    </button>
 
-                </button>
+                </form>
 
-            </form>
+            </div>
 
-        </div>
+        </section>
 
-    </div>
-
-    <script src="js/login.js"></script>
+    </main>
 
 </body>
 

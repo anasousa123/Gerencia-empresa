@@ -1,225 +1,271 @@
-/* ==========================================================
-   NEXUS ERP
+/* ==========================================
    LOGIN
-========================================================== */
+========================================== */
 
-body{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(135deg,#1E3A8A,#2563EB);
-}
-
-/* ===============================
-   CONTAINER
-================================ */
-
-.login-container{
-    width:1100px;
-    max-width:95%;
-    min-height:650px;
+.login{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    background:#fff;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 25px 60px rgba(0,0,0,.25);
+    grid-template-columns:1fr 520px;
+    min-height:100vh;
 }
 
-/* ===============================
-   LADO ESQUERDO
-================================ */
+/* ===========================
+   Banner
+=========================== */
 
-.login-left{
-    background:linear-gradient(135deg,#1E3A8A,#2563EB);
-    color:#fff;
+.login-banner{
+
+    position:relative;
+
+    background:url("../img/login-banner.jpg") center center;
+
+    background-size:cover;
+
     display:flex;
-    justify-content:center;
-    align-items:center;
+
+    align-items:flex-end;
+
     padding:60px;
-    position:relative;
+
 }
 
-.login-left::before{
-    content:"";
+.overlay{
+
     position:absolute;
-    width:320px;
-    height:320px;
-    border-radius:50%;
-    background:rgba(255,255,255,.08);
-    top:-100px;
-    left:-80px;
+
+    inset:0;
+
+    background:linear-gradient(
+        180deg,
+        rgba(37,99,235,.15),
+        rgba(15,23,42,.85)
+    );
+
 }
 
-.login-left::after{
-    content:"";
-    position:absolute;
-    width:260px;
-    height:260px;
-    border-radius:50%;
-    background:rgba(255,255,255,.05);
-    bottom:-100px;
-    right:-80px;
-}
+.banner-content{
 
-.logo{
     position:relative;
+
+    color:white;
+
     z-index:2;
-    text-align:center;
+
 }
 
-.logo i{
-    font-size:80px;
-    margin-bottom:25px;
-}
+.banner-content h1{
 
-.logo h1{
-    font-size:42px;
+    font-size:52px;
+
+    font-weight:700;
+
     margin-bottom:15px;
+
 }
 
-.logo p{
+.banner-content p{
+
+    font-size:18px;
+
+    line-height:30px;
+
+    max-width:500px;
+
     color:#E2E8F0;
-    font-size:17px;
+
 }
 
-/* ===============================
-   LADO DIREITO
-================================ */
+/* ===========================
+   Formulário
+=========================== */
 
-.login-right{
+.login-form{
+
+    background:white;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
-    padding:60px;
+
+    padding:50px;
+
 }
 
-form{
+.login-card{
+
     width:100%;
+
     max-width:420px;
+
 }
 
-form h2{
-    color:#0F172A;
-    margin-bottom:8px;
+.logo-area{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
 }
 
-form>p{
+.logo-circle{
+
+    width:85px;
+
+    height:85px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:38px;
+
+    color:white;
+
+    margin-bottom:20px;
+
+}
+
+.logo-area h2{
+
+    font-size:30px;
+
+    color:var(--title);
+
+}
+
+.logo-area span{
+
+    color:var(--text-light);
+
+}
+
+.login-card h3{
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+.login-card p{
+
+    color:var(--text);
+
     margin-bottom:35px;
+
 }
 
-/* ===============================
-   INPUTS
-================================ */
+/* ===========================
+   Inputs
+=========================== */
 
 .input-group{
-    margin-bottom:22px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin-bottom:20px;
+
 }
 
 .input-group label{
-    display:block;
+
     margin-bottom:8px;
-    font-weight:600;
-    color:#334155;
+
+    font-weight:500;
+
 }
 
-.input{
-    display:flex;
-    align-items:center;
-    border:1px solid #CBD5E1;
-    border-radius:12px;
-    overflow:hidden;
-    transition:.3s;
-    background:#fff;
-}
+.input-group input{
 
-.input:hover,
-.input:focus-within{
-    border-color:#2563EB;
-    box-shadow:0 0 0 4px rgba(37,99,235,.15);
-}
-
-.input i:first-child{
-    width:55px;
-    text-align:center;
-    color:#64748B;
-}
-
-.input input{
-    flex:1;
     height:55px;
-    font-size:15px;
-}
 
-.toggleSenha{
-    width:55px;
-    text-align:center;
-    cursor:pointer;
-    color:#64748B;
-}
+    border:1px solid var(--border);
 
-/* ===============================
-   OPÇÕES
-================================ */
-
-.options{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:30px;
-    font-size:14px;
-}
-
-.options a{
-    color:#2563EB;
-    font-weight:600;
-}
-
-.options label{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-/* ===============================
-   BOTÃO
-================================ */
-
-button{
-    width:100%;
-    height:56px;
-    border:none;
     border-radius:12px;
-    background:#2563EB;
-    color:#fff;
-    font-size:17px;
-    font-weight:600;
+
+    padding:0 18px;
+
     transition:.3s;
+
+    background:#FAFBFD;
+
 }
 
-button:hover{
-    background:#1D4ED8;
-    transform:translateY(-3px);
-    box-shadow:0 12px 25px rgba(37,99,235,.35);
+.input-group input:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+
 }
 
-/* ===============================
-   RESPONSIVO
-================================ */
+/* ===========================
+   Opções
+=========================== */
 
-@media(max-width:900px){
+.login-options{
 
-    .login-container{
-        grid-template-columns:1fr;
-    }
+    display:flex;
 
-    .login-left{
-        display:none;
-    }
+    justify-content:space-between;
 
-    .login-right{
-        padding:40px 30px;
-    }
+    align-items:center;
+
+    margin-bottom:30px;
+
+    font-size:14px;
+
+}
+
+.login-options a{
+
+    color:var(--primary);
+
+    font-weight:600;
+
+}
+
+/* ===========================
+   Botão
+=========================== */
+
+.btn-login{
+
+    width:100%;
+
+    height:56px;
+
+    border-radius:14px;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-login:hover{
+
+    background:var(--primary-hover);
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 25px rgba(37,99,235,.25);
 
 }

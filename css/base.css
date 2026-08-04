@@ -1,18 +1,12 @@
-/* =====================================================
-   NEXUS ERP
-   BASE.CSS
-   Desenvolvido por Ana Sousa
-===================================================== */
+/* ==========================================
+   FASHION ERP
+   Base.css
+========================================== */
 
-/* ===========================
-   IMPORTAÇÃO DA FONTE
-=========================== */
-
+/* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-/* ===========================
-   RESET
-=========================== */
+/* Reset */
 
 *{
     margin:0;
@@ -25,134 +19,18 @@ html{
 }
 
 body{
+
     font-family:'Poppins',sans-serif;
-    background:#F8FAFC;
-    color:#1E293B;
-    font-size:15px;
-    line-height:1.5;
-}
 
-/* ===========================
-   CORES
-=========================== */
+    background:#F5F7FB;
 
-:root{
+    color:#1F2937;
 
-    /* Azul */
-
-    --primary:#2563EB;
-    --primary-light:#3B82F6;
-    --primary-dark:#1D4ED8;
-
-    /* Sucesso */
-
-    --success:#22C55E;
-
-    /* Atenção */
-
-    --warning:#F59E0B;
-
-    /* Erro */
-
-    --danger:#EF4444;
-
-    /* Informação */
-
-    --info:#06B6D4;
-
-    /* Branco */
-
-    --white:#FFFFFF;
-
-    /* Fundo */
-
-    --background:#F8FAFC;
-
-    /* Cards */
-
-    --card:#FFFFFF;
-
-    /* Sidebar */
-
-    --sidebar:#0F172A;
-
-    /* Topbar */
-
-    --topbar:#FFFFFF;
-
-    /* Texto */
-
-    --text:#1E293B;
-
-    --text-light:#64748B;
-
-    /* Bordas */
-
-    --border:#E2E8F0;
-
-    /* Sombras */
-
-    --shadow-sm:0 2px 8px rgba(0,0,0,.05);
-
-    --shadow-md:0 8px 20px rgba(0,0,0,.08);
-
-    --shadow-lg:0 15px 35px rgba(0,0,0,.12);
-
-    /* Radius */
-
-    --radius-sm:8px;
-
-    --radius-md:14px;
-
-    --radius-lg:22px;
+    overflow-x:hidden;
 
 }
 
-/* ===========================
-   TIPOGRAFIA
-=========================== */
-
-h1{
-
-    font-size:32px;
-
-    font-weight:700;
-
-}
-
-h2{
-
-    font-size:26px;
-
-    font-weight:600;
-
-}
-
-h3{
-
-    font-size:20px;
-
-    font-weight:600;
-
-}
-
-h4{
-
-    font-size:18px;
-
-    font-weight:500;
-
-}
-
-p{
-
-    color:var(--text-light);
-
-}
-
-/* ===========================
-   LINKS
-=========================== */
+/* Links */
 
 a{
 
@@ -162,9 +40,7 @@ a{
 
 }
 
-/* ===========================
-   LISTAS
-=========================== */
+/* Listas */
 
 ul{
 
@@ -172,25 +48,9 @@ ul{
 
 }
 
-/* ===========================
-   IMAGENS
-=========================== */
-
-img{
-
-    max-width:100%;
-
-    display:block;
-
-}
-
-/* ===========================
-   BOTÕES PADRÃO
-=========================== */
+/* Botões */
 
 button{
-
-    font-family:'Poppins',sans-serif;
 
     border:none;
 
@@ -198,129 +58,120 @@ button{
 
     cursor:pointer;
 
+    font-family:inherit;
+
 }
 
-/* ===========================
-   INPUTS
-=========================== */
+/* Inputs */
 
 input,
-textarea,
-select{
+select,
+textarea{
 
-    font-family:'Poppins',sans-serif;
+    border:none;
 
     outline:none;
 
-}
-
-/* ===========================
-   GRID
-=========================== */
-
-.grid{
-
-    display:grid;
-
-    gap:24px;
+    font-family:inherit;
 
 }
 
-.grid-2{
+/* Imagens */
 
-    grid-template-columns:repeat(2,1fr);
+img{
 
-}
+    display:block;
 
-.grid-3{
-
-    grid-template-columns:repeat(3,1fr);
+    max-width:100%;
 
 }
 
-.grid-4{
+/* Variáveis */
 
-    grid-template-columns:repeat(4,1fr);
+:root{
+
+    /* Azul principal */
+
+    --primary:#2563EB;
+
+    --primary-hover:#1D4ED8;
+
+    /* Fundo */
+
+    --background:#F5F7FB;
+
+    --surface:#FFFFFF;
+
+    /* Sidebar */
+
+    --sidebar:#0F172A;
+
+    --sidebar-hover:#1E293B;
+
+    /* Textos */
+
+    --title:#111827;
+
+    --text:#4B5563;
+
+    --text-light:#9CA3AF;
+
+    /* Status */
+
+    --success:#22C55E;
+
+    --warning:#F59E0B;
+
+    --danger:#EF4444;
+
+    /* Bordas */
+
+    --border:#E5E7EB;
+
+    /* Sombras */
+
+    --shadow-sm:0 2px 8px rgba(0,0,0,.05);
+
+    --shadow-md:0 8px 20px rgba(0,0,0,.08);
+
+    --shadow-lg:0 15px 35px rgba(0,0,0,.12);
+
+    /* Bordas */
+
+    --radius:14px;
+
+    --radius-lg:20px;
+
+    /* Transição */
+
+    --transition:.30s ease;
 
 }
 
-.grid-auto{
-
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-}
-
-/* ===========================
-   CONTAINER
-=========================== */
-
-.container{
-
-    width:100%;
-
-    max-width:1600px;
-
-    margin:auto;
-
-}
-
-/* ===========================
-   ESPAÇAMENTOS
-=========================== */
-
-.mt-1{margin-top:8px;}
-.mt-2{margin-top:16px;}
-.mt-3{margin-top:24px;}
-.mt-4{margin-top:32px;}
-
-.mb-1{margin-bottom:8px;}
-.mb-2{margin-bottom:16px;}
-.mb-3{margin-bottom:24px;}
-.mb-4{margin-bottom:32px;}
-
-.p-1{padding:8px;}
-.p-2{padding:16px;}
-.p-3{padding:24px;}
-.p-4{padding:32px;}
-
-/* ===========================
-   SCROLLBAR
-=========================== */
+/* Scroll */
 
 ::-webkit-scrollbar{
 
-    width:8px;
+    width:10px;
 
 }
 
 ::-webkit-scrollbar-track{
 
-    background:#F1F5F9;
+    background:#ECEFF5;
 
 }
 
 ::-webkit-scrollbar-thumb{
 
-    background:#CBD5E1;
+    background:#C7CEDB;
 
-    border-radius:50px;
+    border-radius:30px;
 
 }
 
 ::-webkit-scrollbar-thumb:hover{
 
-    background:#94A3B8;
-
-}
-
-/* ===========================
-   SELEÇÃO DE TEXTO
-=========================== */
-
-::selection{
-
-    background:var(--primary);
-
-    color:white;
+    background:#9AA7BD;
 
 }

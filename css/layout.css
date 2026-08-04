@@ -1,137 +1,73 @@
-/* =====================================================
-   NEXUS ERP
-   LAYOUT.CSS
-===================================================== */
+/* ==========================================
+   FASHION ERP
+   layout.css
+========================================== */
 
-/* ===========================
-   LAYOUT
-=========================== */
+/* ---------- Estrutura Principal ---------- */
 
-.layout{
+.app{
     display:flex;
+    width:100%;
     min-height:100vh;
-    background:var(--background);
 }
 
-/* ===========================
-   SIDEBAR
-=========================== */
+/* ---------- Sidebar ---------- */
 
 .sidebar{
 
-    position:fixed;
-
-    left:0;
-
-    top:0;
-
-    width:280px;
-
-    height:100vh;
+    width:260px;
 
     background:var(--sidebar);
+
+    color:#fff;
 
     display:flex;
 
     flex-direction:column;
 
-    border-right:1px solid rgba(255,255,255,.05);
+    justify-content:space-between;
 
-    transition:.3s;
+    transition:var(--transition);
 
-    z-index:1000;
-
-}
-
-/* Sidebar fechada */
-
-.sidebar.close{
-
-    width:90px;
+    box-shadow:var(--shadow-md);
 
 }
 
-/* ===========================
-   LOGO
-=========================== */
+.sidebar-header{
+
+    padding:30px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
 
 .logo{
 
-    height:80px;
+    font-size:24px;
 
-    display:flex;
+    font-weight:700;
 
-    align-items:center;
-
-    padding:0 25px;
-
-    gap:15px;
-
-    border-bottom:1px solid rgba(255,255,255,.05);
+    color:#fff;
 
 }
 
-.logo i{
-
-    font-size:32px;
+.logo span{
 
     color:var(--primary);
 
 }
 
-.logo h2{
-
-    color:white;
-
-    font-size:24px;
-
-}
-
-.logo small{
-
-    color:#94A3B8;
-
-}
-
-/* ===========================
-   MENU
-=========================== */
+/* ---------- Menu ---------- */
 
 .menu{
 
-    flex:1;
-
-    padding:20px 15px;
-
-}
-
-.menu span.title{
-
-    color:#64748B;
-
-    font-size:12px;
-
-    letter-spacing:2px;
-
-    display:block;
-
-    margin-bottom:15px;
-
-}
-
-.menu ul{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:8px;
+    padding:20px 0;
 
 }
 
 .menu li{
 
-    list-style:none;
+    margin:8px 15px;
 
 }
 
@@ -141,17 +77,17 @@
 
     align-items:center;
 
-    gap:15px;
+    gap:14px;
 
-    height:52px;
+    padding:14px 18px;
 
-    padding:0 18px;
+    border-radius:12px;
 
-    border-radius:14px;
+    transition:.25s;
 
     color:#CBD5E1;
 
-    transition:.25s;
+    font-size:15px;
 
     font-weight:500;
 
@@ -159,91 +95,51 @@
 
 .menu a:hover{
 
-    background:rgba(255,255,255,.08);
+    background:var(--sidebar-hover);
 
-    color:white;
+    color:#fff;
 
 }
 
-.menu a.active{
+.menu .active{
 
     background:var(--primary);
 
-    color:white;
+    color:#fff;
 
 }
 
-.menu a i{
-
-    width:24px;
-
-    text-align:center;
-
-    font-size:18px;
-
-}
-
-/* ===========================
-   RODAPÉ SIDEBAR
-=========================== */
+/* ---------- Rodapé Sidebar ---------- */
 
 .sidebar-footer{
 
     padding:20px;
 
-    border-top:1px solid rgba(255,255,255,.05);
+    border-top:1px solid rgba(255,255,255,.08);
 
 }
 
-.sidebar-footer button{
-
-    width:100%;
-
-    height:48px;
-
-    border-radius:12px;
-
-    background:#EF4444;
-
-    color:white;
-
-    font-size:15px;
-
-}
-
-/* ===========================
-   MAIN
-=========================== */
+/* ---------- Conteúdo ---------- */
 
 .main{
 
-    width:100%;
+    flex:1;
 
-    margin-left:280px;
+    display:flex;
 
-    transition:.3s;
+    flex-direction:column;
 
-}
-
-.main.expand{
-
-    margin-left:90px;
+    background:var(--background);
 
 }
 
-/* ===========================
-   TOPBAR
-=========================== */
+/* ---------- Topbar ---------- */
 
 .topbar{
 
-    position:sticky;
-
-    top:0;
-
     height:80px;
 
-    background:white;
+    background:#fff;
 
     display:flex;
 
@@ -253,153 +149,35 @@
 
     padding:0 35px;
 
+    border-bottom:1px solid var(--border);
+
     box-shadow:var(--shadow-sm);
 
-    z-index:900;
-
 }
 
-/* ===========================
-   LADO ESQUERDO
-=========================== */
-
-.left-top{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-}
-
-.toggle{
-
-    width:45px;
-
-    height:45px;
-
-    border-radius:12px;
-
-    background:#F1F5F9;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.toggle:hover{
-
-    background:var(--primary);
-
-    color:white;
-
-}
-
-/* ===========================
-   PESQUISA
-=========================== */
+/* Pesquisa */
 
 .search{
 
-    width:360px;
-
-    height:46px;
-
-    display:flex;
-
-    align-items:center;
-
-    background:#F8FAFC;
-
-    border:1px solid var(--border);
-
-    border-radius:14px;
-
-    padding:0 18px;
-
-}
-
-.search i{
-
-    color:#94A3B8;
+    width:420px;
 
 }
 
 .search input{
 
-    flex:1;
+    width:100%;
 
-    border:none;
+    background:#F4F6FA;
 
-    background:none;
+    padding:13px 18px;
 
-    padding-left:12px;
-
-    font-size:15px;
+    border-radius:12px;
 
 }
 
-/* ===========================
-   LADO DIREITO
-=========================== */
+/* Usuário */
 
-.right-top{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-}
-
-/* Ícones */
-
-.icon-btn{
-
-    width:46px;
-
-    height:46px;
-
-    border-radius:14px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:#F8FAFC;
-
-    border:1px solid var(--border);
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.icon-btn:hover{
-
-    background:var(--primary);
-
-    color:white;
-
-}
-
-/* ===========================
-   PERFIL
-=========================== */
-
-.profile{
+.user{
 
     display:flex;
 
@@ -407,11 +185,9 @@
 
     gap:15px;
 
-    cursor:pointer;
-
 }
 
-.profile img{
+.avatar{
 
     width:46px;
 
@@ -419,144 +195,26 @@
 
     border-radius:50%;
 
-    object-fit:cover;
+    background:var(--primary);
 
 }
 
-.profile h4{
-
-    font-size:15px;
-
-}
-
-.profile p{
-
-    font-size:13px;
-
-    color:#64748B;
-
-}
-
-/* ===========================
-   CONTEÚDO
-=========================== */
+/* Área das páginas */
 
 .content{
 
-    padding:35px;
+    padding:30px;
 
 }
 
-/* ===========================
-   TÍTULO
-=========================== */
+/* Containers */
 
-.page-header{
+.container{
 
-    display:flex;
+    width:100%;
 
-    justify-content:space-between;
+    max-width:1600px;
 
-    align-items:center;
-
-    margin-bottom:30px;
-
-}
-
-.page-header h1{
-
-    font-size:30px;
-
-    color:var(--text);
-
-}
-
-.page-header p{
-
-    margin-top:5px;
-
-}
-
-/* ===========================
-   RESPONSIVO
-=========================== */
-
-@media(max-width:1200px){
-
-.search{
-
-    width:250px;
-
-}
-
-}
-
-@media(max-width:992px){
-
-.sidebar{
-
-    left:-280px;
-
-}
-
-.sidebar.show{
-
-    left:0;
-
-}
-
-.main{
-
-    margin-left:0;
-
-}
-
-.topbar{
-
-    padding:0 20px;
-
-}
-
-}
-
-@media(max-width:768px){
-
-.search{
-
-    display:none;
-
-}
-
-.page-header{
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-    gap:15px;
-
-}
-
-.content{
-
-    padding:20px;
-
-}
-
-}
-
-@media(max-width:576px){
-
-.profile div{
-
-    display:none;
-
-}
-
-.topbar{
-
-    height:70px;
-
-}
+    margin:auto;
 
 }
