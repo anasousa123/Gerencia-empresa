@@ -1,36 +1,140 @@
-/* ==========================================
-   FASHION ERP
-   Base.css
-========================================== */
+/*==================================================
+  EMPRESA MANAGER
+  Base CSS
+==================================================*/
 
-/* Google Font */
+/*======================
+  Google Font
+=======================*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-/* Reset */
+/*======================
+  Reset
+=======================*/
 
-*{
+*,
+*::before,
+*::after{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
 html{
+    font-size:16px;
     scroll-behavior:smooth;
 }
 
 body{
-
     font-family:'Poppins',sans-serif;
-
-    background:#F5F7FB;
-
-    color:#1F2937;
-
+    background:#F4F7FC;
+    color:#1E293B;
+    min-height:100vh;
     overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/*======================
+  Variáveis
+=======================*/
+
+:root{
+
+    /* Cores */
+
+    --primary:#2563EB;
+    --primary-dark:#1D4ED8;
+    --primary-light:#60A5FA;
+
+    --secondary:#0F172A;
+
+    --success:#22C55E;
+    --warning:#F59E0B;
+    --danger:#EF4444;
+
+    --white:#FFFFFF;
+
+    --background:#F5F7FA;
+
+    --background-2:#EEF3F8;
+
+    --border:#D9E3F0;
+
+    --text:#1E293B;
+
+    --text-light:#64748B;
+
+    --shadow-sm:0 5px 15px rgba(0,0,0,.05);
+
+    --shadow:0 12px 35px rgba(37,99,235,.10);
+
+    --shadow-lg:0 20px 60px rgba(0,0,0,.12);
+
+    --radius-xs:8px;
+    --radius-sm:12px;
+    --radius:18px;
+    --radius-lg:25px;
+
+    --transition:.30s ease;
+
+    --sidebar-width:280px;
+
+    --topbar-height:75px;
 
 }
 
-/* Links */
+/*======================
+ Tipografia
+=======================*/
+
+h1,h2,h3,h4,h5,h6{
+
+    color:var(--text);
+
+    font-weight:700;
+
+    line-height:1.2;
+
+}
+
+h1{
+
+    font-size:2.4rem;
+
+}
+
+h2{
+
+    font-size:2rem;
+
+}
+
+h3{
+
+    font-size:1.4rem;
+
+}
+
+h4{
+
+    font-size:1.2rem;
+
+}
+
+p{
+
+    color:var(--text-light);
+
+    line-height:1.7;
+
+}
+
+small{
+
+    color:var(--text-light);
+
+}
 
 a{
 
@@ -38,45 +142,9 @@ a{
 
     color:inherit;
 
-}
-
-/* Listas */
-
-ul{
-
-    list-style:none;
+    transition:var(--transition);
 
 }
-
-/* Botões */
-
-button{
-
-    border:none;
-
-    outline:none;
-
-    cursor:pointer;
-
-    font-family:inherit;
-
-}
-
-/* Inputs */
-
-input,
-select,
-textarea{
-
-    border:none;
-
-    outline:none;
-
-    font-family:inherit;
-
-}
-
-/* Imagens */
 
 img{
 
@@ -86,69 +154,43 @@ img{
 
 }
 
-/* Variáveis */
+button{
 
-:root{
+    border:none;
 
-    /* Azul principal */
+    background:none;
 
-    --primary:#2563EB;
+    cursor:pointer;
 
-    --primary-hover:#1D4ED8;
-
-    /* Fundo */
-
-    --background:#F5F7FB;
-
-    --surface:#FFFFFF;
-
-    /* Sidebar */
-
-    --sidebar:#0F172A;
-
-    --sidebar-hover:#1E293B;
-
-    /* Textos */
-
-    --title:#111827;
-
-    --text:#4B5563;
-
-    --text-light:#9CA3AF;
-
-    /* Status */
-
-    --success:#22C55E;
-
-    --warning:#F59E0B;
-
-    --danger:#EF4444;
-
-    /* Bordas */
-
-    --border:#E5E7EB;
-
-    /* Sombras */
-
-    --shadow-sm:0 2px 8px rgba(0,0,0,.05);
-
-    --shadow-md:0 8px 20px rgba(0,0,0,.08);
-
-    --shadow-lg:0 15px 35px rgba(0,0,0,.12);
-
-    /* Bordas */
-
-    --radius:14px;
-
-    --radius-lg:20px;
-
-    /* Transição */
-
-    --transition:.30s ease;
+    font-family:'Poppins',sans-serif;
 
 }
 
-/* Scroll */
+input,
+textarea,
+select{
+
+    font-family:'Poppins',sans-serif;
+
+    outline:none;
+
+}
+
+/*======================
+ Seleção
+=======================*/
+
+::selection{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+/*======================
+ Scrollbar
+=======================*/
 
 ::-webkit-scrollbar{
 
@@ -158,20 +200,555 @@ img{
 
 ::-webkit-scrollbar-track{
 
-    background:#ECEFF5;
+    background:#EEF3F8;
 
 }
 
 ::-webkit-scrollbar-thumb{
 
-    background:#C7CEDB;
+    background:var(--primary);
 
-    border-radius:30px;
+    border-radius:50px;
 
 }
 
 ::-webkit-scrollbar-thumb:hover{
 
-    background:#9AA7BD;
+    background:var(--primary-dark);
 
 }
+
+/*======================
+ Containers
+=======================*/
+
+.container{
+
+    width:min(1300px,92%);
+
+    margin:auto;
+
+}
+
+section{
+
+    padding:80px 0;
+
+}
+
+/*======================
+ Utilidades
+=======================*/
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.d-flex{
+
+    display:flex;
+
+}
+
+.align-center{
+
+    align-items:center;
+
+}
+
+.justify-between{
+
+    justify-content:space-between;
+
+}
+
+.justify-center{
+
+    justify-content:center;
+
+}
+
+.flex-column{
+
+    flex-direction:column;
+
+}
+
+.gap-10{
+
+    gap:10px;
+
+}
+
+.gap-20{
+
+    gap:20px;
+
+}
+
+.gap-30{
+
+    gap:30px;
+
+}
+
+.w-100{
+
+    width:100%;
+
+}
+
+.hidden{
+
+    display:none !important;
+
+}
+
+/*======================
+ Cards Base
+=======================*/
+
+.card{
+
+    background:var(--white);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow-sm);
+
+    padding:25px;
+
+    transition:var(--transition);
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow);
+
+}
+
+/*======================
+ Botões Base
+=======================*/
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:14px 26px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.btn-primary{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+.btn-primary:hover{
+
+    background:var(--primary-dark);
+
+}
+
+.btn-outline{
+
+    border:2px solid var(--primary);
+
+    color:var(--primary);
+
+}
+
+.btn-outline:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+/*==================================================
+  Animações
+==================================================*/
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeLeft{
+    from{
+        opacity:0;
+        transform:translateX(-30px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@keyframes fadeRight{
+    from{
+        opacity:0;
+        transform:translateX(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@keyframes zoomIn{
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.04);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+/*==================================================
+  Classes de animação
+==================================================*/
+
+.fade-in{
+    animation:fadeIn .5s ease both;
+}
+
+.fade-left{
+    animation:fadeLeft .6s ease both;
+}
+
+.fade-right{
+    animation:fadeRight .6s ease both;
+}
+
+.zoom-in{
+    animation:zoomIn .4s ease both;
+}
+
+/*==================================================
+  Inputs base
+==================================================*/
+
+input,
+textarea,
+select{
+
+    width:100%;
+
+    padding:14px 18px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    background:#fff;
+
+    color:var(--text);
+
+    transition:var(--transition);
+
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+/*==================================================
+  Labels
+==================================================*/
+
+label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:.92rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+/*==================================================
+  Tabelas
+==================================================*/
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#EFF6FF;
+
+}
+
+thead th{
+
+    padding:16px;
+
+    text-align:left;
+
+    color:var(--primary);
+
+    font-size:.9rem;
+
+}
+
+tbody td{
+
+    padding:16px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+tbody tr{
+
+    transition:.25s;
+
+}
+
+tbody tr:hover{
+
+    background:#F8FAFC;
+
+}
+
+/*==================================================
+  Badges
+==================================================*/
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:.78rem;
+
+    font-weight:600;
+
+}
+
+.badge-success{
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+}
+
+.badge-warning{
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+}
+
+.badge-danger{
+
+    background:#FEE2E2;
+
+    color:#B91C1C;
+
+}
+
+.badge-primary{
+
+    background:#DBEAFE;
+
+    color:#1D4ED8;
+
+}
+
+/*==================================================
+  Sombras
+==================================================*/
+
+.shadow-sm{
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.shadow{
+
+    box-shadow:var(--shadow);
+
+}
+
+.shadow-lg{
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+/*==================================================
+  Bordas
+==================================================*/
+
+.rounded-sm{
+
+    border-radius:12px;
+
+}
+
+.rounded{
+
+    border-radius:18px;
+
+}
+
+.rounded-lg{
+
+    border-radius:25px;
+
+}
+
+/*==================================================
+  Espaçamentos
+==================================================*/
+
+.mt-10{margin-top:10px;}
+.mt-20{margin-top:20px;}
+.mt-30{margin-top:30px;}
+.mt-40{margin-top:40px;}
+.mt-50{margin-top:50px;}
+
+.mb-10{margin-bottom:10px;}
+.mb-20{margin-bottom:20px;}
+.mb-30{margin-bottom:30px;}
+.mb-40{margin-bottom:40px;}
+.mb-50{margin-bottom:50px;}
+
+.p-20{padding:20px;}
+.p-30{padding:30px;}
+.p-40{padding:40px;}
+
+/*==================================================
+  Estados
+==================================================*/
+
+.disabled{
+
+    opacity:.55;
+
+    pointer-events:none;
+
+}
+
+.pointer{
+
+    cursor:pointer;
+
+}
+
+/*==================================================
+  Responsividade
+==================================================*/
+
+@media(max-width:992px){
+
+    html{
+
+        font-size:15px;
+
+    }
+
+    section{
+
+        padding:60px 0;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    html{
+
+        font-size:14px;
+
+    }
+
+    .container{
+
+        width:95%;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    html{
+
+        font-size:13px;
+
+    }
+
+}
+
+/*==================================================
+  Fim do Base.css
+==================================================*/

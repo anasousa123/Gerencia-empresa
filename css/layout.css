@@ -1,25 +1,37 @@
-/* ==========================================
-   FASHION ERP
-   layout.css
-========================================== */
+/*==================================================
+    EMPRESA MANAGER
+    Layout.css
+==================================================*/
 
-/* ---------- Estrutura Principal ---------- */
+/*==============================
+    Layout Principal
+==============================*/
 
 .app{
     display:flex;
-    width:100%;
     min-height:100vh;
+    background:var(--background);
 }
 
-/* ---------- Sidebar ---------- */
+/*==============================
+    Sidebar
+==============================*/
 
 .sidebar{
 
-    width:260px;
+    width:280px;
 
-    background:var(--sidebar);
+    background:#ffffff;
 
-    color:#fff;
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    bottom:0;
+
+    border-right:1px solid var(--border);
 
     display:flex;
 
@@ -27,157 +39,203 @@
 
     justify-content:space-between;
 
-    transition:var(--transition);
+    transition:.35s;
 
-    box-shadow:var(--shadow-md);
+    z-index:999;
+
+    box-shadow:0 0 35px rgba(0,0,0,.05);
 
 }
 
+/* Sidebar recolhida */
+
+.sidebar.close{
+
+    width:90px;
+
+}
+
+/*==============================
+    Logo
+==============================*/
+
 .sidebar-header{
 
-    padding:30px;
+    padding:25px;
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    border-bottom:1px solid var(--border);
 
 }
 
 .logo{
 
+    width:55px;
+
+    height:55px;
+
+    border-radius:16px;
+
+    background:var(--primary);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#fff;
+
     font-size:24px;
 
     font-weight:700;
 
-    color:#fff;
+    flex-shrink:0;
 
 }
 
-.logo span{
+.logo img{
 
-    color:var(--primary);
-
-}
-
-/* ---------- Menu ---------- */
-
-.menu{
-
-    padding:20px 0;
+    width:40px;
 
 }
 
-.menu li{
+.logo-title{
 
-    margin:8px 15px;
+    transition:.3s;
 
 }
 
-.menu a{
+.logo-title h2{
+
+    font-size:1.2rem;
+
+    color:var(--text);
+
+}
+
+.logo-title p{
+
+    font-size:.80rem;
+
+    color:var(--text-light);
+
+}
+
+.sidebar.close .logo-title{
+
+    opacity:0;
+
+    width:0;
+
+    overflow:hidden;
+
+}
+
+/*==============================
+    Menu
+==============================*/
+
+.sidebar-menu{
+
+    flex:1;
+
+    padding:20px 12px;
+
+    overflow-y:auto;
+
+}
+
+.sidebar-menu ul{
+
+    list-style:none;
+
+}
+
+.sidebar-menu li{
+
+    margin-bottom:8px;
+
+}
+
+.sidebar-menu a{
 
     display:flex;
 
     align-items:center;
 
-    gap:14px;
+    gap:15px;
 
     padding:14px 18px;
 
-    border-radius:12px;
+    border-radius:14px;
+
+    color:var(--text);
 
     transition:.25s;
-
-    color:#CBD5E1;
-
-    font-size:15px;
 
     font-weight:500;
 
 }
 
-.menu a:hover{
+.sidebar-menu a:hover{
 
-    background:var(--sidebar-hover);
+    background:#EEF4FF;
 
-    color:#fff;
+    color:var(--primary);
 
 }
 
-.menu .active{
+.sidebar-menu li.active a{
 
     background:var(--primary);
 
     color:#fff;
 
+    box-shadow:0 10px 20px rgba(37,99,235,.25);
+
 }
 
-/* ---------- Rodapé Sidebar ---------- */
+.sidebar-menu i{
+
+    width:22px;
+
+    text-align:center;
+
+    font-size:20px;
+
+}
+
+.sidebar.close span{
+
+    display:none;
+
+}
+
+.sidebar.close a{
+
+    justify-content:center;
+
+}
+
+/*==============================
+    Rodapé Sidebar
+==============================*/
 
 .sidebar-footer{
 
     padding:20px;
 
-    border-top:1px solid rgba(255,255,255,.08);
+    border-top:1px solid var(--border);
 
 }
 
-/* ---------- Conteúdo ---------- */
-
-.main{
-
-    flex:1;
-
-    display:flex;
-
-    flex-direction:column;
-
-    background:var(--background);
-
-}
-
-/* ---------- Topbar ---------- */
-
-.topbar{
-
-    height:80px;
-
-    background:#fff;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:0 35px;
-
-    border-bottom:1px solid var(--border);
-
-    box-shadow:var(--shadow-sm);
-
-}
-
-/* Pesquisa */
-
-.search{
-
-    width:420px;
-
-}
-
-.search input{
-
-    width:100%;
-
-    background:#F4F6FA;
-
-    padding:13px 18px;
-
-    border-radius:12px;
-
-}
-
-/* Usuário */
-
-.user{
+.user-card{
 
     display:flex;
 
@@ -187,34 +245,639 @@
 
 }
 
-.avatar{
+.user-avatar{
 
-    width:46px;
+    width:50px;
 
-    height:46px;
+    height:50px;
 
     border-radius:50%;
+
+    overflow:hidden;
+
+    background:#ddd;
+
+}
+
+.user-avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.user-info{
+
+    transition:.3s;
+
+}
+
+.user-info strong{
+
+    display:block;
+
+    font-size:.95rem;
+
+}
+
+.user-info small{
+
+    color:var(--text-light);
+
+}
+
+.sidebar.close .user-info{
+
+    display:none;
+
+}
+
+/*==============================
+    Conteúdo Principal
+==============================*/
+
+.main{
+
+    flex:1;
+
+    margin-left:280px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:100vh;
+
+    transition:.35s;
+
+}
+
+.main.expand{
+
+    margin-left:90px;
+
+}
+
+/*==============================
+    Topbar
+==============================*/
+
+.topbar{
+
+    height:75px;
+
+    background:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 30px;
+
+    border-bottom:1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:500;
+
+}
+
+.left-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.menu-toggle{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:12px;
+
+    background:#EEF4FF;
+
+    color:var(--primary);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:22px;
+
+    transition:.3s;
+
+}
+
+.menu-toggle:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+.search-box{
+
+    width:350px;
+
+    position:relative;
+
+}
+
+.search-box input{
+
+    padding-left:48px;
+
+}
+
+.search-box i{
+
+    position:absolute;
+
+    top:50%;
+
+    left:18px;
+
+    transform:translateY(-50%);
+
+    color:#94A3B8;
+
+}
+
+/*==============================
+    Área Direita
+==============================*/
+
+.right-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.icon-button{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:12px;
+
+    background:#F5F7FA;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.icon-button:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+.notification{
+
+    position:relative;
+
+}
+
+.notification::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:10px;
+
+    height:10px;
+
+    background:#EF4444;
+
+    border-radius:50%;
+
+    top:8px;
+
+    right:8px;
+
+}
+/*==================================================
+    Conteúdo Principal
+==================================================*/
+
+.content{
+
+    flex:1;
+
+    padding:30px;
+
+    animation:fadeIn .4s ease;
+
+}
+
+/*==================================================
+    Cabeçalho das páginas
+==================================================*/
+
+.page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.page-title h1{
+
+    font-size:2rem;
+
+    margin-bottom:6px;
+
+}
+
+.page-title p{
+
+    color:var(--text-light);
+
+}
+
+/*==================================================
+    Grid Dashboard
+==================================================*/
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+}
+
+/*==================================================
+    Cards
+==================================================*/
+
+.info-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:.3s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.info-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow);
+
+}
+
+.info-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:5px;
+
+    height:100%;
 
     background:var(--primary);
 
 }
 
-/* Área das páginas */
+.info-card h3{
 
-.content{
+    font-size:15px;
 
-    padding:30px;
+    color:var(--text-light);
+
+    margin-bottom:15px;
 
 }
 
-/* Containers */
+.info-card strong{
 
-.container{
+    font-size:32px;
+
+    color:var(--text);
+
+    display:block;
+
+}
+
+.info-card span{
+
+    color:var(--success);
+
+    font-size:14px;
+
+}
+
+/*==================================================
+    Blocos
+==================================================*/
+
+.block{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    margin-top:25px;
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.block-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.block-header h2{
+
+    font-size:20px;
+
+}
+
+.block-body{
 
     width:100%;
 
-    max-width:1600px;
+}
 
-    margin:auto;
+/*==================================================
+    Gráficos
+==================================================*/
+
+.chart-area{
+
+    width:100%;
+
+    height:350px;
 
 }
+
+/*==================================================
+    Tabelas
+==================================================*/
+
+.table-responsive{
+
+    overflow:auto;
+
+    border-radius:16px;
+
+}
+
+.table-responsive table{
+
+    min-width:900px;
+
+}
+
+/*==================================================
+    Perfil
+==================================================*/
+
+.profile-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    cursor:pointer;
+
+}
+
+.profile-menu img{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.profile-menu div{
+
+    line-height:1.3;
+
+}
+
+/*==================================================
+    Footer
+==================================================*/
+
+.footer{
+
+    margin-top:auto;
+
+    background:#fff;
+
+    border-top:1px solid var(--border);
+
+    padding:20px 30px;
+
+    text-align:center;
+
+    color:var(--text-light);
+
+}
+
+/*==================================================
+    Responsividade
+==================================================*/
+
+@media(max-width:1200px){
+
+    .search-box{
+
+        width:260px;
+
+    }
+
+}
+
+@media(max-width:992px){
+
+    .sidebar{
+
+        left:-280px;
+
+    }
+
+    .sidebar.show{
+
+        left:0;
+
+    }
+
+    .main{
+
+        margin-left:0;
+
+    }
+
+    .main.expand{
+
+        margin-left:0;
+
+    }
+
+    .topbar{
+
+        padding:0 20px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .topbar{
+
+        flex-wrap:wrap;
+
+        height:auto;
+
+        padding:15px;
+
+        gap:15px;
+
+    }
+
+    .left-top{
+
+        width:100%;
+
+    }
+
+    .search-box{
+
+        width:100%;
+
+    }
+
+    .right-top{
+
+        width:100%;
+
+        justify-content:flex-end;
+
+    }
+
+    .content{
+
+        padding:20px;
+
+    }
+
+    .page-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .content{
+
+        padding:15px;
+
+    }
+
+    .dashboard-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .info-card strong{
+
+        font-size:26px;
+
+    }
+
+    .topbar{
+
+        padding:12px;
+
+    }
+
+}
+
+/*==================================================
+    Fim do layout.css
+==================================================*/
