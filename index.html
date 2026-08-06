@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empresa Manager | Login</title>
-
-    <meta name="description" content="Sistema completo para gerenciamento empresarial" />
-    <meta name="theme-color" content="#2563EB" />
-
+    <meta name="description" content="Sistema completo para gerenciamento empresarial">
+    <meta name="theme-color" content="#2563EB">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/login.css">
-
     <link rel="icon" type="image/png" href="assets/logo.png">
 </head>
-
 <body class="login-page">
-
     <div class="login-background">
         <div class="bg-circle circle-1"></div>
         <div class="bg-circle circle-2"></div>
@@ -31,11 +23,8 @@
     </div>
 
     <main class="login-container">
-
         <section class="login-brand">
-
             <div class="brand-top">
-
                 <div class="logo-box">
                     <img src="assets/logo.png" alt="Empresa Manager" id="logoEmpresa">
                 </div>
@@ -44,13 +33,10 @@
                     <h1 id="nomeEmpresa">Empresa Manager</h1>
                     <p>Sistema completo para gerenciar sua empresa com eficiência.</p>
                 </div>
-
             </div>
 
             <div class="brand-illustration">
-
                 <div class="monitor">
-
                     <div class="monitor-header">
                         <span></span>
                         <span></span>
@@ -58,7 +44,6 @@
                     </div>
 
                     <div class="monitor-body">
-
                         <div class="mini-sidebar">
                             <div class="mini-item active"></div>
                             <div class="mini-item"></div>
@@ -67,7 +52,6 @@
                         </div>
 
                         <div class="mini-content">
-
                             <div class="mini-cards">
                                 <div class="mini-card"></div>
                                 <div class="mini-card"></div>
@@ -76,13 +60,7 @@
 
                             <div class="mini-chart">
                                 <svg viewBox="0 0 220 100">
-                                    <polyline
-                                        points="0,70 20,60 40,65 60,45 80,50 100,30 120,38 140,25 160,35 180,18 200,22 220,10"
-                                        fill="none"
-                                        stroke="#2563EB"
-                                        stroke-width="4"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"/>
+                                    <polyline points="0,70 20,60 40,65 60,45 80,50 100,30 120,38 140,25 160,35 180,18 200,22 220,10" fill="none" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </div>
 
@@ -92,11 +70,8 @@
                                 <div class="row"></div>
                                 <div class="row"></div>
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
 
                 <div class="floating-card card-1">
@@ -122,11 +97,9 @@
                         <p>Fluxo de caixa completo</p>
                     </div>
                 </div>
-
             </div>
 
             <div class="brand-footer">
-
                 <div class="feature">
                     <div class="feature-icon">🔒</div>
                     <div>
@@ -150,34 +123,25 @@
                         <span>Informações salvas automaticamente</span>
                     </div>
                 </div>
-
             </div>
-
         </section>
 
         <section class="login-panel">
-
             <div class="login-card">
-
                 <div class="login-header">
-
                     <div class="mobile-logo">
                         <img src="assets/logo.png" alt="Empresa Manager">
                     </div>
 
                     <h2>Bem-vindo de volta!</h2>
                     <p>Faça login para continuar no painel administrativo.</p>
-
                 </div>
 
                 <form id="loginForm" class="login-form" autocomplete="on">
-
                     <div class="input-group">
-
                         <label for="email">E-mail</label>
 
                         <div class="input-wrapper">
-
                             <span class="input-icon">
                                 <svg viewBox="0 0 24 24" fill="none">
                                     <path d="M4 6L12 13L20 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -185,25 +149,14 @@
                                 </svg>
                             </span>
 
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="seu@email.com"
-                                required
-                                autocomplete="email"
-                            >
-
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email">
                         </div>
-
                     </div>
 
                     <div class="input-group">
-
                         <label for="senha">Senha</label>
 
                         <div class="input-wrapper">
-
                             <span class="input-icon">
                                 <svg viewBox="0 0 24 24" fill="none">
                                     <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -211,205 +164,90 @@
                                 </svg>
                             </span>
 
-                            <input
-                                type="password"
-                                id="senha"
-                                name="senha"
-                                placeholder="••••••••"
-                                required
-                                autocomplete="current-password"
-                            >
+                            <input type="password" id="senha" name="senha" placeholder="••••••••" required autocomplete="current-password">
 
-                            <button
-                                type="button"
-                                class="toggle-password"
-                                id="togglePassword"
-                                aria-label="Mostrar senha"
-                            >
+                            <button type="button" class="toggle-password" id="togglePassword" aria-label="Mostrar senha">
                                 👁️
                             </button>
-
                         </div>
-
                     </div>
-                                        <div class="login-options">
 
+                    <div class="login-options">
                         <label class="remember-me">
-
-                            <input
-                                type="checkbox"
-                                id="remember"
-                                name="remember"
-                            >
-
+                            <input type="checkbox" id="remember" name="remember">
                             <span>Lembrar de mim</span>
-
                         </label>
 
-                        <a href="#" id="forgotPassword">
-                            Esqueceu sua senha?
-                        </a>
-
+                        <a href="#" id="forgotPassword">Esqueceu sua senha?</a>
                     </div>
 
-                    <button
-                        type="submit"
-                        class="btn-login"
-                        id="btnEntrar"
-                    >
-
+                    <button type="submit" class="btn-login" id="btnEntrar">
                         <span>Entrar no Sistema</span>
 
                         <svg viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M5 12H19"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"/>
-
-                            <path
-                                d="M13 6L19 12L13 18"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"/>
+                            <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-
                     </button>
 
                     <div class="divider">
                         <span>ou</span>
                     </div>
 
-                    <button
-                        type="button"
-                        class="btn-google"
-                        id="googleLogin"
-                    >
-
-                        <img
-                            src="https://www.svgrepo.com/show/475656/google-color.svg"
-                            alt="Google"
-                        >
-
+                    <button type="button" class="btn-google" id="googleLogin">
+                        <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google">
                         Entrar com Google
-
                     </button>
-
                 </form>
 
                 <div class="login-footer">
-
-                    <p>
-                        © <span id="anoAtual"></span>
-                        Empresa Manager.
-                    </p>
-
-                    <small>
-                        Sistema de gerenciamento empresarial.
-                    </small>
-
+                    <p>© <span id="anoAtual"></span> Empresa Manager.</p>
+                    <small>Sistema de gerenciamento empresarial.</small>
                 </div>
-
             </div>
-
         </section>
-
     </main>
 
-    <!-- Loading -->
-
     <div class="loading-screen" id="loadingScreen">
-
         <div class="loader">
-
             <div class="loader-circle"></div>
-
             <h3>Entrando...</h3>
-
             <p>Carregando informações...</p>
-
         </div>
-
     </div>
-
-    <!-- Toast -->
 
     <div class="toast" id="toast">
-
-        <div class="toast-icon">
-            ✔
-        </div>
+        <div class="toast-icon">✔</div>
 
         <div class="toast-content">
-
-            <strong id="toastTitle">
-                Sucesso
-            </strong>
-
-            <span id="toastMessage">
-                Operação realizada.
-            </span>
-
+            <strong id="toastTitle">Sucesso</strong>
+            <span id="toastMessage">Operação realizada.</span>
         </div>
-
     </div>
 
-    <!-- Modal Esqueci Senha -->
-
     <div class="modal" id="modalSenha">
-
         <div class="modal-content">
-
-            <button
-                class="close-modal"
-                id="fecharModal"
-            >
-                ×
-            </button>
+            <button class="close-modal" id="fecharModal">×</button>
 
             <h2>Recuperar Senha</h2>
 
-            <p>
-
-                Informe seu e-mail para receber um link de recuperação.
-
-            </p>
+            <p>Informe seu e-mail para receber um link de recuperação.</p>
 
             <form id="recoverForm">
+                <input type="email" id="recoverEmail" placeholder="Digite seu e-mail" required>
 
-                <input
-                    type="email"
-                    id="recoverEmail"
-                    placeholder="Digite seu e-mail"
-                    required
-                >
-
-                <button
-                    type="submit"
-                    class="btn-login"
-                >
+                <button type="submit" class="btn-login">
                     Enviar Link
                 </button>
-
             </form>
-
         </div>
-
     </div>
 
-    <!-- Scripts -->
-
     <script>
-
-        document.getElementById("anoAtual").textContent =
-            new Date().getFullYear();
-
+        document.getElementById("anoAtual").textContent = new Date().getFullYear();
     </script>
 
     <script type="module" src="js/firebase.js"></script>
-
     <script type="module" src="js/auth.js"></script>
-
 </body>
 </html>
